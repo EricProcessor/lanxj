@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <script type="text/javascript" src="/static/js/lib/jquery-1.12.4.js"/>
+    <script type="text/javascript" src="/static/js/testController/InviteCommentsController.js"/>
+    <script type="text/javascript" src="/static/js/testController/MymessageController.js"/>
+
+    <head>
+        <meta charset="UTF-8"/>
+        <title>测试</title>
+    </head>
+    <body>
+    <div>
+        <div>
+            <div>发送数据：</div>
+            <p></p>
+            <div>
+                request：<input type="text" id="request" style="width: 400px;height: 50px" />
+                msgId：<input type="text" id="msgId" style="width: 400px;height: 50px" />
+                userId： <input type="text" id="userId" style="width: 400px;height: 50px" />
+                postId：<input type="text" id="postId" style="width: 400px;height: 50px" />
+                postuserId：<input type="text" id="postuserId" style="width: 400px;height: 50px" />
+                postuserName：<input type="text" id="postuserName" style="width: 400px;height: 50px" />
+                attentuserId： <input type="text" id="attentuserId" style="width: 400px;height: 50px" />
+                postprefixcontext： <input type="text" id="postprefixcontext" style="width: 400px;height: 50px" /></div>
+
+
+
+            <!--"msgId": "10",
+            "userId": 1009,
+            "readYn": 0,
+            "postId": "10001",
+            "postuserId": 1001,
+            "postuserName": "刘柳",
+            "attentuserId": null,
+            "postprefixcontext": "我的json",
+            "create_time": "2013-06-24 13:58:49"-->
+        </div>
+        <div>
+            <input type="button" id="insertMymessageInfo" value="插入消息列表" onclick="MymessageControllerJS.insertMymessageInfoOnclick()"/>
+        </div>
+
+        <div>
+            <input type="button" id="selectUserInfoByuserId" value="查询用户信息根据用户id" onclick="UserInfoControllerJS.selectUserInfoByuserIdOnclick()"/>
+        </div>
+
+        <div>
+            <input type="button" id="selectUserInfoByuserName" value="查询用户信息根据用户姓名" onclick="UserInfoControllerJS.selectUserInfoByuserNameOnclick()"/>
+        </div>
+
+        <div>
+            <input type="button" id="selectUserInfoByposition" value="查询用户信息根据岗位名称" onclick="UserInfoControllerJS.selectUserInfoBypositionOnclick()"/>
+        </div>
+
+        <div style="margin-top: 20px">
+            <div>返回数据：</div> <textarea  id="show" style="width: 800px;height: 200px"></textarea>
+        </div>
+
+
+    </div>
+    </body>
+
+
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyibq.lanxj.m.forum.mapper.MyMessageListMapper" >
+
+    <resultMap id="BaseResultMap" type="com.xyibq.lanxj.m.forum.domain.vo.MyMessageListVo" >
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="msg_type_id" jdbcType="BIGINT" property="msgTypeId" />
+        <result column="msg_type_name" jdbcType="VARCHAR" property="msgTypeName" />
+        <result column="msg_template" jdbcType="VARCHAR" property="msgTemplate" />
+        <result column="read_yn" jdbcType="BIGINT" property="readYn" />
+    </resultMap>
+    <!-- 查询我的消息 -->
+    <select id="selectMyMessageList" resultMap="BaseResultMap" >
+        select id,
+        msg_type_id,
+        msg_type_name,
+        msg_template
+        from my_message_list
+    </select>
+
+    <select id="selectMyMessageListInfo" resultType="com.xyibq.lanxj.m.forum.domain.vo.MyMessageListVo" >
+        select id,
+        msg_type_id,
+        msg_type_name,
+        msg_template
+        from my_message_list
+    </select>
+
+</mapper>

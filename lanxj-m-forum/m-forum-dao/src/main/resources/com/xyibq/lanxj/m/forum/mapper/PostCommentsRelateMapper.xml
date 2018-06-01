@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xyibq.lanxj.m.forum.mapper.PostCommentsRelateMapper">
+
+    <resultMap id="BaseResultMap" type="com.xyibq.lanxj.m.forum.domain.entity.PostCommentsRelateEntity" >
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="post_id" jdbcType="BIGINT" property="postId" />
+        <result column="comment_user_id" jdbcType="BIGINT" property="commentUserId" />
+        <result column="comment_user_name" jdbcType="VARCHAR" property="commentUserName" />
+        <result column="comment_content" jdbcType="VARCHAR" property="commentContent" />
+        <result column="comment_status" jdbcType="BIGINT" property="commentStatus" />
+        <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
+        <result column="delete_user" jdbcType="BIGINT" property="deleteUser" />
+        <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
+        <result column="invite_comments_yn" jdbcType="BIGINT" property="inviteCommentsYn" />
+    </resultMap>
+
+    <!-- 帖子新增评论 -->
+    <insert id="insertPostComment_bak" parameterType="com.xyibq.lanxj.m.forum.domain.entity.PostCommentsRelateEntity" >
+      insert into post_comments_relate (id, post_id, comment_user_id,
+      comment_user_name, comment_content, comment_status,
+      comment_time, delete_user, delete_time,invite_comments_yn
+      )
+      values (#{id,jdbcType=BIGINT}, #{postId,jdbcType=BIGINT}, #{commentUserId,jdbcType=BIGINT},
+      #{commentUserName,jdbcType=VARCHAR}, #{commentContent,jdbcType=VARCHAR}, #{commentStatus,jdbcType=BIGINT},
+      #{commentTime,jdbcType=TIMESTAMP}, #{deleteUser,jdbcType=BIGINT}, #{deleteTime,jdbcType=TIMESTAMP}, #{inviteCommentsYn,jdbcType=BIGINT}
+      )
+    </insert>
+
+    <!-- 帖子删除评论 （0取消 1正常）-->
+    <delete id="deletePostComment" parameterType="com.xyibq.lanxj.m.forum.domain.entity.PostCommentsRelateEntity">
+        UPDATE post_comments_relate
+        SET comment_status = 0,delete_time = now()
+        WHERE post_id = #{postId,jdbcType=BIGINT} AND comment_user_id = #{commentUserId,jdbcType=BIGINT}
+    </delete>
+
+    <!--     帖子评论列表查询   -->
+    <select id="selectPostCommentList" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT  id, post_id,comment_status,comment_user_id,comment_user_name, comment_time, invite_comments_yn
+        FROM post_comments_relate
+        WHERE comment_status =1 AND post_id = #{postId,jdbcType=BIGINT}
+    </select>
+
+
+    <insert id="insertPostComment" parameterType="com.xyibq.lanxj.m.forum.domain.entity.PostCommentsRelateEntity">
+        insert into post_comments_relate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="postId != null">
+                post_id,
+            </if>
+            <if test="commentUserId != null">
+                comment_user_id,
+            </if>
+            <if test="commentUserName != null">
+                comment_user_name,
+            </if>
+            <if test="commentContent != null">
+                comment_content,
+            </if>
+            <if test="commentStatus != null">
+                comment_status,
+            </if>
+            <if test="commentTime != null">
+                comment_time,
+            </if>
+            <if test="deleteUser != null">
+                delete_user,
+            </if>
+            <if test="deleteTime != null">
+                delete_time,
+            </if>
+            <if test="inviteCommentsYn != null">
+                invite_comments_yn,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="postId != null">
+                #{postId,jdbcType=BIGINT},
+            </if>
+            <if test="commentUserId != null">
+                #{commentUserId,jdbcType=BIGINT},
+            </if>
+            <if test="commentUserName != null">
+                #{commentUserName,jdbcType=VARCHAR},
+            </if>
+            <if test="commentContent != null">
+                #{commentContent,jdbcType=VARCHAR},
+            </if>
+            <if test="commentStatus != null">
+                #{commentStatus,jdbcType=BIGINT},
+            </if>
+            <if test="commentTime != null">
+                #{commentTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deleteUser != null">
+                #{deleteUser,jdbcType=BIGINT},
+            </if>
+            <if test="deleteTime != null">
+                #{deleteTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="inviteCommentsYn != null">
+                #{inviteCommentsYn,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

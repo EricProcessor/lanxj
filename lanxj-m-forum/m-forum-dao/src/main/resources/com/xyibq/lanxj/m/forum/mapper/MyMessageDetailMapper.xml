@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyibq.lanxj.m.forum.mapper.MyMessageDetailMapper" >
+
+    <resultMap id="BaseResultMap" type="com.xyibq.lanxj.m.forum.domain.entity.MyMessageDetailEntity" >
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="msg_id" jdbcType="BIGINT" property="msgId" />
+        <result column="user_id" jdbcType="BIGINT" property="userId" />
+        <result column="read_yn" jdbcType="BIGINT" property="readYn" />
+        <result column="post_id" jdbcType="BIGINT" property="postId" />
+        <result column="postuser_id" jdbcType="BIGINT" property="postuserId" />
+        <result column="postuser_name" jdbcType="VARCHAR" property="postuserName" />
+        <result column="attentuser_id" jdbcType="BIGINT" property="attentuserId" />
+        <result column="post_prefix_context" jdbcType="VARCHAR" property="postPrefixContext" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    </resultMap>
+
+    <select id="selectMyMessageDetailListdemo" resultType="com.xyibq.lanxj.m.forum.domain.entity.MyMessageDetailEntity" >
+        select
+        id,
+        msg_id,
+        user_id,
+        read_yn,
+        post_id,
+        postuser_id,
+        postuser_name,
+        attentuser_id,
+        post_prefix_context,
+        create_time
+        from my_message_detail
+    </select>
+
+
+    <select id="selectMyMessageDetailList" parameterType="com.xyibq.lanxj.m.forum.domain.entity.MyMessageDetailEntity" resultMap="BaseResultMap" >
+        select
+        id,
+        msg_id,
+        user_id,
+        read_yn,
+        post_id,
+        postuser_id,
+        postuser_name,
+        attentuser_id,
+        post_prefix_context,
+        create_time
+        from my_message_detail
+        <where>
+            read_yn =0
+            <if test="id != null"> <![CDATA[id = #{id}]]> </if>
+            <if test="userId != null and userId != ''"> <![CDATA[AND user_id =#{userId} ]]> </if>
+            <if test="msgId != null and msgId != ''"> <![CDATA[AND msg_id =#{msgId} ]]> </if>
+            <if test="postId != null and postId != ''"> <![CDATA[AND post_id = #{postId}]]> </if>
+            <if test="postuserId != null and postuserId != ''"> <![CDATA[AND postuser_id = #{postuserId}]]> </if>
+            <if test="postuserName != null and postuserName != ''"> <![CDATA[AND postuser_name = #{postuserName}]]> </if>
+            <if test="attentuserId != null and attentuserId != ''"> <![CDATA[AND attentuser_id = #{attentuserId}]]> </if>
+        </where>
+    </select>
+
+    <!-- 根据用户id和消息id类型查询详细信息 （0未读 1已读） -->
+    <select id="selectMyMessDtlbycondition" parameterType="java.util.Map" resultMap="BaseResultMap" >
+        select
+        id,
+        msg_id,
+        user_id,
+        read_yn,
+        post_id,
+        postuser_id,
+        postuser_name,
+        attentuser_id,
+        post_prefix_context,
+        create_time
+        from my_message_detail
+        where
+        user_id = #{userId,jdbcType=BIGINT}
+        and
+        msg_id = #{msgId,jdbcType=BIGINT}
+        and
+        read_yn=0
+    </select>
+
+    <!-- 根据用户id和消息id类型查询详细信息 （0未读 1已读） -->
+    <select id="selectMyMessDtlbyusermsgId" parameterType="java.util.Map" resultMap="BaseResultMap" >
+        select
+        id,
+        msg_id,
+        user_id,
+        read_yn,
+        post_id,
+        postuser_id,
+        postuser_name,
+        attentuser_id,
+        post_prefix_context,
+        create_time
+        from my_message_detail
+        where
+        user_id = #{userId,jdbcType=BIGINT}
+        and
+        msg_id = #{msgId,jdbcType=BIGINT}
+        order by create_time desc;
+    </select>
+
+
+    <!-- 根据用户id查询详细信息 （0未读 1已读） -->
+    <select id="selectUnReadMessDtlbyuserid" resultMap="BaseResultMap" >
+        select
+        id,
+        msg_id,
+        user_id,
+        read_yn,
+        post_id,
+        postuser_id,
+        postuser_name,
+        attentuser_id,
+        post_prefix_context,
+        create_time
+        from my_message_detail
+        where
+        user_id = #{userId,jdbcType=BIGINT}
+        and
+        read_yn=0
+    </select>
+
+    <!-- 根据用户id查询未读详细信息未0的数量 （0未读 1已读） -->
+    <select id="selectUnReadMesscountbyuserid" resultType="int" >
+        select
+        count(1)
+        from my_message_detail
+        where
+        postuser_id = #{postuserId,jdbcType=BIGINT}
+        and
+        read_yn=0
+    </select>
+
+
+    <update id="updateMyMessageDetailInfo" parameterType="com.xyibq.lanxj.m.forum.domain.entity.MyMessageDetailEntity">
+        update my_message_detail
+        <set>
+            <if test="msgId != null">
+                msg_id = #{msgId,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="readYn != null">
+                read_yn = #{readYn,jdbcType=BIGINT},
+            </if>
+            <if test="postId != null">
+                post_id = #{postId,jdbcType=BIGINT},
+            </if>
+            <if test="postuserId != null">
+                postuser_id = #{postuserId,jdbcType=BIGINT},
+            </if>
+            <if test="postuserName != null">
+                postuser_name = #{postuserName,jdbcType=VARCHAR},
+            </if>
+            <if test="attentuserId != null">
+                attentuser_id = #{attentuserId,jdbcType=BIGINT},
+            </if>
+            <if test="postPrefixContext != null">
+                post_prefix_context = #{postPrefixContext,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <insert id="insertMyMessageDetailInfo" parameterType="com.xyibq.lanxj.m.forum.domain.entity.MyMessageDetailEntity">
+        insert into my_message_detail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="msgId != null">
+                msg_id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="readYn != null">
+                read_yn,
+            </if>
+            <if test="postId != null">
+                post_id,
+            </if>
+            <if test="postuserId != null">
+                postuser_id,
+            </if>
+            <if test="postuserName != null">
+                postuser_name,
+            </if>
+            <if test="attentuserId != null">
+                attentuser_id,
+            </if>
+            <if test="postPrefixContext != null">
+                post_prefix_context,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="msgId != null">
+                #{msgId,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="readYn != null">
+                #{readYn,jdbcType=BIGINT},
+            </if>
+            <if test="postId != null">
+                #{postId,jdbcType=BIGINT},
+            </if>
+            <if test="postuserId != null">
+                #{postuserId,jdbcType=BIGINT},
+            </if>
+            <if test="postuserName != null">
+                #{postuserName,jdbcType=VARCHAR},
+            </if>
+            <if test="attentuserId != null">
+                #{attentuserId,jdbcType=BIGINT},
+            </if>
+            <if test="postPrefixContext != null">
+                #{postPrefixContext,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

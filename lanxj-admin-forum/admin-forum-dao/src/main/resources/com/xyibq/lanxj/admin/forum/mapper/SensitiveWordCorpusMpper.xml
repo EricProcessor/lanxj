@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xyibq.lanxj.admin.forum.mapper.SensitiveWordCorpusMpper">
+
+    <!-- 新增敏感词汇 -->
+    <insert id="insertSensitiveWord" parameterType="String">
+        INSERT sensitive_word_corpus
+        VALUES (#{sensitiveWord});
+    </insert>
+
+    <!-- 批量新增敏感词 -->
+    <insert id="insertBatchSensitiveWord" parameterType="List">
+        INSERT INTO sensitive_word_corpus
+        VALUES
+        <foreach collection ="list" item="item" separator =",">
+            ( #{item.sensitiveWord})
+        </foreach >
+    </insert>
+
+    <!-- 修改敏感词汇 -->
+    <update id="updateSensitiveWord" parameterType="String">
+        UPDATE sensitive_word_corpus
+        SET sensitive_word=#{sensitiveWord}
+        WHERE sensitive_word LIKE  CONCAT('%', #{oldSensitiveWord}, '%')
+    </update>
+
+    <!-- 删除敏感词汇 -->
+    <delete id="deleteSensitiveWord" parameterType="String">
+        DELETE sensitive_word_corpus
+        WHERE sensitive_word=#{sensitiveWord}
+    </delete>
+
+    <!-- 模糊查询敏感词汇 -->
+    <select id="selectSensitiveWord" parameterType="String">
+        SELECT sensitive_word
+        FROM sensitive_word_corpus
+        WHERE sensitive_word LIKE  CONCAT('%', #{sensitiveWord},'%')
+    </select>
+</mapper>

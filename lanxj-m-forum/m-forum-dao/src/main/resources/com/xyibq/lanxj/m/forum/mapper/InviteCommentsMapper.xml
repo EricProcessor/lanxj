@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyibq.lanxj.m.forum.mapper.InviteCommentsMapper" >
+
+    <resultMap id="BaseResultMap" type="com.xyibq.lanxj.m.forum.domain.vo.InviteCommentsVo" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <!--<result column="user_type" property="userType" jdbcType="BIGINT" />-->
+        <result column="position" property="position" jdbcType="VARCHAR" />
+        <result column="invite_comment_auth" property="inviteCommentAuth" jdbcType="BIGINT" />
+</resultMap>
+<!-- 根据版块id 查询置顶帖子 （0未置顶 1置顶） -->
+    <select id="selectInviteCommentsByUserId" resultType="com.xyibq.lanxj.m.forum.domain.vo.InviteCommentsVo" >
+        select
+        id as id,
+        user_id as userId,
+        user_name as userName,
+        user_type as userType,
+        `position` as position,
+        invite_comment_auth as inviteCommentAuth
+        from user_info
+        where user_id = #{userId,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectInviteCommentsByinviteauth" resultType="com.xyibq.lanxj.m.forum.domain.vo.InviteCommentsVo" >
+        select
+        id as Id,
+        user_id as userId,
+        user_name as userName,
+        `position` as position,
+        invite_comment_auth as inviteCommentAuth
+        from user_info
+        where invite_comment_auth = #{invitecommentauth,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectInviteCommentsByMap" parameterType="java.util.Map" resultType="com.xyibq.lanxj.m.forum.domain.vo.InviteCommentsVo" >
+        select
+        id as Id,
+        user_id as userId,
+        user_name as userName,
+        `position` as position,
+        invite_comment_auth as inviteCommentAuth
+        from user_info
+        where invite_comment_auth = #{invitecommentauth,jdbcType=BIGINT}
+        <if test="userIdList != null ">
+            AND user_id NOT in
+            <foreach collection="userIdList" item="userId" open="(" separator="," close=")">
+                #{userId}
+            </foreach>
+        </if>
+    </select>
+
+
+
+
+</mapper>

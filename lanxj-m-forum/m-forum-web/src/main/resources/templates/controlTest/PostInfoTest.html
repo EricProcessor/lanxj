@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <script type="text/javascript" src="/static/js/lib/jquery-1.12.4.js"/>
+    <script type="text/javascript" src="/static/js/postInfo/ForumPostInfo.js"/>
+    <script type="text/javascript" src="/static/js/postInfo/PostLikesComments.js"/>
+
+
+    <head>
+        <meta charset="UTF-8"/>
+        <title>测试</title>
+    </head>
+    <body>
+    <div>
+        <div>
+            <div>发送数据：</div>
+            <p></p>
+            <div>
+               <input type="text" id="request" style="width: 400px;height: 50px" /></div>
+        </div>
+        <div>
+            <input type="button" id="queryPostInfoByPostId" value="查询帖子详情" onclick="forumPostInfoJS.queryPostInfoByPostIdOnclick()"/>
+            <input type="button" id="queryTopPostsByTopicId" value="查询置顶帖子列表" onclick="forumPostInfoJS.queryTopPostsByTopicIdOnClick()"/>
+            <input type="button" id="queryNoTopPostsByTopicId" value="查询非置顶帖子列表" onclick="forumPostInfoJS.queryNoTopPostsByTopicIdOnClick()"/>
+            <input type="button" id="insertPostInfo" value="新增帖子" onclick="forumPostInfoJS.addPostInfoOnClick()"/>
+        </div>
+        <div>
+            <input type="button" id="insertPostLike" value="新增点赞" onclick="postLikesComments.insertPostLikeOnclick()"/>
+            <input type="button" id="cancelPostToNoLike" value="取消点赞" onclick="postLikesComments.cancelPostToNoLikeOnclick()"/>
+            <input type="button" id="insertPostComment" value="增加评论" onclick="postLikesComments.insertPostCommentOnClick()"/>
+            <input type="button" id="deletePostComment" value="取消评论" onclick="postLikesComments.deletePostCommentOnclick()"/>
+        </div>
+        <div>
+            <input type="button"  id="queryUserDynamicPostList" value="查询员工动态列表" onclick="forumPostInfoJS.queryUserDynamicPostListOnclick()"/>
+        </div>
+
+        <div style="margin-top: 20px">
+            <div>返回数据：</div> <textarea  id="show" style="width: 800px;height: 200px"></textarea>
+        </div>
+
+    </div>
+    </body>
+
+
+</html>

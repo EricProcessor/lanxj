@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyibq.lanxj.admin.forum.mapper.ForumTopicInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.xyibq.lanxj.admin.forum.domain.entity.ForumTopicInfoEntity" >
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="topic_id" jdbcType="BIGINT" property="topicId" />
+        <result column="topic_name" jdbcType="VARCHAR" property="topicName" />
+        <result column="icon_url" jdbcType="VARCHAR" property="iconUrl" />
+        <result column="topic_status" jdbcType="BIGINT" property="topicStatus" />
+        <result column="anonymity_yn" jdbcType="BIGINT" property="anonymityYn" />
+        <result column="check_yn" jdbcType="BIGINT" property="checkYn" />
+        <result column="topic_order" jdbcType="BIGINT" property="topicOrder" />
+        <result column="topic_likes_count" jdbcType="BIGINT" property="topicLikesCount" />
+        <result column="topic_comments_count" jdbcType="BIGINT" property="topicCommentsCount" />
+        <result column="topic_page_view" jdbcType="BIGINT" property="topicPageView" />
+        <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="modify_user" jdbcType="VARCHAR" property="modifyUser" />
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, topic_id, topic_name,icon_url, topic_status, anonymity_yn, check_yn, topic_order, topic_likes_count,
+        topic_comments_count, topic_page_view, create_user, create_time, modify_user, modify_time
+    </sql>
+
+    <!-- 查询系统所有版块 -->
+    <select id="selectAllForumTopicList" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM forum_topic_info  ORDER BY topic_order
+    </select>
+
+    <!--  修改版块信息 -->
+    <update id="updateForumTopicInfo" parameterType="com.xyibq.lanxj.admin.forum.domain.entity.ForumTopicInfoEntity">
+        UPDATE forum_topic_info
+        SET
+            <if test="topicName!=null">
+                topic_name = #{topicName},
+            </if>
+            <if test="checkYn!=null"><!--  版块发帖审核开关-->
+                check_yn = #{checkYn},
+            </if>
+            <if test="anonymityYn!=null"><!--  版块匿名发帖开关-->
+                anonymity_yn = #{anonymityYn},
+            </if>
+            <if test="topicStatus!=null"><!--  版块启用开关-->
+                topic_status = #{topicStatus},
+            </if>
+            <if test="modifyUser!=null"><!--  版块启用开关-->
+                modify_user = #{modifyUser},
+            </if>
+            modify_time=now()
+        WHERE topic_id = #{topicId}
+    </update>
+
+    <!--  版块新增 -->
+    <insert id="insertTopicInfo" parameterType="com.xyibq.lanxj.admin.forum.domain.entity.ForumTopicInfoEntity">
+        INSERT INTO forum_topic_info
+        VALUES
+        (
+          #{topicId,jdbcType=BIGINT},#{topicName,jdbcType=VARCHAR},
+          #{iconUrl,jdbcType=VARCHAR},#{topicStatus,jdbcType=BIGINT},
+          #{anonymityYn,jdbcType=BIGINT},#{checkYn,jdbcType=BIGINT},
+          #{topicOrder,jdbcType=BIGINT},#{createUser,jdbcType=BIGINT},
+          now(),#{modifyUser},#{modifyTime}
+        )
+    </insert>
+
+
+</mapper>

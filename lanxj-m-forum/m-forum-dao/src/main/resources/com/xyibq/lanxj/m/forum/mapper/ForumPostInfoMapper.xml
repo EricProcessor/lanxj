@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyibq.lanxj.m.forum.mapper.ForumPostInfoMapper" >
+
+    <resultMap id="BaseResultMap" type="com.xyibq.lanxj.m.forum.domain.entity.ForumPostInfoEntity" >
+        <id column="post_id" property="postId" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="topic_id" property="topicId" jdbcType="BIGINT" />
+        <result column="post_status" property="postStatus" jdbcType="BIGINT" />
+        <result column="anonymity_yn" property="anonymityYn" jdbcType="TINYINT" />
+        <result column="top_yn" property="topYn" jdbcType="BIGINT" />
+        <result column="likes_count" property="likesCount" jdbcType="BIGINT" />
+        <result column="comments_count" property="commentsCount" jdbcType="BIGINT" />
+        <result column="page_view" property="pageView" jdbcType="BIGINT" />
+        <result column="post_content" property="postContent" jdbcType="VARCHAR" />
+        <result column="refuse_reason" property="refuseReason" jdbcType="VARCHAR" />
+        <result column="top_start_time" property="topStartTime" jdbcType="TIMESTAMP" />
+        <result column="top_end_time" property="topEndTime" jdbcType="TIMESTAMP" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="delete_user" property="deleteUser" jdbcType="BIGINT" />
+        <result column="delete_time" property="deleteTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+         post_id, user_id, user_name, topic_id, post_status, anonymity_yn, top_yn, likes_count,
+        comments_count, page_view, post_content, refuse_reason, create_time, delete_time,
+        top_start_time, top_end_time
+    </sql>
+
+    <!-- 新增帖子信息 -->
+    <insert id="insertPostInfo" parameterType="com.xyibq.lanxj.m.forum.domain.entity.ForumPostInfoEntity" >
+        insert into forum_post_info (id, post_id, user_id,
+        user_name, topic_id, post_status,
+        anonymity_yn, top_yn, likes_count,
+        comments_count, page_view, post_content,
+        refuse_reason, create_time, delete_time,
+        top_start_time, top_valid_time
+        )
+        values (#{id,jdbcType=BIGINT}, #{postId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT},
+        #{userName,jdbcType=VARCHAR}, #{topicId,jdbcType=BIGINT}, #{postStatus,jdbcType=BIGINT},
+        #{anonymityYn,jdbcType=TINYINT}, #{topYn,jdbcType=BIGINT}, #{likesCount,jdbcType=BIGINT},
+        #{commentsCount,jdbcType=BIGINT}, #{pageView,jdbcType=BIGINT}, #{postContent,jdbcType=VARCHAR},
+        #{refuseReason,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP},
+        #{topStartTime,jdbcType=TIMESTAMP}, #{topValidTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+
+
+    <!-- 根据版块id 查询置顶帖子 -->
+    <select id="selectPostListByTopicId" resultMap="BaseResultMap" parameterType="com.xyibq.lanxj.m.forum.domain.entity.ForumPostInfoEntity">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM forum_post_info
+        WHERE 1=1
+        <if test="topicId != null" >
+            AND topic_id=#{topicId}
+        </if>
+        <if test="topYn != null" >
+            AND top_yn=#{topYn}
+        </if>
+        <if test="postStatus != null" >
+            AND post_status=#{postStatus}
+        </if>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 查询帖子详情（包含点赞及评论） 帖子状态（0草稿 10待审 20正常 30拒绝 40删除）p.post_status = 20 AND -->
+    <select id="selectPostInfoByPostId" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM forum_post_info
+        WHERE
+           post_id = #{postId,jdbcType=BIGINT}
+    </select>
+
+    <!--  查询员工帖子  -->
+    <select id="selectPostListByUserId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM forum_post_info
+        WHERE user_id =  #{userId,jdbcType=BIGINT}
+        ORDER BY create_time DESC
+
+    </select>
+
+    <!-- 获取最大post_id -->
+    <select id="selectForumPostInfoMaxId" resultType="java.lang.Integer">
+        SELECT max(post_id) FROM forum_post_info
+    </select>
+
+    <!-- 删除帖子 帖子状态（0草稿 10待审 20正常 30拒绝 40删除）-->
+    <update id="deletePostInfo" parameterType="java.lang.Long">
+        UPDATE  forum_post_info
+        SET post_status = 40
+        WHERE post_id =  #{postId,jdbcType=BIGINT}
+    </update>
+
+
+</mapper>

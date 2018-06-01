@@ -1,0 +1,35 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
+    static-path-pattern: /static/**
+  #数据源配置
+  datasource:
+    url: jdbc:mysql://116.196.107.233:3306/lanxj_forum?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: org.apache.tomcat.jdbc.pool.DataSource
+
+  rabbitmq:
+      host: 116.196.107.214
+      port: 5672
+      username: forum
+      password: forum123
+      virtual-host: forum
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+#
+#  mybatis:
+#    mapper-locations: classpath*:**/*.xml

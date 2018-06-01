@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <script type="text/javascript" src="/static/js/lib/jquery-1.12.4.js"/>
+    <script type="text/javascript" src="/static/js/testController/InviteCommentsController.js"/>
+    <script type="text/javascript" src="/static/js/testController/UserInfoController.js"/>
+
+    <head>
+        <meta charset="UTF-8"/>
+        <title>测试</title>
+    </head>
+    <body>
+    <div>
+        <div>
+            <div>发送数据：</div>
+            <p></p>
+            <div>
+               <input type="text" id="request" style="width: 400px;height: 50px" /></div>
+        </div>
+        <div>
+            <input type="button" id="selectinviteCommentByuserId" value="邀请评论列表" onclick="InviteCommentsControllerJS.selectinviteCommentByuserId()"/>
+        </div>
+
+        <div>
+            <input type="button" id="selectinviteCommentfenyeByuserId" value="邀请评论列表分页" onclick="InviteCommentsControllerJS.selectinviteCommentfenyeByuserId(1004)"/>
+        </div>
+
+        <div>
+            <input type="button" id="selectUserInfoByuserId" value="查询用户信息根据用户id" onclick="UserInfoControllerJS.selectUserInfoByuserIdOnclick()"/>
+        </div>
+
+        <div>
+            <input type="button" id="selectUserInfoByuserName" value="查询用户信息根据用户姓名" onclick="UserInfoControllerJS.selectUserInfoByuserNameOnclick()"/>
+        </div>
+
+        <div>
+            <input type="button" id="selectUserInfoByposition" value="查询用户信息根据岗位名称" onclick="UserInfoControllerJS.selectUserInfoBypositionOnclick()"/>
+        </div>
+
+        <div style="margin-top: 20px">
+            <div>返回数据：</div> <textarea  id="show" style="width: 800px;height: 200px"></textarea>
+        </div>
+
+
+    </div>
+    </body>
+
+
+</html>

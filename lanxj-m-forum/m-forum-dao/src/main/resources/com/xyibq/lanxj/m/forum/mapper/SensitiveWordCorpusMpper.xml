@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xyibq.lanxj.m.forum.mapper.SensitiveWordCorpusMpper">
+
+    <!--  查询帖子URL -->
+    <select id="SensitiveWordCorpusInit" resultType="String">
+        SELECT sensitive_word
+        FROM sensitive_word_corpus
+    </select>
+
+</mapper>

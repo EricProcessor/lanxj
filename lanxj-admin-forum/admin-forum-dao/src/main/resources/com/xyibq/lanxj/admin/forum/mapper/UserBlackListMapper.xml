@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyibq.lanxj.admin.forum.mapper.UserBlackListMapper">
+
+    <resultMap id="BaseResultMap" type="com.xyibq.lanxj.admin.forum.domain.entity.UserBlackListEntity" >
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="user_id" jdbcType="BIGINT" property="userId" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, user_id, user_name, remark
+    </sql>
+
+    <!-- 查询用户黑名单列表 -->
+    <select id="selectUserblackList" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_black_list
+    </select>
+
+    <!-- 查询用户黑名单列表byuserid -->
+    <select id="selectblackUserbyUserid" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_black_list
+        where user_id=#{userId,jdbcType=BIGINT}
+    </select>
+
+    <!-- 新增黑名单用户 -->
+    <insert id="insertUserblackList" parameterType="com.xyibq.lanxj.admin.forum.domain.entity.UserBlackListEntity">
+        insert into user_black_list
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

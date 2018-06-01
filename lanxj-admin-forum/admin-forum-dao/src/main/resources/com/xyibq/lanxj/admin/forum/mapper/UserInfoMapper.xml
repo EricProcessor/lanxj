@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyibq.lanxj.admin.forum.mapper.UserInfoMapper" >
+
+    <resultMap id="BaseResultMap" type="com.xyibq.lanxj.admin.forum.domain.entity.UserInfoEntity" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="user_type" property="userType" jdbcType="BIGINT" />
+        <result column="position" property="position" jdbcType="VARCHAR" />
+        <result column="invite_comment_auth" property="inviteCommentAuth" jdbcType="BIGINT" />
+    </resultMap>
+
+    <resultMap id="ResultMap" type="com.xyibq.lanxj.admin.forum.domain.entity.UserInfoEntity">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="user_type" property="userType" jdbcType="BIGINT" />
+        <result column="position" property="position" jdbcType="VARCHAR" />
+        <result column="invite_comment_auth" property="inviteCommentAuth" jdbcType="BIGINT" />
+    </resultMap>
+
+
+    <!-- 根据用户的id userId 查询用户信息 -->
+    <select id="selectUserbyuserid" resultType="com.xyibq.lanxj.admin.forum.domain.entity.UserInfoEntity" >
+        select
+        id as id,
+        user_id as userId,
+        user_name as userName,
+        user_type as userType,
+        `position` as position,
+        invite_comment_auth as inviteCommentAuth
+        from user_info
+        where user_id = #{userId,jdbcType=BIGINT}
+    </select>
+
+    <!-- 根据用户的姓名userName 查询用户信息 -->
+    <select id="selectUserbyuserName" parameterType="java.lang.String" resultMap="ResultMap">
+        select
+        id,
+        user_id,
+        user_name,
+        user_type,
+        `position`,
+        invite_comment_auth
+        from user_info
+        where user_name = #{userName}
+    </select>
+
+    <!-- 根据用户的岗位position 查询用户信息 -->
+    <select id="selectUserbyposition" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        id,
+        user_id,
+        user_name,
+        user_type,
+        `position`,
+        invite_comment_auth
+        from user_info
+        where `position` = #{position}
+    </select>
+
+    <!-- 查询用户信息模糊查询-->
+    <select id="selectUserInfotest" resultMap="BaseResultMap" parameterType="com.xyibq.lanxj.admin.forum.domain.entity.UserInfoEntity" >
+        <![CDATA[select ]]>
+        <![CDATA[id as id,]]>
+        <![CDATA[user_id as userId,]]>
+        <![CDATA[user_name as userName,]]>
+        <![CDATA[user_type as userType,]]>
+        <![CDATA[`position` as position,]]>
+        <![CDATA[invite_comment_auth as inviteCommentAuth]]>
+        <![CDATA[ from user_info]]>
+        <where>
+            <if test="id != null"> <![CDATA[u.id = #{id}]]> </if>
+            <if test="userId != null and userId != ''"> <![CDATA[AND user_id =#{userId} ]]> </if>
+            <if test="userName != null and userName != ''" > <![CDATA[AND user_name like CONCAT('%',#{userName},'%' )]]> </if>
+            <if test="userType != null and userType != ''"> <![CDATA[AND user_type =#{userType} ]]> </if>
+            <if test="position != null and position != ''"> <![CDATA[AND `position` = #{position}]]> </if>
+            <if test="inviteCommentAuth != null and inviteCommentAuth != ''"> <![CDATA[AND invite_comment_auth = #{inviteCommentAuth}]]> </if>
+        </where>
+    </select>
+
+
+    <!-- 查询用户信息模糊查询-->
+    <select id="selectUserInfo" resultMap="BaseResultMap" parameterType="com.xyibq.lanxj.admin.forum.domain.entity.UserInfoEntity" >
+        <![CDATA[select ]]>
+        <![CDATA[id,]]>
+        <![CDATA[user_id,]]>
+        <![CDATA[user_name,]]>
+        <![CDATA[user_type,]]>
+        <![CDATA[`position`,]]>
+        <![CDATA[invite_comment_auth]]>
+        <![CDATA[ from user_info]]>
+        <where>
+            <if test="id != null"> <![CDATA[id = #{id}]]> </if>
+            <if test="userId != null and userId != ''"> <![CDATA[AND user_id =#{userId} ]]> </if>
+            <if test="userName != null and userName != ''" > <![CDATA[AND user_name like CONCAT('%',#{userName},'%' )]]> </if>
+            <if test="userType != null and userType != ''"> <![CDATA[AND user_type =#{userType} ]]> </if>
+            <if test="position != null and position != ''"> <![CDATA[AND `position` = #{position}]]> </if>
+            <if test="inviteCommentAuth != null and inviteCommentAuth != ''"> <![CDATA[AND invite_comment_auth = #{inviteCommentAuth}]]> </if>
+        </where>
+    </select>
+
+    <insert id="insertUserInfo" parameterType="com.xyibq.lanxj.admin.forum.domain.entity.UserInfoEntity" >
+
+        insert into user_info
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="userId != null" >
+                user_id,
+            </if>
+            <if test="userName != null" >
+                user_name,
+            </if>
+            <if test="userType != null" >
+                user_type,
+            </if>
+            <if test="position != null" >
+                position,
+            </if>
+            <if test="inviteCommentAuth != null" >
+                invite_comment_auth,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null" >
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="userName != null" >
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userType != null" >
+                #{userType,jdbcType=BIGINT},
+            </if>
+            <if test="position != null" >
+                #{position,jdbcType=VARCHAR},
+            </if>
+            <if test="inviteCommentAuth != null" >
+                #{inviteCommentAuth,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateUserInfo" parameterType="com.xyibq.lanxj.admin.forum.domain.entity.UserInfoEntity" >
+        update user_info
+        <set >
+            <if test="userId != null" >
+                user_id = #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="userName != null" >
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userType != null" >
+                user_type = #{userType,jdbcType=BIGINT},
+            </if>
+            <if test="position != null" >
+                position = #{position,jdbcType=VARCHAR},
+            </if>
+            <if test="inviteCommentAuth != null" >
+                invite_comment_auth = #{inviteCommentAuth,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+        delete from user_info
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+
+    <!-- 根据用户id查询其发布帖子总数 -->
+    <select id="UserSendPostcount" resultType="int" >
+        SELECT
+        COUNT(1)
+        FROM user_info u INNER JOIN forum_post_info f
+        WHERE u.user_id=f.user_id AND post_status = 20 AND u.`user_id`= #{userId,jdbcType=BIGINT}
+    </select>
+
+
+    <!-- 根据用户id查询其帖子总赞数 -->
+    <select id="UserPostlikecount" resultType="int" >
+        SELECT
+        COUNT(1)
+        FROM forum_post_info f INNER JOIN post_likes_relate p
+        WHERE f.post_id=p.post_id  AND f.post_status = 20 AND f.`user_id`= #{userId,jdbcType=BIGINT}
+    </select>
+
+    <!-- 根据用户id查询其评论总数 -->
+    <select id="UserSendCommentcount" resultType="int" >
+        SELECT
+	    COUNT(1)
+        FROM forum_post_info f INNER JOIN post_comments_relate p
+        WHERE  f.post_id=p.post_id  AND f.post_status = 20
+        AND f.`user_id`= #{userId,jdbcType=BIGINT}
+    </select>
+
+
+
+</mapper>
