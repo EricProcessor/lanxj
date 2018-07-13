@@ -1,6 +1,7 @@
 package com.xyibq.lanxj.admin.forum.rabbitmq;
 
 import com.alibaba.fastjson.JSON;
+import com.xyibq.lanxj.admin.forum.domain.entity.MyMessageDetailEntity;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.QueueBinding;
@@ -18,10 +19,10 @@ public class ManageRabbitmqReceiver {
 //    MyMessageDetailService myMessageDetailService;
 
     /**
-     * 监听点赞
+     * 监听管理员评论
+     * 使用@RabbitListener监听指定队列、指定exchange、指定routingKey的消息
+     * 同时@RabbitListener有建立队列、exchange、routingKey的功能
      */
-    //使用@RabbitListener监听指定队列、指定exchange、指定routingKey的消息
-    //同时@RabbitListener有建立队列、exchange、routingKey的功能
     @RabbitListener(
             bindings = @QueueBinding(value = @Queue(value = "McommentMessage" , durable = "true") ,
                     exchange = @Exchange(value = "MessgeExchange" , type = "topic" , durable = "true") ,
@@ -32,6 +33,6 @@ public class ManageRabbitmqReceiver {
         System.out.println(JSON.toJSON("管理后台>>>>>>>>>>>>>>>>>>>>>>:"+map));
        // MyMessageDetailEntity entity = JSON.parseObject(message , MyMessageDetailEntity.class);
         //System.out.println(JSON.toJSON(">>>>>>>>>>>>>>>>>>>>>>:"+entity.toString()));
-      //  myMessageDetailService.addMessageDetailInfo(entity);
+//        myMessageDetailService.addMessageDetailInfo(entity);
     }
 }

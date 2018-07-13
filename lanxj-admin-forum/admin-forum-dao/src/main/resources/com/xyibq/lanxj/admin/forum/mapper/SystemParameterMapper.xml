@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xyibq.lanxj.admin.forum.mapper.SystemParameterMapper">
+
+    <!--  查询发帖时间限制 -->
+    <select id="selectPostForbiddenTime" resultType="java.lang.String">
+        SELECT parameter_value
+        FROM system_parameter
+        WHERE parameter_name = #{postForbiddenTime}
+    </select>
+
+    <!--  设置发帖时间限制 -->
+    <update id="updatePostForbiddenTime">
+        UPDATE system_parameter
+        SET parameter_value = #{postForbiddenTimeParaValue}
+        WHERE parameter_name = #{postForbiddenTimeParaName}
+    </update>
+
+</mapper>

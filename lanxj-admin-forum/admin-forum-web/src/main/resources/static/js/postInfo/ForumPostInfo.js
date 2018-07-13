@@ -108,7 +108,31 @@ var forumPostInfoJS={
 
     insertUserTopicAuthOnclick : function () {
         forumPostInfoJS.insertUserTopicAuth();
-    }
+    },
+
+
+
+    /**
+     * gcr帖子审核驳回
+     */
+    modifyPostInfoBypostId : function (postId) {
+        var url = "/postInfo/modifyPostInfoBypostId";
+        var param = {
+            "postId": postId
+        };
+        $.post(url, param, function(data) {
+            if(null!=data && "null"==data && data.code == 0){
+                $("#show").val(data.data);
+            }else{
+                $("#show").val(JSON.stringify(data.data));
+            }
+        }, "json");
+    },
+
+    modifyPostInfoBypostIdOnclick : function () {
+        var postId = $("#request").val();
+        forumTopicInfoJS.modifyPostInfoBypostId(postId);
+    },
 
 }
 

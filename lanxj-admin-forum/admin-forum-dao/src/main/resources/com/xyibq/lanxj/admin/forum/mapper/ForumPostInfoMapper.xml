@@ -68,11 +68,64 @@
     </update>
 
 
+    <!-- 查询置顶日期截至到今天的帖子 -->
     <select id="selectTodayWillCancelPostList" resultType="java.lang.String">
         SELECT
           post_id
         FROM forum_post_info
         WHERE top_end_time <![CDATA[ <= ]]> now()
     </select>
+
+    <!-- 数据统计——版块评论前五名 -->
+    <select id="selectTopCommentCount">
+        SELECT
+           p.post_id,p.post_content,p.user_name, c.commentCount from forum_post_info p,
+           (SELECT count(1) commentCount,post_id
+            FROM post_comments_relate
+            GROUP BY post_id
+            ORDER BY commentCount desc LIMIT 5 ) c
+        WHERE p.post_id=c.post_id  AND p.topic_id = #{topic_id,jdbcType=BIGINT}
+    </select>
+
+    <!-- 数据统计——版块点赞前五名 -->
+    <select id="selectTopLikeCount">
+        SELECT
+           p.post_id,p.post_content,p.user_name,l.likeCount from forum_post_info p,
+           (SELECT count(1) likeCount,post_id
+            FROM post_likes_relate
+            GROUP BY post_id
+            ORDER BY likeCount desc LIMIT 5 ) l
+        WHERE p.post_id=l.post_id AND p.topic_id = #{topic_id,jdbcType=BIGINT}
+    </select>
+
+    <!-- 数据统计——版块浏览量前五名 -->
+    <select id="selectTopPVCount">
+        SELECT
+          <include refid="Base_Column_List" />
+        FROM forum_post_info
+        WHERE  p.topic_id = #{topic_id,jdbcType=BIGINT}
+        ORDER BY page_view DESC
+    </select>
+
+    <!-- 拒绝帖子 帖子状态（0草稿 10待审 20正常 30拒绝 40删除）-->
+    <update id="updatePostInfo" parameterType="java.lang.String">
+        UPDATE forum_post_info
+        SET post_status = 30
+        WHERE post_id = #{postId,jdbcType=BIGINT}
+    </update>
+
+
+    <!-- 根据发帖人id和当前月份的第一天和最后一天，查询其所发的所有帖子 -->
+    <select id="selectPostListbyuserIdandDate" resultMap="BaseResultMap" parameterType="java.util.Map">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM forum_post_info
+        WHERE user_id=#{userId}
+        and post_status='20'
+        and DATE_FORMAT(create_time,'%Y-%m-%d') &gt;= DATE_FORMAT(#{firstDay},'%Y-%m-%d')
+        and DATE_FORMAT(create_time,'%Y-%m-%d') &lt;= DATE_FORMAT(#{lastDay},'%Y-%m-%d')
+    </select>
+
+
 
 </mapper>

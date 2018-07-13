@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xyibq.lanxj.admin.forum.mapper.RoleMenuMapper">
+
+    <!--  查询角色菜单 -->
+    <select id="selectUserRoleMenuList" resultType="com.xyibq.lanxj.admin.forum.domain.vo.UserRoleMenuVo">
+        SELECT
+            u.user_id userId,sm.menu_id menuId,sm.menu_name menuName,sm.menu_level menuLevel,sm.sort,sm.parent_id parentId,
+            sm.icon_y iconY,sm.icon_n iconN
+        FROM system_menu sm,role_menu rm,roles r,user_info u
+        WHERE sm.menu_id=rm.menu_id AND rm.role_id=r.role_id AND r.role_id=u.role_id
+        AND u.user_id= #{userId}
+        ORDER BY sm.menu_id ASC ,sm.sort ASC
+    </select>
+
+    <!--  查询用户角色 -->
+    <select id="selectUserRole" resultType="java.lang.String" parameterType="java.lang.String">
+        SELECT
+          role_id
+        FROM user_info u
+        WHERE   u.user_id= #{userId}
+    </select>
+</mapper>

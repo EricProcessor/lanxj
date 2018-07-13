@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xyibq.lanxj.admin.forum.mapper.SiteFlowStatisticMapper">
+
+    <!-- 日统计，按小时展示 -->
+    <select id="selectPVperHourInDay" resultType="java.util.Map">
+        SELECT
+          collect_hour hour,pv
+        FROM
+          site_flow_statistic
+        WHERE
+          collect_date = #{collectDate}
+        ORDER BY
+          collect_hour ASC
+    </select>
+
+
+    <!-- 月统计PV，按日展示 -->
+    <select id="selectPVperDayInMonth" resultType="java.util.Map">
+        SELECT
+           RIGHT(collect_date,2) day,SUM(pv) pv
+        FROM
+          site_flow_statistic
+        GROUP BY collect_date
+        HAVING collect_date LIKE CONCAT(#{collectMonth},'%')
+        ORDER BY collect_date ASC
+    </select>
+
+</mapper>

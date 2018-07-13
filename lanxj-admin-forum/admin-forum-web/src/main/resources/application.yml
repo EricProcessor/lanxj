@@ -12,7 +12,7 @@ spring:
   datasource:
     url: jdbc:mysql://116.196.107.233:3306/lanxj_forum?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
-    password: root
+    password: Forum123@+R!
     driver-class-name: com.mysql.jdbc.Driver
     type: org.apache.tomcat.jdbc.pool.DataSource
 

@@ -180,8 +180,26 @@
     <select id="UserSendPostcount" resultType="int" >
         SELECT
         COUNT(1)
+        FROM forum_post_info
+        WHERE `user_id`= #{userId,jdbcType=BIGINT}
+    </select>
+
+    <!-- 根据用户id查询其关联帖子总数 -->
+    <select id="UserSendPostrelatecount" resultType="int" >
+        SELECT
+        COUNT(1)
         FROM user_info u INNER JOIN forum_post_info f
         WHERE u.user_id=f.user_id AND post_status = 20 AND u.`user_id`= #{userId,jdbcType=BIGINT}
+    </select>
+
+    <!-- 通过当前月份查询当前登录用户当月发帖总数 -->
+    <select id="UserSendPostcountbycurrentdate" parameterType="java.util.Map" resultType="int" >
+        SELECT
+        COUNT(1)
+        FROM forum_post_info
+        WHERE `user_id`= #{userId,jdbcType=BIGINT}
+        and DATE_FORMAT(create_time,'%Y-%m-%d') &gt;= DATE_FORMAT(#{firstDay},'%Y-%m-%d')
+        and DATE_FORMAT(create_time,'%Y-%m-%d') &lt;= DATE_FORMAT(#{lastDay},'%Y-%m-%d')
     </select>
 
 
@@ -193,15 +211,58 @@
         WHERE f.post_id=p.post_id  AND f.post_status = 20 AND f.`user_id`= #{userId,jdbcType=BIGINT}
     </select>
 
+
+    <!-- 通过月份根据用户id查询其帖子的总赞数 -->
+    <select id="UserPostlikecountbycurrentdate" parameterType="java.util.Map" resultType="int" >
+        SELECT
+        COUNT(1)
+        FROM forum_post_info f INNER JOIN post_likes_relate p
+        WHERE f.post_id=p.post_id  AND f.post_status = 20 AND f.`user_id`= #{userId,jdbcType=BIGINT}
+        and DATE_FORMAT(p.like_time,'%Y-%m-%d') &gt;= DATE_FORMAT(#{firstDay},'%Y-%m-%d')
+        and DATE_FORMAT(p.like_time,'%Y-%m-%d') &lt;= DATE_FORMAT(#{lastDay},'%Y-%m-%d')
+    </select>
+
+
     <!-- 根据用户id查询其评论总数 -->
     <select id="UserSendCommentcount" resultType="int" >
         SELECT
 	    COUNT(1)
+        FROM post_comments_relate
+        WHERE
+        `comment_user_id`= #{userId,jdbcType=BIGINT}
+        AND comment_status = 1
+    </select>
+
+    <!-- 当前登录用户的帖子关联评论数查询接口 -->
+    <select id="UserSendCommentrelatecount" resultType="int" >
+        SELECT
+        COUNT(1)
         FROM forum_post_info f INNER JOIN post_comments_relate p
         WHERE  f.post_id=p.post_id  AND f.post_status = 20
         AND f.`user_id`= #{userId,jdbcType=BIGINT}
     </select>
 
+    <!-- 通过当前月份查询当前登录用户当月评论数查询接口 -->
+    <select id="UserSendCommentcountbycurrentdate" parameterType="java.util.Map" resultType="int" >
+        SELECT
+        COUNT(1)
+        FROM post_comments_relate
+        WHERE
+        `comment_user_id`= #{userId,jdbcType=BIGINT}
+        AND comment_status = 1
+        and DATE_FORMAT(comment_time,'%Y-%m-%d') &gt;= DATE_FORMAT(#{firstDay},'%Y-%m-%d')
+        and DATE_FORMAT(comment_time,'%Y-%m-%d') &lt;= DATE_FORMAT(#{lastDay},'%Y-%m-%d')
+    </select>
 
+    <!-- 查询用户信息 -->
+    <select id="UserInfoList" resultType="com.xyibq.lanxj.admin.forum.domain.entity.UserInfoEntity" >
+        select
+        id as id,
+        user_id as userId,
+        user_name as userName,
+        `position` as position,
+        invite_comment_auth as inviteCommentAuth
+        from user_info
+    </select>
 
 </mapper>

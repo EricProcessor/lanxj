@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyibq.lanxj.admin.forum.mapper.ForumPostInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.xyibq.lanxj.admin.forum.domain.entity.ForumPostInfoEntity" >
+        <id column="post_id" property="postId" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="topic_id" property="topicId" jdbcType="BIGINT" />
+        <result column="post_status" property="postStatus" jdbcType="BIGINT" />
+        <result column="anonymity_yn" property="anonymityYn" jdbcType="TINYINT" />
+        <result column="top_yn" property="topYn" jdbcType="BIGINT" />
+        <result column="likes_count" property="likesCount" jdbcType="BIGINT" />
+        <result column="comments_count" property="commentsCount" jdbcType="BIGINT" />
+        <result column="page_view" property="pageView" jdbcType="BIGINT" />
+        <result column="post_content" property="postContent" jdbcType="VARCHAR" />
+        <result column="refuse_reason" property="refuseReason" jdbcType="VARCHAR" />
+        <result column="top_start_time" property="topStartTime" jdbcType="TIMESTAMP" />
+        <result column="top_end_time" property="topEndTime" jdbcType="TIMESTAMP" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="delete_user" property="deleteUser" jdbcType="BIGINT" />
+        <result column="delete_time" property="deleteTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        post_id, user_id, user_name, topic_id, post_status, anonymity_yn, top_yn, likes_count,
+        comments_count, page_view, post_content, refuse_reason, create_time, delete_time,
+        top_start_time, top_end_time
+    </sql>
+
+    <!-- 将帖子置顶 top_yn:是否置顶 (0未置顶、1已置顶）-->
+    <update id="setPostToTop" parameterType="java.lang.String">
+        UPDATE  forum_post_info
+        SET top_yn = 1
+        WHERE post_id = #{postId}
+    </update>
+
+    <!-- 取消帖子置顶 top_yn:是否置顶 (0未置顶、1已置顶）-->
+    <update id="cancelPostTop" parameterType="java.lang.String">
+        UPDATE  forum_post_info
+        SET top_yn = 0
+        WHERE post_id = #{postId}
+    </update>
+
+    <!-- 帖子列表查询接口 -->
+    <select id="selectTopicPostList" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+          <include refid="Base_Column_List" />
+        FROM forum_post_info
+        WHERE topic_id=#{topicId}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 查询帖子详情（包含点赞及评论） -->
+    <select id="selectPostDetail" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+          <include refid="Base_Column_List" />
+        FROM forum_post_info
+        WHERE post_id=#{postId}
+    </select>
+
+    <!-- 删除帖子 帖子状态（0草稿 10待审 20正常 30拒绝 40删除）-->
+    <update id="deletePostInfo" parameterType="java.lang.String">
+        UPDATE  forum_post_info
+        SET post_status = 40 ,delete_time =now()
+        WHERE post_id = #{postId,jdbcType=BIGINT}
+    </update>
+
+
+    <!-- 查询置顶日期截至到今天的帖子 -->
+    <select id="selectTodayWillCancelPostList" resultType="java.lang.String">
+        SELECT
+          post_id
+        FROM forum_post_info
+        WHERE top_end_time <![CDATA[ <= ]]> now()
+    </select>
+
+    <!-- 数据统计——版块评论前五名 -->
+    <select id="selectTopCommentCount">
+        SELECT
+           p.post_id,p.post_content,p.user_name, c.commentCount from forum_post_info p,
+           (SELECT count(1) commentCount,post_id
+            FROM post_comments_relate
+            GROUP BY post_id
+            ORDER BY commentCount desc LIMIT 5 ) c
+        WHERE p.post_id=c.post_id  AND p.topic_id = #{topic_id,jdbcType=BIGINT}
+    </select>
+
+    <!-- 数据统计——版块点赞前五名 -->
+    <select id="selectTopLikeCount">
+        SELECT
+           p.post_id,p.post_content,p.user_name,l.likeCount from forum_post_info p,
+           (SELECT count(1) likeCount,post_id
+            FROM post_likes_relate
+            GROUP BY post_id
+            ORDER BY likeCount desc LIMIT 5 ) l
+        WHERE p.post_id=l.post_id AND p.topic_id = #{topic_id,jdbcType=BIGINT}
+    </select>
+
+    <!-- 数据统计——版块浏览量前五名 -->
+    <select id="selectTopPVCount">
+        SELECT
+          <include refid="Base_Column_List" />
+        FROM forum_post_info
+        WHERE  p.topic_id = #{topic_id,jdbcType=BIGINT}
+        ORDER BY page_view DESC
+    </select>
+
+    <!-- 拒绝帖子 帖子状态（0草稿 10待审 20正常 30拒绝 40删除）-->
+    <update id="updatePostInfo" parameterType="java.lang.String">
+        UPDATE forum_post_info
+        SET post_status = 30
+        WHERE post_id = #{postId,jdbcType=BIGINT}
+    </update>
+
+
+    <!-- 根据发帖人id和当前月份的第一天和最后一天，查询其所发的所有帖子 -->
+    <select id="selectPostListbyuserIdandDate" resultMap="BaseResultMap" parameterType="java.util.Map">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM forum_post_info
+        WHERE user_id=#{userId}
+        and post_status='20'
+        and DATE_FORMAT(create_time,'%Y-%m-%d') &gt;= DATE_FORMAT(#{firstDay},'%Y-%m-%d')
+        and DATE_FORMAT(create_time,'%Y-%m-%d') &lt;= DATE_FORMAT(#{lastDay},'%Y-%m-%d')
+    </select>
+
+
+
+</mapper>

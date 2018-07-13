@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script type="text/javascript" src="/static/js/lib/jquery-1.12.4.js"/>
+<script type="text/javascript" src="/static/js/postInfo/ForumPostInfo.js"/>
+<script type="text/javascript" src="/static/js/postInfo/ForumTopicInfo.js"/>
+<script type="text/javascript" src="/static/js/systemConfig/SensitiveWord.js"/>
+<script type="text/javascript" src="/static/js/systemConfig/SystemParameter.js"/>
+<script type="text/javascript" src="/static/js/systemConfig/SiteFlowStatistic.js"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>测试</title>
+</head>
+<body>
+<div>
+    <div>
+        <div>发送数据：</div>
+        <p></p>
+        <div>
+            <input type="text" id="request" style="width: 400px;height: 50px" /></div>
+    </div>
+    <div>
+        <input type="button" id="setPostToTop" value="帖子设为置顶" onclick="forumPostInfoJS.setPostToTopOnclick()"/>
+        <input type="button" id="cancelPostTop" value="帖子取消置顶" onclick="forumPostInfoJS.cancelPostTopOnclick()"/>
+        <input type="button" id="queryAllForumTopicList" value="查询所有版块" onclick="forumPostInfoJS.queryAllForumTopicListOnclick()"/>
+    </div>
+    <div>
+        <input type="button" id="addSensitiveWord" value="新增敏感词" onclick="sensitiveWordJS.addSensitiveWordOnclick()"/>
+        <input type="button" id="modifySensitiveWord" value="修改敏感词" onclick="sensitiveWordJS.modifySensitiveWordOnclick()"/>
+        <input type="button" id="removeSensitiveWord" value="删除敏感词" onclick="sensitiveWordJS.removeSensitiveWordOnclick()"/>
+        <input type="button" id="querySensitiveWord" value="模糊查询敏感词" onclick="sensitiveWordJS.querySensitiveWordOnclick()"/>
+    </div>
+    <div>
+        <input type="button" id="insertUserTopicAuth" value="版主权限设置" onclick="forumTopicInfoJS.insertUserTopicAuthOnclick()"/>
+        <input type="button" id="topicCheckPostSwitch" value="发帖审核开关" onclick="forumTopicInfoJS.topicCheckPostSwitchOnclick()"/>
+        <input type="button" id="topicAnonymitySwitch" value="版块匿名开关" onclick="forumTopicInfoJS.topicAnonymitySwitchOnclick()"/>
+        <input type="button" id="topicStatusSwitch" value="版块开关" onclick="forumTopicInfoJS.topicStatusSwitchOnclick()"/>
+    </div>
+    <div>
+        <input type="button" id="updateForumTopicInfo" value="修改版块" onclick="forumTopicInfoJS.updateForumTopicInfoOnclick()"/>
+        <input type="button" id="addForumTopicInfo" value="新增版块" onclick="forumTopicInfoJS.addTopicInfoOnclick()"/>
+        <input type="button" id="queryPostForbiddenTime" value="查询禁止发帖时间" onclick="systemParameterJS.queryPostForbiddenTimeOnclick()"/>
+        <input type="button" id="setPostForbiddenTime" value="设置禁止发帖时间" onclick="systemParameterJS.setPostForbiddenTimeOnclick()"/>
+    </div>
+    <div>
+        <input type="button" id="modifyPostInfoBypostId" value="审核发帖" onclick="forumTopicInfoJS.modifyPostInfoBypostIdOnclick()"/>
+        <input type="button" id="showPVperHourInDay" value="日PV" onclick="siteFlowStatisticJS.showPVperHourInDay()"/>
+        <input type="button" id="showPVperDayInMonth" value="月PV" onclick="siteFlowStatisticJS.showPVperDayInMonth()"/>
+    </div>
+    <div style="margin-top: 20px">
+        <div>返回数据：</div> <textarea  id="show" style="width: 800px;height: 200px"></textarea>
+    </div>
+
+</div>
+</body>
+
+
+</html>

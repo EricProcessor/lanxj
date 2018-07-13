@@ -2,6 +2,7 @@ package com.xyibq.lanxj.admin.forum.service;
 
 
 import com.xyibq.lanxj.admin.forum.domain.entity.ForumPostInfoEntity;
+import com.xyibq.lanxj.admin.forum.domain.entity.ForumTopicInfoEntity;
 import com.xyibq.lanxj.admin.forum.domain.vo.ForumPostInfoDetailVo;
 
 import java.util.List;
@@ -41,5 +42,33 @@ public interface ForumPostInfoService {
      */
     public List<String> queryTodayWillCancelPostList();
 
+    /**
+     * 审核帖子
+     */
+    public int modifyPostInfoBypostId(String postId);
 
+    /**
+     * 查询帖子详情（不包含点赞及评论，单表查询）
+     */
+    public ForumPostInfoEntity queryPostInfoDetailByPostId(String postId) throws Exception;
+
+    /**
+     * 数据统计——版块评论前五名
+     */
+    public List<ForumTopicInfoEntity> queryTopCommentCount(String topicId);
+
+    /**
+     * 数据统计——版块点赞前五名
+     */
+    public List<ForumTopicInfoEntity> queryTopLikeCount(String topicId);
+
+    /**
+     * 数据统计——版块评论前五名
+     */
+    public List<ForumTopicInfoEntity> queryTopPVCount(String topicId);
+
+    /**
+     * 统计当前月份 用户所有的发帖
+     */
+    public List<ForumPostInfoEntity> queryUserSendPostbyuserIdandDate(String userId);
 }

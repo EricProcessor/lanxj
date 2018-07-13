@@ -1,9 +1,6 @@
 package com.xyibq.lanxj.admin.forum.web.filter;
 
-import com.xyibq.lanxj.admin.forum.domain.vo.UserRoleMenuVo;
 import com.xyibq.lanxj.admin.forum.service.RoleMenuService;
-import com.xyibq.lanxj.admin.forum.service.impl.RoleMenuServiceImpl;
-import com.xyibq.lanxj.admin.forum.web.controller.user.UserTopicAuthController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -13,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
-import java.util.List;
 
 @Component
 public class LoginInterceptorAdapter extends HandlerInterceptorAdapter {

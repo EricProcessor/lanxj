@@ -4,7 +4,9 @@
 <script type="text/javascript" src="/static/js/lib/jquery-1.12.4.js"/>
 <script type="text/javascript" src="/static/js/postInfo/ForumPostInfo.js"/>
 <script type="text/javascript" src="/static/js/postInfo/ForumTopicInfo.js"/>
-<script type="text/javascript" src="/static/js/sensitiveWord/SensitiveWord.js"/>
+<script type="text/javascript" src="/static/js/systemConfig/SensitiveWord.js"/>
+<script type="text/javascript" src="/static/js/systemConfig/SystemParameter.js"/>
+<script type="text/javascript" src="/static/js/systemConfig/SiteFlowStatistic.js"/>
 <head>
     <meta charset="UTF-8"/>
     <title>测试</title>
@@ -37,8 +39,14 @@
     <div>
         <input type="button" id="updateForumTopicInfo" value="修改版块" onclick="forumTopicInfoJS.updateForumTopicInfoOnclick()"/>
         <input type="button" id="addForumTopicInfo" value="新增版块" onclick="forumTopicInfoJS.addTopicInfoOnclick()"/>
+        <input type="button" id="queryPostForbiddenTime" value="查询禁止发帖时间" onclick="systemParameterJS.queryPostForbiddenTimeOnclick()"/>
+        <input type="button" id="setPostForbiddenTime" value="设置禁止发帖时间" onclick="systemParameterJS.setPostForbiddenTimeOnclick()"/>
     </div>
-
+    <div>
+        <input type="button" id="modifyPostInfoBypostId" value="审核发帖" onclick="forumTopicInfoJS.modifyPostInfoBypostIdOnclick()"/>
+        <input type="button" id="showPVperHourInDay" value="日PV" onclick="siteFlowStatisticJS.showPVperHourInDay()"/>
+        <input type="button" id="showPVperDayInMonth" value="月PV" onclick="siteFlowStatisticJS.showPVperDayInMonth()"/>
+    </div>
     <div style="margin-top: 20px">
         <div>返回数据：</div> <textarea  id="show" style="width: 800px;height: 200px"></textarea>
     </div>

@@ -1,0 +1,102 @@
+.dataStatistics{
+    background-color: #f5f5f5;
+    width:100%;
+    height:100%;
+}
+.dataStatistics .title{
+    width: 100%;
+	height: 96px;
+	background-color: #ffffff;
+}
+
+.titleCenLeft{
+    width:250px;
+    height:70px;
+    background:#ccc;
+    float:left;
+    margin-top: 13px;
+}
+.titleCen{
+    width: 1440px;
+    height:96px;
+    line-height: 96px;
+    background-color: #ffffff;
+    /* float:left; */
+    margin: 0 auto;
+   
+}
+.titleCenCen{
+    padding: 13px 166px;
+    overflow: hidden;
+    width: 605px;
+    float: left;
+}
+.titleCenCen li{
+    float:left;
+    height: 67px;
+    line-height:67px;
+    color: #494949;
+    margin-right:20px;
+    margin-left:20px;
+    width: 80px;
+	font-family: MicrosoftYaHei;
+	font-size: 20px;
+}
+.titleCenCen .selected{
+    color: #0076ff;
+    border-bottom: 3px solid #0076ff;
+}
+
+.titleCenRight{
+    float: right;
+}
+/* =====================主体======================= */
+.content{
+    width: 1440px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+/* 排行左侧 */
+.rankingLeftSelect{
+    overflow: hidden;
+}
+.rankingLeftSelect li{
+    float: left;
+    font-size: 20px;
+    height: 40px;
+    line-height:40px;
+    margin: 18px;
+    color: #494949;
+}
+.rankingLeftSelect .selected{
+    color: #0076ff;
+    border-bottom:2px solid #0076ff;
+}
+.rankings{
+    margin-top: 20px;
+    width: 1070px;
+    float: left;
+    background: #fff;
+}
+.rankingRight{
+    width: 350px;
+    float: left;
+    margin-left: 20px;
+    background: #fff;
+    margin-top: 20px;
+}
+.rankingRight h3{
+    padding: 15px 30px;
+}
+.rankingRight ul{
+    padding: 15px 30px;
+}
+.rankingLeftTableSelLe{
+    overflow:hidden;
+}
+.rankingLeftTableSelLe li{
+    float:left;
+    line-height: 100px;
+    height: 100px;
+    padding-right:60px;
+}

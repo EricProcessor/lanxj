@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyibq.lanxj.admin.forum.mapper.UserTopicAuthMapper" >
+
+
+    <!-- 批量新增版主 版块权限 -->
+    <insert id="insertUserTopicAuth" parameterType="Map">
+        INSERT INTO user_topic_auth
+        (
+          user_id,topic_id,auth_status,create_time, create_user,modify_time,modify_user
+        )
+        VALUES
+        <foreach collection ="list" item="item" separator =",">
+          (
+            #{item.userId,jdbcType=BIGINT},#{item.topicId,jdbcType=BIGINT}, #{item.authStatus,jdbcType=BIGINT},
+            now(), #{item.createUser,jdbcType=VARCHAR}, #{item.modifyTime,jdbcType=TIMESTAMP}, #{item.modifyUser,jdbcType=VARCHAR}
+          )
+        </foreach >
+        ON DUPLICATE KEY UPDATE auth_status = 1 ,modify_time = now(),modify_user=#{createUser,jdbcType=VARCHAR}
+    </insert>
+
+    <!-- 更新版主 版块权限-->
+    <update id="updateUserTopicAuth" parameterType="com.xyibq.lanxj.admin.forum.domain.entity.UserTopicAuthEntity">
+        UPDATE user_topic_auth
+        SET
+          auth_status = 0,modify_time = now()
+          <if test="modifyUser != null">
+              ,modify_user = #{modifyUser,jdbcType=VARCHAR}
+          </if>
+        <where>
+            user_id IN(
+                <foreach collection ="list" item="item" separator =",">
+                   #{item.userId,jdbcType=BIGINT}
+                </foreach >
+            )
+            AND
+            topic_id NOT IN (
+                <foreach collection ="list" item="item" separator =",">
+                    #{item.topicId,jdbcType=BIGINT}
+                </foreach >
+            )
+        </where>
+    </update>
+
+</mapper>

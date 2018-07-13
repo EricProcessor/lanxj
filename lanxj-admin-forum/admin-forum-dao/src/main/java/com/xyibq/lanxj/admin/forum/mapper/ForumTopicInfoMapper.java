@@ -25,4 +25,6 @@ public interface ForumTopicInfoMapper {
      */
     public void insertTopicInfo(ForumTopicInfoEntity forumTopicInfoEntity);
 
+
+
 }

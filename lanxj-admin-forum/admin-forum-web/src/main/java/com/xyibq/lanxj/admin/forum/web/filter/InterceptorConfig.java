@@ -16,6 +16,9 @@ public class InterceptorConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor(loginInterceptorAdapter());
     }
 
+    /**
+     * 拦截器 注入服务 必须有此方法
+     */
     @Bean
     public LoginInterceptorAdapter loginInterceptorAdapter(){
         return new LoginInterceptorAdapter();

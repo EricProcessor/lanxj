@@ -2,6 +2,7 @@ package com.xyibq.lanxj.admin.forum.service;
 
 
 import com.xyibq.lanxj.admin.forum.domain.entity.UserInfoEntity;
+import com.xyibq.lanxj.admin.forum.domain.vo.UserTalentVo;
 
 import java.util.List;
 
@@ -74,6 +75,14 @@ public interface UserInfoService {
      *
      */
     public int UserPostlikecount(String userid)throws Exception;
+
+
+
+    /**
+     * 用户达人榜单查询接口
+     *
+     */
+    public List<UserTalentVo> UserTalentList(String userid)throws Exception;
 
 
 }
