@@ -1,0 +1,162 @@
+body {
+  background: #f5f5f5;
+}
+.x-container {
+  display: -webkit-flex;
+  /*chorme*/
+  display: -ms-flex;
+  /*ie*/
+  height: 944px;
+  /* 左侧导航部分 */
+  /* 右侧部分 */
+}
+.x-container .leftBox {
+  width: 0;
+  flex-grow: 2;
+  border: 1px solid red;
+  background: #fff;
+}
+.x-container .leftBox .leftTopTab {
+  padding: 20px 20px 10px;
+}
+.x-container .leftBox .leftTopTab .lefTtab,
+.x-container .leftBox .leftTopTab .rightTab {
+  padding: 0 10px;
+  font-size: 16px;
+  line-height: 40px;
+  color: #0076ff;
+  text-align: center;
+  background: #f7f7f7;
+  border-radius: 6px 0 0 6px;
+  border: solid 1px #0076ff;
+  cursor: pointer;
+}
+.x-container .leftBox .leftTopTab .rightTab {
+  border-radius: 0 6px 6px 0;
+}
+.x-container .leftBox .leftTopTab .active {
+  color: #fff;
+  background: #0076ff;
+}
+.x-container .leftBox .titleListBox {
+  height: 774px;
+  background-color: #f8f8f8;
+  border-radius: 6px;
+  margin: 0 20px;
+  padding: 20px 0;
+}
+.x-container .leftBox .titleListBox .titleList {
+  height: 40px;
+  margin: 0 10px;
+  line-height: 40px;
+  cursor: pointer;
+}
+.x-container .leftBox .titleListBox .titleList span {
+  font-size: 18px;
+  padding: 0 30px;
+}
+.x-container .leftBox .titleListBox .active {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  background-color: #f1f1f1;
+}
+.x-container .rightBox {
+  width: 0;
+  flex-grow: 8;
+  margin-left: 10px;
+  border: 1px solid red;
+  height: 944px;
+  background: #fff;
+}
+.x-container .rightBox .topInfo {
+  border-bottom: 1px solid red;
+  line-height: 60px;
+}
+.x-container .rightBox .topInfo .topTitle {
+  padding: 0 30px;
+}
+.x-container .rightBox .topInfo .topTitle span {
+  font-size: 16px;
+  color: #777;
+}
+.x-container .rightBox .topInfo .search {
+  width: 240px;
+  height: 38px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  color: #777;
+  padding: 0 20px;
+  margin: 10px 30px;
+}
+.x-container .rightBox .topInfo b {
+  display: block;
+  width: 23px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 40px;
+  background: url('../image/sprite.png') no-repeat -30px -212px;
+}
+.x-container .rightBox .contentInfoBox {
+  padding: 0 20px;
+}
+.x-container .rightBox .contentInfoBox .contentTitle,
+.x-container .rightBox .contentInfoBox .contentTnet {
+  line-height: 50px;
+}
+.x-container .rightBox .contentInfoBox .contentTitle li,
+.x-container .rightBox .contentInfoBox .contentTnet li {
+  width: 10%;
+  border-bottom: 1px solid red;
+  color: #494949;
+}
+.x-container .rightBox .contentInfoBox .contentTitle li .selectBox,
+.x-container .rightBox .contentInfoBox .contentTnet li .selectBox {
+  height: 20px;
+}
+.x-container .rightBox .contentInfoBox .contentTitle li .selectBox .selectList,
+.x-container .rightBox .contentInfoBox .contentTnet li .selectBox .selectList {
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  overflow-y: hidden;
+}
+.x-container .rightBox .contentInfoBox .contentTitle li .selectBox .selectList li,
+.x-container .rightBox .contentInfoBox .contentTnet li .selectBox .selectList li {
+  width: 50px;
+  line-height: 20px;
+}
+.x-container .rightBox .contentInfoBox .contentTitle li:nth-child(2),
+.x-container .rightBox .contentInfoBox .contentTnet li:nth-child(2),
+.x-container .rightBox .contentInfoBox .contentTitle li:nth-child(3),
+.x-container .rightBox .contentInfoBox .contentTnet li:nth-child(3) {
+  text-align: center;
+}
+.x-container .rightBox .contentInfoBox .contentTitle li:nth-child(5),
+.x-container .rightBox .contentInfoBox .contentTnet li:nth-child(5) {
+  width: 12%;
+}
+.x-container .rightBox .contentInfoBox .contentTitle li:first-child,
+.x-container .rightBox .contentInfoBox .contentTnet li:first-child,
+.x-container .rightBox .contentInfoBox .contentTitle li:nth-child(4),
+.x-container .rightBox .contentInfoBox .contentTnet li:nth-child(4) {
+  width: 20%;
+}
+.x-container .rightBox .contentInfoBox .contentTitle li:last-child,
+.x-container .rightBox .contentInfoBox .contentTnet li:last-child {
+  width: 18%;
+}
+.x-container .rightBox .contentInfoBox .contentTnet li {
+  border-bottom: 1px dotted red;
+}
+.x-container .rightBox .contentInfoBox .contentTnet li:first-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #0076ff;
+}
+.x-container .rightBox .contentInfoBox .contentTnet li:last-child p {
+  color: #0076ff;
+}

@@ -12,9 +12,11 @@
 ng\:form {
 	display: block;
 }
-.hide{
+
+.hide {
 	display: none;
 }
+
 .ng-animate-start {
 	clip: rect(0, auto, auto, 0);
 	-ms-zoom: 1.0001;
@@ -24,7 +26,6 @@ ng\:form {
 	clip: rect(-1px, auto, auto, 0);
 	-ms-zoom: 1;
 }
-
 
 /* CSS Document */
 
@@ -55,6 +56,10 @@ em,
 strong,
 span,
 img,
+table,
+tr,
+th,
+td,
 u {
 	padding: 0;
 	margin: 0;
@@ -125,14 +130,6 @@ a:focus {
 	float: right;
 }
 
-.fl {
-	float: left;
-}
-
-.fr {
-	float: right;
-}
-
 .clearfix:after {
 	content: "";
 	height: 0;
@@ -145,20 +142,7 @@ a:focus {
 	*zoom: 1;
 }
 
-
 /*公共样式开始*/
-
-/* body,
-div,
-p,
-ul,
-li,
-ol,
-li,
-span {
-	box-sizing: border-box;
-} */
-
 * {
 	font-family: "MicrosoftYaHei";
 	-webkit-overflow-scrolling: touch;
@@ -187,12 +171,12 @@ html input[type='button'] {
 	-webkit-appearance: none;
 	outline: none;
 }
+
 /*外边距*/
 
 .mar0 {
 	margin: 0 auto;
 }
-
 
 /*定位*/
 
@@ -200,29 +184,22 @@ html input[type='button'] {
 	position: relative;
 }
 
-.pos2 {
-	position: absolute;
-}
-
 
 /*公共样式结束*/
-
-/* * {
-	box-sizing: border-box;
-} */
-
 
 /*Android上去除a input在获得焦点时的高亮边框outline*/
 
 *,
- :focus,
- :hover,
- :active {
+:focus,
+:hover,
+:active {
 	outline: 0;
 }
-header{
+
+header {
 	border: none;
 }
-li{
-    list-style-type:none;
+
+li {
+	list-style-type: none;
 }

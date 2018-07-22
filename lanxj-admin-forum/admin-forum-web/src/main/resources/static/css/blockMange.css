@@ -1,0 +1,112 @@
+.newBlock {
+  width: 140px;
+  height: 50px;
+  background-color: #0076ff;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 48px;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+.use {
+  width: 1100px;
+}
+.use h3 {
+  width: 84px;
+  font-family: MicrosoftYaHei;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 48px;
+  letter-spacing: 0px;
+  color: #777777;
+}
+.use > li {
+  height: 180px;
+  background-color: #ffffff;
+  position: relative;
+}
+.use > li .use_li_left {
+  float: left;
+}
+.use > li .use_li_left .use_li_left_title {
+  height: 64px;
+  line-height: 64px;
+  padding: 30px;
+  padding-bottom: 8px;
+}
+.use > li .use_li_left .use_li_left_title .use_li_left_title_img {
+  width: 60px;
+  height: 60px;
+  background-color: #0076ff;
+  border-radius: 50%;
+  float: left;
+}
+.use > li .use_li_left .use_li_left_title span {
+  height: 64px;
+  line-height: 64px;
+  padding-left: 20px;
+}
+.use > li .use_li_left dl {
+  padding-left: 30px;
+  line-height: 26px;
+}
+.use > li .use_li_left dl b {
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #777777;
+  padding-right: 10px;
+}
+.use > li .use_li_left dl span {
+  padding-right: 10px;
+}
+.use > li .use_li_left dl .dl_img1 {
+  display: inline-block;
+  width: 26px;
+  height: 20px;
+  background: transparent url(../image/sprite.png) -30px -60px no-repeat;
+  position: relative;
+  top: 5px;
+}
+.use > li .use_li_left dl .dl_img2 {
+  display: inline-block;
+  width: 26px;
+  height: 20px;
+  background: transparent url(../image/sprite.png) -30px -100px no-repeat;
+  position: relative;
+  top: 5px;
+}
+.use > li .use_li_right {
+  float: right;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+.use > li .use_li_right .Discontinuation {
+  width: 90px;
+  height: 40px;
+  background-color: #0076ff;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 40px;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+.use > li .use_li_right .modify {
+  width: 90px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: solid 1px #ededed;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 40px;
+  letter-spacing: 0px;
+  color: #0076ff;
+}
+.use_li_left {
+  float: left;
+}
