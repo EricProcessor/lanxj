@@ -4,6 +4,7 @@
     <script type="text/javascript" src="/static/js/lib/jquery-1.12.4.js"/>
     <script type="text/javascript" src="/static/js/testController/InviteCommentsController.js"/>
     <script type="text/javascript" src="/static/js/testController/UserInfoController.js"/>
+    <script type="text/javascript" src="/static/js/testController/MymessageController.js"/>
 
     <head>
         <meta charset="UTF-8"/>
@@ -18,11 +19,15 @@
                <input type="text" id="request" style="width: 400px;height: 50px" /></div>
         </div>
         <div>
-            <input type="button" id="selectinviteCommentByuserId" value="邀请评论列表" onclick="InviteCommentsControllerJS.selectinviteCommentByuserId()"/>
+            <input type="button" id="selectinviteCommentByuserId" value="邀请评论列表" onclick="InviteCommentsControllerJS.selectinviteCommentByuserIdOnclick()"/>
         </div>
 
         <div>
             <input type="button" id="selectinviteCommentfenyeByuserId" value="邀请评论列表分页" onclick="InviteCommentsControllerJS.selectinviteCommentfenyeByuserId(1004)"/>
+        </div>
+
+        <div>
+            <input type="button" id="sendInviteRemind" value="邀请评论发送消息" onclick="InviteCommentsControllerJS.sendInviteRemindOnclick()"/>
         </div>
 
         <div>
@@ -35,6 +40,18 @@
 
         <div>
             <input type="button" id="selectUserInfoByposition" value="查询用户信息根据岗位名称" onclick="UserInfoControllerJS.selectUserInfoBypositionOnclick()"/>
+        </div>
+
+        <div>
+            <input type="button" id="MymessageInfo" value="我的列表展示" onclick="MymessageControllerJS.MymessageInfoOnclick()"/>
+        </div>
+
+        <div>
+            <input type="button" id="MymessageList" value="我的消息列表" onclick="MymessageControllerJS.MymessageListOnclick()"/>
+        </div>
+
+        <div>
+            <input type="button" id="MymessageListmsgid" value="点击消息模板msgid" onclick="MymessageControllerJS.MymessageListmsgidOnclick()"/>
         </div>
 
         <div style="margin-top: 20px">

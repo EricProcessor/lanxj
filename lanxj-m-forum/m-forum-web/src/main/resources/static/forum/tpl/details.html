@@ -1,0 +1,143 @@
+<div class="details">
+    <div id="wrapper">
+        <!-- 顶部 -->
+        <header>
+            <img src="../images/btn_back_n@2x.png" alt="" class="goBack" onclick="back()" /> 详情
+            <div class="rightIcon clearfix " ng-click="collectBtn($event)">
+                <img class="hide" src="../images/btn_follow_p@2x.png" alt="" />
+                <img src="../images/btn_follow_n@2x.png" alt="" />
+            </div>
+        </header>
+        <div class="content">
+            <div class="invitationBox">
+                <!-- 头部信息 -->
+                <div class="invitationList">
+                    <div class="invitationHead clearfix">
+                        <p class="fl headPic">
+                            <img src="../images/invitationPic.jpg" alt="" />
+                        </p>
+                        <p class="fl userName">{{userName}}</p>
+                        <p class="fr userTime">{{createTime}}</p>
+                    </div>
+                </div>
+                <!-- 内容 -->
+                <div class="innerBox">
+                    <p class="innerText">{{postContent}}</p>
+                    <div class="imgList">
+                        <div class="piclist swiper-slide swiper-slide-active" ng-repeat="iconPic in postPicUrlRelateList" style="width: 75px; margin-right: 5px;">
+                            <img ng-src="{{iconPic.imageUrl}}}" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 精彩评论 -->
+            <!-- <div class="WonderfulCom">
+                <div class="WonderfulCom_title">
+                    <img src="../images/btn_comment_n@2x.png" alt="" />
+                    <span>精彩评论</span>
+                </div>
+                <div class="Inviter">
+                    <div class="invitationHead clearfix">
+                        <p class="fl headPic">
+                            <img src="../images/invitationPic.jpg" alt="" />
+                        </p>
+                        <p class="fl userName">{{userName}}</p>
+                        <p class="fl userType">
+                            <span>邀请人评论</span>
+                        </p>
+                        <p class="fr userTime">2018-07-10 14:58</p>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment_text">写评论</div>
+                    <input type="text" placeholder="写评论" class="hide">
+                    <li>
+                        <img src="../images/btn_invite_n@2x.png" alt="" />
+                        <img class="hide" src="../images/btn_invite_p@2x.png" alt="" />
+                        <p>邀请评论</p>
+                    </li>
+                    <li>
+                        <img src="../images/tab_btn_laud_n@2x.png" alt=/ "" />
+                        <img class="hide" src="../images/tab_btn_laud_p@2x.png" alt=/ "" />
+                        <p>点赞</p>
+                    </li>
+                </div>
+            </div> -->
+        </div>
+        <!-- 精彩评论 -->
+        <div class="goodCommentBox">
+            <div class="commentList">
+                <div class="commentTitle clearfix">精彩评论<span class="fr">赞<b class="commentNum">{{likesCount}}</b></span></div>
+                <!-- 评论信息 -->
+                <div class="inviteBox" ng-repeat="invite in postCommentsRelateList">
+                    <div class="invitationHead clearfix">
+                        <p class="fl headPic">
+                            <img src="../images/invitationPic.jpg" alt="" />
+                        </p>
+                        <p class="fl userName">张宁</p>
+                        <p class="fl invited" ng-if="invite.inviteCommentsYn!=0">邀请评论</p>
+                        <!-- <p class="fl userName">匿名发布</p> -->
+                        <input type="hidden" class="postId" value="{{invite.postId}}">
+                        <p class="fr userTime">{{invite.commentTime}}</p>
+                    </div>
+                    <div class="innerBox pos1">
+                        <p class="innerText">{{invite.commentContent}}</p>
+                        <div class="innerPic swiper-container swiper-container-horizontal" ng-repeat="imgIcon in postPicUrlRelateList">
+                            <div class="swiper-wrapper">
+                                <div class="piclist swiper-slide">
+                                    <img ng-src="{{imgIcon.imageUrl}}" alt />
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" detailThumbs clearfix">
+                            <p class="fl delThumbImg" ng-click="delMsgThumbsBtn($event)">
+                                <img src="../images/btn_laud_n@2x.png" alt="">
+                            </p>
+                            <p class="fl">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 页脚 -->
+        <div class="footerBox">
+            <ul class="clearfix">
+                <li class="footList" ng-if="inviteCommentAuth==0" ng-click="goContactsBtn($event)">
+                    <div class=" clearfix">
+                        <p class="fl footImg fristImg">
+                            <img src="../images/btn_invite_n@2x.png" alt="">
+                        </p>
+                        <span class="fl">邀请评论</span>
+                    </div>
+                </li>
+                <li class="footList" ng-click="detailLeaveMSgBtn($event)">
+                    <div class="clearfix">
+                        <p class="fl footImg">
+                            <img src="../images/btn_comment_n@2x.png" alt="">
+                        </p>
+                        <span class="fl">评论</span>
+                    </div>
+                </li>
+                <li class="footList" ng-click="detailthumbsBtn($event)">
+                    <div class="clearfix">
+                        <p class="fl footImg">
+                            <img src="../images/btn_laud_n@2x.png" alt="">
+                        </p>
+                        <span class="fl">点赞</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 遮罩层 -->
+        <div class="shadow"></div>
+        <!-- 留言输入框 -->
+        <div class="inputBox pos1">
+            <div class="clearfix headBtn">
+                <div class="fl ltBtn" ng-click="cancleDelSendBtn($event)">取消</div>
+                评论
+                <div class="fr rgBtn" ng-click="agreeDelSendBtn($event)">发表</div>
+            </div>
+            <textarea id="inputVal" placeholder="我也说一句.." maxlength="2000"></textarea>
+            <span class="infoLength">最多2000字！</span>
+        </div>
+    </div>

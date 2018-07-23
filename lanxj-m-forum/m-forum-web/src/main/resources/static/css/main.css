@@ -1,0 +1,421 @@
+body {
+  background: #f0f3f5;
+}
+.main {
+  /*顶部*/
+  /*搜索框*/
+  /*tab导航*/
+}
+.main #wrapper {
+  margin-top: 2.75rem;
+}
+.main header {
+  background: #3399fe;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  font-size: 1rem;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  border: none;
+}
+.main header .rightIcon {
+  position: absolute;
+  top: .65rem;
+  right: 0;
+  z-index: 2;
+}
+.main header .rightIcon .addIcon,
+.main header .rightIcon .contactsIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: .6rem;
+}
+.main header .rightIcon .addIcon img,
+.main header .rightIcon .contactsIcon img {
+  width: 100%;
+  height: 100%;
+}
+.main .search {
+  background: #3399fe;
+  padding: .7rem;
+}
+.main .search .secInput {
+  width: 100%;
+  height: 1.65rem;
+  background: #fff;
+  color: #a7a7a7;
+  text-align: center;
+  border-radius: .8rem;
+  font-size: .75rem;
+}
+.main .search span {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url("../images/btn_query_n@2x.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+}
+.main .tabBox {
+  margin-top: -1px;
+  background: #fff;
+}
+.main .tabBox .find_nav {
+  background: #3399fe;
+  width: 100%;
+  height: 3rem;
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+}
+.main .tabBox .find_nav .find_nav_left {
+  overflow: hidden;
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+.main .tabBox .find_nav .find_nav_left .find_nav_list {
+  position: absolute;
+  left: 0;
+}
+.main .tabBox .find_nav .find_nav_left .find_nav_list ul {
+  white-space: nowrap;
+}
+.main .tabBox .find_nav .find_nav_left .find_nav_list ul li {
+  display: inline-block;
+  padding: 0;
+  margin: 0 .8rem;
+}
+.main .tabBox .find_nav .find_nav_left .find_nav_list ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 2.65rem;
+  font-size: .8rem;
+  text-align: center;
+  color: #fff;
+}
+.main .tabBox .find_nav .find_nav_left .find_nav_list ul .find_nav_cur {
+  border-bottom: 2px solid #fff;
+}
+.main .tabBox .find_nav .find_nav_left .find_nav_list ul .find_nav_cur span {
+  color: #fff !important;
+}
+.main .tabBox .find_nav .find_nav_left .find_nav_list ul .sideline {
+  display: block;
+  position: absolute;
+  border: 0;
+  height: 2px;
+  background: #fff;
+  left: 0;
+  top: 2.5rem;
+  pointer-events: none;
+}
+.main .tabBox .swipe .li_list {
+  /* 产品新闻 */
+  /* 榜单 问吧达人 */
+  /* 最热title */
+  /* 详细内容 */
+}
+.main .tabBox .swipe .li_list .newsBox {
+  width: 100%;
+  border-top: 4px solid #f0f3f5;
+}
+.main .tabBox .swipe .li_list .newsBox .news {
+  height: 2rem;
+  text-align: left;
+  border-top: 1px solid #ccc;
+}
+.main .tabBox .swipe .li_list .newsBox .news .newsType {
+  font-size: .65rem;
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: solid 1px #3399ff;
+  color: #3399ff;
+  margin: .35rem .5rem;
+  padding: .1rem .25rem;
+}
+.main .tabBox .swipe .li_list .newsBox .news .newsText {
+  width: 13rem;
+  font-size: .65rem;
+  margin: .5rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.main .tabBox .swipe .li_list .newsBox .news .tiPic {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+.main .tabBox .swipe .li_list .newsBox .news .tiPic img {
+  width: 100%;
+  height: 100%;
+}
+.main .tabBox .swipe .li_list .newsBox .news:nth-child(odd) {
+  border: none;
+}
+.main .tabBox .swipe .li_list .askBox {
+  padding: .5rem;
+  border-bottom: .5rem solid #f0f3f5;
+}
+.main .tabBox .swipe .li_list .askBox .askList {
+  width: calc(20%);
+}
+.main .tabBox .swipe .li_list .askBox .askList .personPic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.main .tabBox .swipe .li_list .askBox .askList .personPic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.main .tabBox .swipe .li_list .askBox .askList .personName {
+  width: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: .65rem;
+  margin: 0 auto;
+}
+.main .tabBox .swipe .li_list .askBox .askList span {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  line-height: .85rem;
+  text-align: center;
+  border-radius: 50%;
+  background: #f00;
+  border: 1px solid #fff;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: .25rem;
+}
+.main .tabBox .swipe .li_list .hotIcon {
+  width: 100%;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  border-bottom: 1px solid #f0f3f5;
+}
+.main .tabBox .swipe .li_list .hotIcon .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: .4rem .25rem .4rem .65rem;
+}
+.main .tabBox .swipe .li_list .hotIcon .icon img {
+  width: 100%;
+  height: 100%;
+}
+.main .tabBox .swipe .li_list .hotIcon span {
+  font-size: .85rem;
+}
+.main .tabBox .swipe .li_list .invitationBox {
+  border-top: .25rem solid #f0f3f5;
+  /* 留言展示 */
+}
+.main .tabBox .swipe .li_list .invitationBox .invitationList {
+  background: #fff;
+  padding: .5rem .5rem 0;
+}
+.main .tabBox .swipe .li_list .invitationBox .invitationList .invitationHead {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .invitationList .invitationHead .headPic {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+}
+.main .tabBox .swipe .li_list .invitationBox .invitationList .invitationHead .headPic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.main .tabBox .swipe .li_list .invitationBox .invitationList .invitationHead .userName {
+  width: 3rem;
+  text-align: left;
+  font-size: .7rem;
+  margin: 0 .25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.main .tabBox .swipe .li_list .invitationBox .invitationList .invitationHead .userType span {
+  font-size: .5rem;
+  padding: 0 .15rem;
+  border-radius: 2px;
+  border: solid 1px #bfbfbf;
+}
+.main .tabBox .swipe .li_list .invitationBox .invitationList .invitationHead .userTime {
+  font-size: .5rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .innerBox {
+  padding-left: 3rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .innerBox .innerText {
+  text-align: left;
+  font-size: .7rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .innerBox .innerPic {
+  margin: .75rem 0;
+}
+.main .tabBox .swipe .li_list .invitationBox .innerBox .innerPic .piclist {
+  width: 4rem !important;
+  height: 4rem;
+  border-radius: 6px;
+}
+.main .tabBox .swipe .li_list .invitationBox .innerBox .innerPic .piclist img {
+  width: 100%;
+  height: 100%;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbsBox {
+  width: 100%;
+  height: 2rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbsBox .message p,
+.main .tabBox .swipe .li_list .invitationBox .thumbsBox .thumbs p {
+  width: 2rem;
+  height: 2rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbsBox .message p img,
+.main .tabBox .swipe .li_list .invitationBox .thumbsBox .thumbs p img {
+  width: 100%;
+  height: 100%;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbsBox .message span,
+.main .tabBox .swipe .li_list .invitationBox .thumbsBox .thumbs span {
+  margin: 0.6rem 0.5rem 0 -0.25rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow {
+  width: 100%;
+  padding: .25rem 0 .5rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist {
+  margin: 0 .5rem 0 3rem;
+  background: #f7f7f7;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .records {
+  padding: 0 .5rem;
+  text-align: left;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .records .cordBox {
+  padding: .25rem 0;
+  border-bottom: 1px solid #c5b4b4;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .records .cordBox .namelist {
+  display: inline-block;
+  max-width: 9rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #3399ff;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .records .cordBox .namelist a {
+  text-align: left;
+  font-size: .64rem;
+  color: #3399ff;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .records .cordBox span {
+  position: absolute;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .records .cordBox div {
+  font-size: .65rem;
+  color: #c5b4b4;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .inputBox {
+  width: 100%;
+  height: 7.25rem;
+  background: #fff;
+  border-radius: .1rem;
+  padding: 0 .5rem;
+  position: fixed;
+  bottom: -20rem;
+  left: 0;
+  z-index: 7;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .inputBox .headBtn {
+  font-size: .8rem;
+  font-weight: bold;
+  padding: .5rem 0;
+  border-bottom: .1rem solid #f7f7f7;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .inputBox .headBtn .ltBtn,
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .inputBox .headBtn .rgBtn {
+  font-size: .7rem;
+  color: #3399ff;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .inputBox .headBtn .rgBtn {
+  font-weight: bold;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .inputBox #inputVal {
+  width: 100%;
+  height: auto;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .inputBox .infoLength {
+  position: absolute;
+  color: #bfbfbf;
+  bottom: .65rem;
+  right: .5rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .moreThumbs {
+  padding: 0.5rem;
+  padding-bottom: 0;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .moreThumbs .showSth li {
+  text-align: left;
+  padding-bottom: 0.5rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .moreThumbs .showSth li .thumbName {
+  color: #3399ff;
+  font-size: .65rem;
+  padding-right: .5rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .moreThumbs .showSth li .thumbInfo {
+  width: 70%;
+  font-size: .65rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .lookMore {
+  text-align: right;
+  padding-right: 1.5rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .lookMore span {
+  font-size: .65rem;
+  color: #3399ff;
+}
+.main .tabBox .swipe .li_list .invitationBox .thumbShow .thumblist .lookMore b {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url('../images/Reply_btn_drop-down@2x.png') no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  right: .25rem;
+  z-index: 2;
+}
+.main .tabBox .swipe .li_list .shadowBox {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 6;
+}

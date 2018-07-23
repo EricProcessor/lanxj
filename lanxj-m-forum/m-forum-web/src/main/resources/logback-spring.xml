@@ -9,15 +9,15 @@
         </encoder>
     </appender>
 
-    <!--  将日志输出到文件中  -->
+  <!--  &lt;!&ndash;  将日志输出到文件中  &ndash;&gt;
     <appender name="SYS_LOG_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>/usr/forum/logs/forum_info_log.log</File>
+        <File>/usr/local/forum/logs/forum_info_log.log</File>
         <append>true</append>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/usr/forum/logs/forum_info_%d</fileNamePattern>
+            <fileNamePattern>/usr/local/forum/logs/forum_info_%d</fileNamePattern>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder charset="UTF-8">
@@ -26,7 +26,7 @@
         </encoder>
     </appender>
     <appender name="SYS_LOG_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>/usr/forum/logs/forum_error.log</File>
+        <File>/usr/local/forum/logs/forum_error.log</File>
         <append>true</append>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
@@ -34,22 +34,22 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/usr/forum/logs/forum_error_%d</fileNamePattern>
+            <fileNamePattern>/usr/local/forum/logs/forum_error_%d</fileNamePattern>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder charset="UTF-8">
             <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] %level [%thread] %file:%line - %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
-    </appender>
+    </appender>-->
 
     <springProfile name="dev">
-        <root level="DEBUG">
+        <root level="INFO">
             <appender-ref ref="CONSOLE"/>
         </root>
     </springProfile>
 
-    <springProfile name="prod">
+   <!-- <springProfile name="prod">
 
         <root level="INFO">
             <appender-ref ref="SYS_LOG_INFO"/>
@@ -58,5 +58,5 @@
         <logger name="com.xyibq.lanxj.m.forum.web" level="DEBUG" additivity="false">
             <appender-ref ref="SYS_LOG_INFO"/>
         </logger>
-    </springProfile>
+    </springProfile>-->
 </configuration>

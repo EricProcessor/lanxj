@@ -1,0 +1,95 @@
+<div class="sendPost">
+    <div id="wrapper">
+        <!-- 顶部 -->
+        <header>
+            <img src="../images/btn_back_n@2x.png" alt="" class="goBack" onclick="back()" /> 发帖
+        </header>
+        <div class="content_sp">
+            <form id="form" action="fileUpload.action" method="post" enctype="multipart/form-data">
+                <div class="add">
+                    <!-- <div class="add_title">
+                            <img src="../../static/images/btn_title_n@2x.png" alt=""/>
+                            <input type="text" placeholder="添加标题">
+                    </div> -->
+                    <textarea name="" id="" cols="30" rows="7" placeholder="请输入您要发布的内容" ng-model="PostContent"></textarea>
+                    <div class="add_foot">
+                        <div class="add_foot_picture_a add_foot_picture" style="display: none">
+                            <img id="preview0" />
+                        </div>
+                        <div class="img-box full">
+                            <div class="z_photo upimg-div clear">
+                                <section class="fileInputBox form-file add_foot_picture">
+                                    <div class="preview">
+                                        <img src="../images/btn_Add-pictures_n@2x.png" name="" alt="" />
+                                        <span class="form-file-name">添加图片</span>
+                                    </div>
+                                    <input type="file" name="multipartFiles" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple/>
+                                </section>
+                            </div>
+                            </section>
+                        </div>
+                        <aside class="mask works-mask">
+                            <div class="mask-content">
+                            <p class="del-p">您确定要删除该图片吗？</p>
+                            <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+                            </div>
+                        </aside>
+                        <div class="Percentage"><span class="imgPage">0</span>/9</div>
+                    </div>
+                </div>
+                <div class="select selectHeight" id="select">
+                    <p ng-click="toggleHeight($event)">
+                        选择发布版块
+                        <img src="../images/btn_Block_n@2x.png" alt="" />
+                        <img class="hide" src="../images/btn_Block_p@2x.png" alt="" />
+                        <span>{{selectName}}</span>
+                    </p>
+
+                    <ol id="choseMol">
+                       <!-- <li ng-repeat="i in newsData" id="{{i.topicId}}" ng-click="choseModel($event)">{{i.topicName}}</li>-->
+                        <li id="1001" ng-click="choseModel($event)">生活类</li>
+                        <li id="1002" ng-click="choseModel($event)">产品设计</li>
+                        <li id="1003" ng-click="choseModel($event)">管理类</li>
+                        <li id="1004" ng-click="choseModel($event)">质量类</li>
+                        <li id="1005" ng-click="choseModel($event)">成本类</li>
+                    </ol>
+                </div>
+                <div class="havenName" ng-click="anonymous($event)">是否匿名发帖
+                    <img src="../images/btn_anonymous_n@2x.png" alt="" />
+                </div>
+                <div class="ifBack hide">
+                    <h3>提示</h3>
+                    <p>您编辑的帖子还未发布，
+                        <br>确定要退出？</p>
+                    <div class="btn">
+                        <input type="button" value="确定">
+                        <input class="cancel" type="button" value="取消">
+
+                        <div class="Percentage"><span id="imgPage">0</span>/9</div>
+                    </div>
+                </div>
+
+                <div class="ifBack hide">
+                    <h3>
+                        <img src="../images/icon_Prompt_d@2x.png" alt="" /> 提示</h3>
+                    <div class="sensitive">您的帖子中存在敏感词汇，
+                        <br>请返回修改</div>
+                    <div class="btn_sensitive">
+                        <input class="cancel" type="button" value="确定">
+                    </div>
+                </div>
+                <!-- <input class="send" type="submit" ng-click="sendImg($event)" value="发布"> -->
+                <div class="send" ng-click="sendImg($event)">发布</div>
+            </form>
+        </div>
+        <div class="shadow"></div>
+        <div class="shadowInfo clearfix">
+            <p class="fl">发</p>
+            <p class="fl">送</p>
+            <p class="fl">中</p>
+            <p class="fl">...</p>
+        </div>
+    </div>
+</div>
+</div>
+<script src="../js/lib/imgUp.js"></script>

@@ -80,8 +80,44 @@ var InviteCommentsControllerJS={
     selectinviteCommentfenyeByuserIdOnclick : function () {
         var userid = $("#request").val();
         InviteCommentsControllerJS.selectinviteCommentfenyeByuserId(userid);
-    }
+    },
 
+    sendInviteRemind : function (sendusermessage) {
+        var url = "/inviteComments/sendInviteRemind";
+        var param = {
+            "message": sendusermessage
+            //"queryinviteUserMap" : JSON.stringify(queryinviteUserMap)
+        }
+        $.post(url, param, function(data) {
+            // alert("datastatus:"+data.status);
+            // alert("datamsg:"+data.msg);
+            // alert("datadata:"+data.data);
+            // alert("datadatalength:"+data.data.length);
+            console.log(data);
+            console.log(data.data);
+            // for(var i=0;i<data.data.length;i++){
+            //     alert("userName:"+data.data[i].userName);
+            //     alert("userId:"+data.data[i].userId);
+            //     alert("position:"+data.data[i].position);
+            //     alert("userType:"+data.data[i].userType);
+            //     alert("inviteCommentAuth:"+data.data[i].inviteCommentAuth);
+            //     alert("id:"+data.data[i].id);
+            //    // console.log(data.data[i].userName);
+            //     console.log(data.data[i].toString());
+            // }
+            var data = JSON.stringify(data)
+            if(null==data || "null"==data){
+                alert("系统错误，请稍后重试！");
+            }else{
+                $("#show").val(data);
+            }
+        }, "json");
+    },
+
+    sendInviteRemindOnclick : function () {
+        var sendusermessage = $("#request").val();
+        InviteCommentsControllerJS.sendInviteRemind(sendusermessage);
+    }
 
 
 }

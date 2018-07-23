@@ -1,0 +1,410 @@
+<div class="main">
+    <div id="wrapper">
+        <!-- 顶部 -->
+        <header>
+            <img src="../images/btn_back_n@2x.png" alt class="goBack" onclick="back()" /> 这是论坛
+            <div class="rightIcon clearfix">
+                <div class="fr contactsIcon" onclick="clicked('index.html#/percenter',false,false)">
+                    <img src="../images/btn_my_n@2x.png" alt />
+                </div>
+                <div class="fr addIcon" onclick="clicked('index.html#/sendPost',false,false)">
+                    <img src="../images/btn_add_n@2x.png" alt />
+                </div>
+            </div>
+        </header>
+        <div class="mainBox">
+            <!-- 搜索框 -->
+            <div class="search pos1">
+                <input type="text" class="secInput" value="" placeholder="搜帖子" ng-focus="curFocus($event);curBlur($event)" />
+                <span ng-click="searchSth($event)"></span>
+            </div>
+            <!-- tab导航 -->
+            <div class="tabBox">
+                <div class="find_nav">
+                    <div class="find_nav_left pos1">
+                        <div class="find_nav_list" id="pagenavi1">
+                            <ul class="pos1 find_nav_ul">
+                                <li ng-repeat="tab in tabData" on-finish-render-filters>
+                                    <a href="#">{{tab.topicName}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="slider1" class="swipe">
+                    <ul class="box01_list">
+                        <li class="li_list">
+                            <!-- 置顶帖子 -->
+                            <div class="newsBox">
+                                <div class="news pos1" ng-repeat="new in newsData" ng-click="topGoPostDetail($event)">
+                                    <div class="newsList clearfix">
+                                        <p class="newsType fl">置顶</p>
+                                        <p class="newsText fl">{{new.postContent}}</p>
+                                        <input type="hidden" class="postId" value="{{new.postId}}">
+                                        <input type="hidden" class="userid" value="{{new.userId}}">
+                                    </div>
+                                    <span class="tiPic">
+                                        <!-- <img ng-src="{{new.refuseReason}}" alt="" /> -->
+                                        <img src="../images/img_Label@2x.png" alt="" />
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- 非置顶帖子 -->
+                            <div class="invitationBoxList">
+                                <div class="invitationBox" ng-repeat="noTop in noTopData">
+                                    <div class="infoText" ng-click="goPostDetail($event)">
+                                        <!-- 头部信息 -->
+                                        <div class="invitationList">
+                                            <div class="invitationHead clearfix">
+                                                <p class="fl headPic">
+                                                    <!-- <img ng-src="{{noTop.refuseReason}}" alt /> -->
+                                                    <img src="../images/invitationPic.jpg" alt="" />
+                                                </p>
+                                                <p class="fl userName" ng-if="anonymityYn!=1">{{noTop.userName}}</p>
+                                                <p class="fl userName" ng-if="anonymityYn==1">匿名发布</p>
+                                                <input type="hidden" class="userId" value="{{noTop.userId}}">
+                                                <!-- <p class="fl userType">
+                                                    <span>产品设计类</span>
+                                                </p> -->
+                                                <p class="fr userTime">{{noTop.createTime}}</p>
+
+                                            </div>
+                                        </div>
+                                        <input type="hidden" class="postId" value="{{noTop.postId}}">
+                                        <!-- 内容 -->
+                                        <div class="innerBox">
+                                            <p class="innerText">{{noTop.postContent}}</p>
+                                            <div class="innerPic swiper-container swiper-container-horizontal">
+                                                <div class="swiper-wrapper">
+                                                    <div class="piclist swiper-slide" ng-repeat="iconImg in noTop.postPicUrlRelateList">
+                                                        <img ng-src="{{iconImg.picUrl}}" alt />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 点赞留言 -->
+                                    <div class="thumbsBox clearfix pos1">
+                                        <div class="message fr">
+                                            <div class="clearfix">
+                                                <p class="fl" ng-click="leaveWord($event)">
+                                                    <img src="../images/btn_comment_n@2x.png" alt />
+                                                </p>
+                                                <span class="fl">{{noTop.commentsCount}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="thumbs fr">
+                                            <div class="clearfix">
+                                                <p class="fl" ng-click="thumbsUp($event)">
+                                                    <img src="../images/btn_laud_n@2x.png" alt ng-if="noTop.likesCount==0" />
+                                                    <img src="../images/btn_laud_p@2x.png" alt ng-if="noTop.likesCount!=0" />
+                                                </p>
+                                                <span class="fl comCount">{{noTop.likesCount}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 点赞记录 留言展示-->
+                                    <div class="thumbShow">
+                                        <div class="thumblist">
+                                            <!-- 点赞 -->
+                                            <div class="records" ng-if="noTop.likesCount!=0">
+                                                <div class="cordBox clearfix">
+                                                    <div class="namelist">
+                                                        <a ng-repeat="like in noTop.postLikesRelateList">{{like.likeUserName}}、</a>
+                                                    </div>
+                                                    <span class="likeNum">等
+                                                        <b>{{noTop.postLikesRelateList.length}}</b>人觉得很赞！</span>
+                                                </div>
+                                            </div>
+                                            <div class="records hide" ng-if="noTop.likesCount==0">
+                                                <div class="cordBox clearfix">
+                                                    <div class="namelist">
+                                                        <a ng-repeat="like in noTop.postLikesRelateList">{{like.likeUserName}}、</a>
+                                                    </div>
+                                                    <span class="likeNum">等
+                                                        <b>{{noTop.postLikesRelateList.length}}</b>人觉得很赞！</span>
+                                                </div>
+                                            </div>
+                                            <div class="showThumbs">
+                                                <!-- 留言输入框 -->
+                                                <div class="inputBox pos1">
+                                                    <div class="clearfix headBtn">
+                                                        <div class="fl ltBtn" ng-click="cancleSendBtn($event)">取消</div>
+                                                        评论
+                                                        <div class="fr rgBtn" ng-click="agreeSendBtn($event)">发表</div>
+                                                    </div>
+                                                    <textarea id="inputVal" placeholder="我也说一句.." maxlength="2000"></textarea>
+                                                    <span class="infoLength">最多2000字！</span>
+                                                </div>
+                                                <!-- 留言展示 -->
+                                                <div class="moreThumbs">
+                                                    <ol class="showSth">
+                                                        <li class="clearfix" ng-repeat="leave in noTop.postCommentsRelateList">
+                                                            <p class="fl thumbName">{{leave.commentContentName}}</p>
+                                                            <p class="fl thumbInfo">{{leave.commentContent}}</p>
+                                                        </li>
+                                                    </ol>
+                                                    <!-- lookmore -->
+                                                    <p class="lookMore hide pos1" ng-click="lookMore($event)">
+                                                        <span>查看更多评论</span>
+                                                        <b></b>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 遮罩层 -->
+                                <div class="shadowBox"></div>
+                            </div>
+                        </li>
+                        <li class="li_list">
+                            <!-- <div class="invitationBox">                             
+                                <div class="invitationList">
+                                    <div class="invitationHead clearfix">
+                                        <p class="fl headPic">..
+                                            <img src="../images/invitationPic.jpg" alt />
+                                        </p>
+                                        <p class="fl userName">卖火柴的小女孩</p>
+
+                                        <p class="fr userTime">2018-07-10 14:58</p>
+                                    </div>
+                                </div>
+                                <div class="innerBox">
+                                    <p class="innerText">咱们公司的新产品，模型已经做出来了，现在给大家看看吧。</p>
+                                    <div class="innerPic hide swiper-container swiper-container-horizontal">
+                                        <div class="swiper-wrapper">
+                                            <div class="piclist swiper-slide">
+                                                <img src="../images/innerPic01.jpg" alt />
+                                            </div>
+                                            <div class="piclist swiper-slide">
+                                                <img src="../images/innerPic02.jpg" alt />
+                                            </div>
+                                            <div class="piclist swiper-slide">
+                                                <img src="../images/innerPic03.jpg" alt />
+                                            </div>
+                                            <div class="piclist swiper-slide">
+                                                <img src="../images/innerPic01.jpg" alt />
+                                            </div>
+                                            <div class="piclist swiper-slide">
+                                                <img src="../images/innerPic02.jpg" alt />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="thumbsBox clearfix pos1">
+                                    <div class="message fr">
+                                        <div class="clearfix">
+                                            <p class="fl">
+                                                <img src="../images/btn_comment_n@2x.png" alt />
+                                            </p>
+                                            <span class="fl">168</span>
+                                        </div>
+                                    </div>
+                                    <div class="thumbs fr">
+                                        <div class="clearfix">
+                                            <p class="fl" ng-click="thumbsUp($event)">
+                                                <img src="../images/btn_laud_n@2x.png" alt />
+                                            </p>
+                                            <span class="fl">1268</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </li>
+                        <li class="li_list"></li>
+                        <li class="li_list">
+                            <!-- <div class="invitationBox">
+                                <div class="invitationList">
+                                    <div class="invitationHead clearfix">
+                                        <p class="fl headPic">
+                                            <img src="../images/invitationPic.jpg" alt />
+                                        </p>
+                                        <p class="fl userName">卖火柴的小女孩</p>
+
+                                        <p class="fr userTime">2018-07-10 14:58</p>
+                                    </div>
+                                </div>
+                                <div class="innerBox">
+                                    <p class="innerText">咱们公司的新产品，模型已经做出来了，现在给大家看看吧。</p>
+                                    <div class="innerPic hide swiper-container swiper-container-horizontal">
+                                        <div class="swiper-wrapper">
+                                            <div class="piclist swiper-slide">
+                                                <img src="../images/innerPic01.jpg" alt />
+                                            </div>
+                                            <div class="piclist swiper-slide">
+                                                <img src="../images/innerPic02.jpg" alt />
+                                            </div>
+                                            <div class="piclist swiper-slide">
+                                                <img src="../images/innerPic03.jpg" alt />
+                                            </div>
+                                            <div class="piclist swiper-slide">
+                                                <img src="../images/innerPic01.jpg" alt />
+                                            </div>
+                                            <div class="piclist swiper-slide">
+                                                <img src="../images/innerPic02.jpg" alt />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="thumbsBox clearfix pos1">
+                                    <div class="message fr">
+                                        <div class="clearfix">
+                                            <p class="fl">
+                                                <img src="../images/btn_comment_n@2x.png" alt />
+                                            </p>
+                                            <span class="fl">168</span>
+                                        </div>
+                                    </div>
+                                    <div class="thumbs fr">
+                                        <div class="clearfix">
+                                            <p class="fl" ng-click="thumbsUp($event)">
+                                                <img src="../images/btn_laud_n@2x.png" alt />
+                                            </p>
+                                            <span class="fl">1268</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  -->
+                        </li>
+                        <li class="li_list"></li>
+                        <li class="li_list"></li>
+                        <li class="li_list">
+                            <div class="hide">
+                                <!-- 问吧达人 -->
+                                <div class="hotIcon clearfix">
+                                    <p class="icon fl">
+                                        <img src="../images/icon_ranking_d@2x.png" alt />
+                                    </p>
+                                    <span class="fl">问吧达人</span>
+                                </div>
+                                <div class="askBox clearfix">
+                                    <div class="askList fl">
+                                        <div class="person pos1">
+                                            <p class="personPic">
+                                                <img src="../images/invitationPic.jpg" alt />
+                                            </p>
+                                            <p class="personName">业务经理助力</p>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                    <div class="askList fl">
+                                        <div class="person pos1">
+                                            <p class="personPic">
+                                                <img src="../images/invitationPic.jpg" alt />
+                                            </p>
+                                            <p class="personName">业务经理助力</p>
+                                            <span style="background:#ff7f21;">2</span>
+                                        </div>
+                                    </div>
+                                    <div class="askList fl">
+                                        <div class="person pos1">
+                                            <p class="personPic">
+                                                <img src="../images/invitationPic.jpg" alt />
+                                            </p>
+                                            <p class="personName">业务经理助力</p>
+                                            <span style="background:#fdcf16;">3</span>
+                                        </div>
+                                    </div>
+                                    <div class="askList fl">
+                                        <div class="person pos1">
+                                            <p class="personPic">
+                                                <img src="../images/invitationPic.jpg" alt />
+                                            </p>
+                                            <p class="personName">业务经理助力</p>
+
+                                        </div>
+                                    </div>
+                                    <div class="askList fl">
+                                        <div class="person pos1">
+                                            <p class="personPic">
+                                                <img src="../images/invitationPic.jpg" alt />
+                                            </p>
+                                            <p class="personName">业务经理助力</p>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- 最热title -->
+                                <div class="hotIcon clearfix">
+                                    <p class="icon fl">
+                                        <img src="../images/icon_Fiery_d@2x.png" alt />
+                                    </p>
+                                    <span class="fl">一周最热</span>
+                                </div>
+                                <!-- 帖子 -->
+                                <div class="invitationBoxList">
+                                    <div class="invitationBox">
+                                        <!-- 头部信息 -->
+                                        <div class="invitationList">
+                                            <div class="invitationHead clearfix">
+                                                <p class="fl headPic">
+                                                    <img src="../images/invitationPic.jpg" alt />
+                                                </p>
+                                                <p class="fl userName">卖火柴的小女孩</p>
+
+                                                <p class="fr userTime">2018-07-10 14:58</p>
+                                            </div>
+                                        </div>
+                                        <!-- 内容 -->
+                                        <div class="innerBox">
+                                            <p class="innerText">咱们公司的新产品，模型已经做出来了，现在给大家看看吧。</p>
+                                            <div class="innerPic swiper-container swiper-container-horizontal">
+                                                <div class="swiper-wrapper">
+                                                    <div class="piclist swiper-slide">
+                                                        <img src="../images/innerPic01.jpg" alt />
+                                                    </div>
+                                                    <div class="piclist swiper-slide">
+                                                        <img src="../images/innerPic02.jpg" alt />
+                                                    </div>
+                                                    <div class="piclist swiper-slide">
+                                                        <img src="../images/innerPic03.jpg" alt />
+                                                    </div>
+                                                    <div class="piclist swiper-slide">
+                                                        <img src="../images/innerPic01.jpg" alt />
+                                                    </div>
+                                                    <div class="piclist swiper-slide">
+                                                        <img src="../images/innerPic02.jpg" alt />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 点赞留言 -->
+                                        <div class="thumbsBox clearfix pos1">
+                                            <div class="message fr">
+                                                <div class="clearfix">
+                                                    <p class="fl">
+                                                        <img src="../images/btn_comment_n@2x.png" alt />
+                                                    </p>
+                                                    <span class="fl">168</span>
+                                                </div>
+                                            </div>
+                                            <div class="thumbs fr">
+                                                <div class="clearfix">
+                                                    <p class="fl" ng-click="thumbsUp($event)">
+                                                        <img src="../images/btn_laud_n@2x.png" alt />
+                                                    </p>
+                                                    <span class="fl">1268</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var swiper = new Swiper('.innerPic', {
+        slidesPerView: 4,
+        spaceBetween: 5,
+        slidesPerColumn: 1
+    });
+</script>

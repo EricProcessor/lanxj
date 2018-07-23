@@ -1,0 +1,66 @@
+<div class="percenter">
+  <div id="wrapper">
+    <!-- top -->
+    <header>
+      <img src="../images/btn_back_n@2x.png" alt="" class="goBack" onclick="back()" /> 我的
+    </header>
+    <!-- 个人信息 -->
+    <div class="percenterInfo pos1">
+      <div class="clearfix headPicBox">
+        <div class="fl leftPic">
+          <img src="../images/invitationPic.jpg" alt="" />
+        </div>
+        <div class="fl rightInfo">
+          <div class="perName">{{name}}</div>
+          <div class="occupation">{{postion}}</div>
+        </div>
+      </div>
+      <div class="infoNumBox clearfix">
+        <div class="fl numList">
+          <p class="numNum">{{postCount}}</p>
+          <p class="numName">发帖数</p>
+        </div>
+        <div class="fl numList">
+          <p class="numNum">{{sendCount}}</p>
+          <p class="numName">评论数</p>
+        </div>
+        <div class="fl numList">
+          <p class="numNum">{{likeCount}}</p>
+          <p class="numName">被赞数</p>
+        </div>
+      </div>
+    </div>
+    <!-- 我的信息-我的动态 -->
+    <div class="myList">
+      <div class="mySth pos1" onclick="clicked('index.html#/myMessage',false,false)">
+        <span></span>
+        我的消息
+        <div class="rightTip clearfix">
+          <p class="fl">{{msgTipCount}}</p>
+          <b class="fr"></b>
+        </div>
+      </div>
+      <div class="mySth pos1" onclick="clicked('index.html#/myConcern',false,false)">
+        <span></span>
+        我的关注
+        <div class="rightTip clearfix">
+          <b class="fr"></b>
+        </div>
+      </div>
+      <div class="mySth pos1" onclick="clicked('index.html#/myDynamic',false,false)">
+        <span></span>
+        我的动态
+        <div class="rightTip clearfix">
+          <b class="fr"></b>
+        </div>
+      </div>
+      <div class="mySth pos1" onclick="clicked('index.html#/plateAngement',false,false)">
+        <span></span>
+        板块设置
+        <div class="rightTip clearfix">
+          <b class="fr"></b>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

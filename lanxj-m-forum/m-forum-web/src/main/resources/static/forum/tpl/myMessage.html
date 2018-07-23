@@ -1,0 +1,18 @@
+<div class="myMessage">
+  <div id="wrapper">
+    <header>
+      <img src="../images/btn_back_n@2x.png" alt="" class="goBack" onclick="back()" /> 我的消息
+    </header>
+    <!-- 详细信息 -->
+    <div class="infoList">
+      <div class="mySth pos1" ng-repeat="msg in msgList" ng-click="toNextHtml($event)">
+        {{msg.msgTypeName}}
+        <div class="rightTip clearfix" >
+          <b class="fr"></b>
+          <p class="fr" ng-if="msg.readYn!=1">{{msg.messagecount}}</p>
+        </div>
+        <input type="hidden" class="msgTypeId" value="{{msg.msgTypeId}}">
+      </div>
+    </div>
+  </div>
+</div>

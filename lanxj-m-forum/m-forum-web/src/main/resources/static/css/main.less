@@ -1,0 +1,495 @@
+body {
+  background: #f0f3f5;
+}
+
+.main {
+  #wrapper {
+    margin-top: 2.75rem;
+  }
+  /*顶部*/
+  header {
+    background: #3399fe;
+    width: 100%;
+    height: 2.75rem;
+    line-height: 2.75rem;
+    font-size: 1rem;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    border: none;
+
+    .rightIcon {
+      position: absolute;
+      top: .65rem;
+      right: 0;
+      z-index: 2;
+
+      .addIcon,
+      .contactsIcon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: .6rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  /*搜索框*/
+
+  .search {
+    background: #3399fe;
+    padding: .7rem;
+
+    .secInput {
+      width: 100%;
+      height: 1.65rem;
+      background: #fff;
+      color: #a7a7a7;
+      text-align: center;
+      border-radius: .8rem;
+      font-size: .75rem;
+    }
+
+    span {
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: url("../images/btn_query_n@2x.png") no-repeat center center;
+      background-size: 100% 100%;
+      position: absolute;
+      top: .75rem;
+      right: 1rem;
+    }
+  }
+
+  /*tab导航*/
+
+  .tabBox {
+    margin-top: -1px;
+    background: #fff;
+
+    .find_nav {
+      background: #3399fe;
+      width: 100%;
+      height: 3rem;
+      display: -moz-box;
+      display: -webkit-box;
+      display: box;
+
+      .find_nav_left {
+        overflow: hidden;
+        -moz-box-flex: 1;
+        -webkit-box-flex: 1;
+        box-flex: 1;
+
+        .find_nav_list {
+          position: absolute;
+          left: 0;
+
+          ul {
+            white-space: nowrap;
+
+            li {
+              display: inline-block;
+              padding: 0;
+              margin: 0 .8rem;
+
+              a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                line-height: 2.65rem;
+                font-size: .8rem;
+                text-align: center;
+                color: #fff;
+              }
+
+            }
+
+            .find_nav_cur {
+              border-bottom: 2px solid #fff;
+            }
+
+            .find_nav_cur span {
+              color: #fff !important;
+            }
+
+            .sideline {
+              display: block;
+              position: absolute;
+              border: 0;
+              height: 2px;
+              background: #fff;
+              left: 0;
+              top: 2.5rem;
+              pointer-events: none;
+            }
+          }
+        }
+      }
+    }
+
+    .swipe {
+      .li_list {
+        /* 产品新闻 */
+        .newsBox {
+          width: 100%;
+          border-top: 4px solid #f0f3f5;
+
+          .news {
+            height: 2rem;
+            text-align: left;
+            border-top: 1px solid #ccc;
+
+            .newsType {
+              font-size: .65rem;
+              background-color: #ffffff;
+              border-radius: 3px;
+              border: solid 1px #3399ff;
+              color: #3399ff;
+              margin: .35rem .5rem;
+              padding: .1rem .25rem;
+            }
+
+            .newsText {
+              width: 13rem;
+              font-size: .65rem;
+              margin: .5rem 0;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+
+            .tiPic {
+              display: block;
+              width: 2rem;
+              height: 2rem;
+              position: absolute;
+              top: 0;
+              right: 0;
+              z-index: 2;
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+
+          .news:nth-child(odd) {
+            border: none;
+          }
+        }
+        /* 榜单 问吧达人 */
+        .askBox {
+          padding: .5rem;
+          border-bottom: .5rem solid #f0f3f5;
+
+          .askList {
+            width: calc(100% /5);
+
+            .personPic {
+              width: 3rem;
+              height: 3rem;
+              border-radius: 50%;
+              margin: 0 auto;
+
+              img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+              }
+            }
+
+            .personName {
+              width: 3rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              font-size: .65rem;
+              margin: 0 auto;
+            }
+
+            span {
+              display: block;
+              width: 1rem;
+              height: 1rem;
+              line-height: .85rem;
+              text-align: center;
+              border-radius: 50%;
+              background: #f00;
+              border: 1px solid #fff;
+              color: #fff;
+              position: absolute;
+              top: 0;
+              left: .25rem;
+            }
+          }
+        }
+        /* 最热title */
+        .hotIcon {
+          width: 100%;
+          height: 2.25rem;
+          line-height: 2.25rem;
+          border-bottom: 1px solid #f0f3f5;
+
+          .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin: .4rem .25rem .4rem .65rem;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          span {
+            font-size: .85rem;
+          }
+        }
+        /* 详细内容 */
+        .invitationBox {
+          border-top: .25rem solid #f0f3f5;
+
+          .invitationList {
+            background: #fff;
+            padding: .5rem .5rem 0;
+
+            .invitationHead {
+              height: 2.5rem;
+              line-height: 2.5rem;
+
+              .headPic {
+                width: 2.25rem;
+                height: 2.25rem;
+                border-radius: 50%;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 50%;
+                }
+              }
+
+              .userName {
+                width: 3rem;
+                text-align: left;
+                font-size: .7rem;
+                margin: 0 .25rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+
+              .userType {
+                span {
+                  font-size: .5rem;
+                  padding: 0 .15rem;
+                  border-radius: 2px;
+                  border: solid 1px #bfbfbf;
+                }
+              }
+
+              .userTime {
+                font-size: .5rem;
+              }
+            }
+          }
+
+          .innerBox {
+            padding-left: 3rem;
+
+            .innerText {
+              text-align: left;
+              font-size: .7rem;
+            }
+
+            .innerPic {
+              margin: .75rem 0;
+
+              .piclist {
+                width: 4rem !important;
+                height: 4rem;
+                border-radius: 6px;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+          }
+
+          .thumbsBox {
+            width: 100%;
+            height: 2rem;
+
+            .message,
+            .thumbs {
+              p {
+                width: 2rem;
+                height: 2rem;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+
+              span {
+                margin: .6rem .5rem 0 -0.25rem;
+              }
+            }
+          }
+          //点赞记录
+          /* 留言展示 */
+          .thumbShow {
+            width: 100%;
+            padding: .25rem 0 .5rem;
+
+            .thumblist {
+              margin: 0 .5rem 0 3rem;
+              background: #f7f7f7;
+
+              .records {
+                padding: 0 .5rem;
+                text-align: left;
+
+                .cordBox {
+                  padding: .25rem 0;
+                  border-bottom: 1px solid #c5b4b4;
+
+                  .namelist {
+                    display: inline-block;
+                    max-width: 9rem;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    a {
+                      text-align: left;
+                      font-size: .64rem;
+                      color: #3399ff;
+                    }
+                  }
+
+                  span {
+                    position: absolute;
+                  }
+
+                  div {
+                    font-size: .65rem;
+                    color: #c5b4b4;
+                  }
+                }
+              }
+
+              .inputBox {
+                width: 100%;
+                height: 7.25rem;
+                background: #fff;
+                border-radius: .1rem;
+                padding: 0 .5rem;
+                position: fixed;
+                bottom: -20rem;
+                left: 0;
+                z-index: 7;
+                // display: none;
+
+                .headBtn {
+                  font-size: .8rem;
+                  font-weight: bold;
+                  padding: .5rem 0;
+                  border-bottom: .1rem solid #f7f7f7;
+
+                  .ltBtn,
+                  .rgBtn {
+                    font-size: .7rem;
+                    color: #3399ff;
+                  }
+
+                  .rgBtn {
+                    font-weight: bold;
+                  }
+                }
+
+                #inputVal {
+                  width: 100%;
+                  height: auto;
+                }
+
+                .infoLength {
+                  position: absolute;
+                  color: #bfbfbf;
+                  bottom: .65rem;
+                  right: .5rem;
+                }
+              }
+
+              .showSth {
+                li {
+                  text-align: left;
+                  padding-left: .5rem;
+                  margin: .5rem 0;
+
+                  .thumbName {
+                    color: #3399ff;
+                    font-size: .65rem;
+                    padding-right: .5rem;
+                  }
+
+                  .thumbInfo {
+                    width: 70%;
+                    font-size: .65rem;
+                  }
+
+                }
+              }
+
+              .lookMore {
+                text-align: right;
+                padding-right: 1.5rem;
+                height: 1.25rem;
+                line-height: 1.25rem;
+
+                span {
+                  font-size: .65rem;
+                  color: #3399ff;
+                }
+
+                b {
+                  display: block;
+                  width: 1.25rem;
+                  height: 1.25rem;
+                  background: url('../images/Reply_btn_drop-down@2x.png') no-repeat center center;
+                  background-size: 100% 100%;
+                  position: absolute;
+                  top: 0;
+                  right: .25rem;
+                  z-index: 2;
+                }
+              }
+            }
+          }
+        }
+
+        .shadowBox {
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, .6);
+          position: fixed;
+          top: 0;
+          left: 0;
+          display: none;
+          z-index: 6;
+        }
+      }
+    }
+  }
+}

@@ -6,6 +6,18 @@
     <script type="text/javascript" src="/static/js/postInfo/PostLikesComments.js"/>
 
 
+    <!-- 埋点 begin -->
+    <script type="text/javascript">
+        var jaq = jaq || [];
+        jaq.push(['userId',111111]);
+        jaq.push(['userIp',"111.222.111"]);
+        (function() {
+            var ja = document.createElement('script'); ja.type = 'text/javascript'; ja.async = true;
+            ja.src = ('https:' == document.location.protocol ? 'https://wlssl' : 'http://wl') + '.jd.com/joya.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ja, s);
+        })();
+    </script>
+    <!-- 埋点 end -->
     <head>
         <meta charset="UTF-8"/>
         <title>测试</title>
@@ -22,7 +34,9 @@
             <input type="button" id="queryPostInfoByPostId" value="查询帖子详情" onclick="forumPostInfoJS.queryPostInfoByPostIdOnclick()"/>
             <input type="button" id="queryTopPostsByTopicId" value="查询置顶帖子列表" onclick="forumPostInfoJS.queryTopPostsByTopicIdOnClick()"/>
             <input type="button" id="queryNoTopPostsByTopicId" value="查询非置顶帖子列表" onclick="forumPostInfoJS.queryNoTopPostsByTopicIdOnClick()"/>
+            <input type="button" id="queryPageNoTopPostsByTopicId" value="查询gcr非置顶帖子列表" onclick="forumPostInfoJS.queryPageNoTopPostsByTopicIdOnClick()"/>
             <input type="button" id="insertPostInfo" value="新增帖子" onclick="forumPostInfoJS.addPostInfoOnClick()"/>
+            <input type="button" id="queryPostByContent" value="帖子搜索" onclick="forumPostInfoJS.queryPostByContentOnclick()"/>
         </div>
         <div>
             <input type="button" id="insertPostLike" value="新增点赞" onclick="postLikesComments.insertPostLikeOnclick()"/>

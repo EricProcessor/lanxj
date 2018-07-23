@@ -1,0 +1,107 @@
+.followPostComment #wrapper {
+  margin-top: 0;
+  /* 点赞列表 */
+  /* 信息空的情况 */
+}
+.followPostComment #wrapper header {
+  background: #3399fe;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.followPostComment #wrapper header span {
+  font-size: .7rem;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 .5rem;
+  z-index: 2;
+}
+.followPostComment #wrapper .pariseBox {
+  padding: 0 .5rem;
+}
+.followPostComment #wrapper .pariseBox .pariseList {
+  text-align: left;
+  background: #fff;
+  margin-top: .5rem;
+  width: 100%;
+  padding-left: .5rem;
+  border-radius: .1rem;
+}
+.followPostComment #wrapper .pariseBox .pariseList .timeline {
+  font-size: .65rem;
+  padding: .75rem 0 .5rem;
+}
+.followPostComment #wrapper .pariseBox .pariseList .pariseInfo {
+  font-size: .7rem;
+  padding-bottom: 1.5rem;
+}
+.followPostComment #wrapper .pariseBox .pariseList .pariseInfo p,
+.followPostComment #wrapper .pariseBox .pariseList .pariseInfo span {
+  font-size: .8rem;
+}
+.followPostComment #wrapper .pariseBox .pariseList .pariseInfo .lookDetail {
+  font-size: .7ren;
+  color: #3399ff;
+  border-bottom: 1px solid #3399ff;
+  position: absolute;
+  bottom: .6rem;
+  right: .6rem;
+}
+.followPostComment #wrapper .pariseBox .pariseList .pariseInfo .firstName {
+  color: #3399ff;
+  width: 4.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.followPostComment #wrapper .pariseBox .pariseList .pariseInfo .lastName {
+  color: #3399ff;
+}
+.followPostComment #wrapper .pariseBox .pariseList .pariseInfo .lastName span {
+  color: #3399ff;
+}
+.followPostComment #wrapper .pariseBox .pariseList .pariseInfo .lastName p {
+  width: 5rem;
+  color: #3399ff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.followPostComment #wrapper .nothingBox .nothingText {
+  width: 60%;
+  margin: 0 auto;
+  position: absolute;
+  top: 25%;
+  left: 20%;
+}
+.followPostComment #wrapper .nothingBox .nothingText .nothingImg {
+  width: 100%;
+  height: auto;
+}
+.followPostComment #wrapper .nothingBox .nothingText .nothingImg img {
+  width: 100%;
+  height: 100%;
+}
+.followPostComment #wrapper .nothingBox .nothingText .nothing {
+  font-size: .75rem;
+  padding: .5rem 0;
+  letter-spacing: 2px;
+}
+.followPostComment #wrapper .nothingBox p {
+  width: 78%;
+  margin: 0 auto;
+  font-size: .75rem;
+  color: #3399ff;
+  border: 1px solid #3399ff;
+  padding: .2rem .5rem;
+  border-radius: .2rem;
+}

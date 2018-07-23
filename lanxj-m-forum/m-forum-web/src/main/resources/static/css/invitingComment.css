@@ -1,0 +1,150 @@
+body {
+  background: #f0f3f5;
+}
+.invitingComment #wrapper {
+  margin-top: 3.5rem;
+}
+.invitingComment header {
+  background: #3399fe;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  font-size: 0.85rem;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border: none;
+}
+.invitingComment header .goBack {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 2;
+}
+.invitingComment header .rightIcon {
+  position: absolute;
+  top: 0rem;
+  right: 0.6rem;
+  z-index: 2;
+  font-size: 0.85rem;
+  color: #fff;
+}
+.invitingComment .content .search {
+  padding: 0 0.7rem 0.7rem;
+}
+.invitingComment .content .search .secInput {
+  width: 100%;
+  height: 1.65rem;
+  background: #fff;
+  color: #a7a7a7;
+  text-align: center;
+  border-radius: .8rem;
+  font-size: .75rem;
+}
+.invitingComment .content .search span {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url(../images/btn_query_n@2x.png) no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: .05rem;
+  right: 1rem;
+}
+.invitingComment .content .list li {
+  width: 100%;
+  height: 3rem;
+  background: #fff;
+  margin-bottom: 0.25rem;
+}
+.invitingComment .content .list li .picture {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  float: left;
+  margin: 0.55rem;
+}
+.invitingComment .content .list li .picture img {
+  width: 100%;
+  height: 100%;
+}
+.invitingComment .content .list li span {
+  display: inline-block;
+  height: 3rem;
+  line-height: 3rem;
+  float: left;
+}
+.invitingComment .content .list li input {
+  width: 1.1rem;
+  height: 1.1rem;
+  float: right;
+  margin: 0.95rem;
+  background: #fff;
+  position: absolute;
+}
+.invitingComment .content .list li .check {
+  width: 1.1rem;
+  height: 1.1rem;
+  float: right;
+  margin: 0.95rem;
+  background: #fff;
+}
+.invitingComment .content .list li .check img {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.invitingComment .invitingPopup {
+  width: 11rem;
+  height: 10rem;
+  background-color: #ffffff;
+  box-shadow: 0px 0.125rem 0.25rem 0px rgba(0, 0, 0, 0.4);
+  border-radius: 0.15rem;
+  position: absolute;
+  top: 8.4rem;
+  left: 50%;
+  border: 1px solid #999;
+  margin-left: -5.5rem;
+}
+.invitingComment .invitingPopup h3 {
+  font-family: MicrosoftYaHei;
+  font-size: 0.7rem;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #000000;
+  padding: 0.4rem;
+}
+.invitingComment .invitingPopup p {
+  color: #333333;
+}
+.invitingComment .invitingPopup p span {
+  color: #3399ff;
+}
+.invitingComment .invitingPopup textarea {
+  width: 10rem;
+  height: 5rem;
+  background-color: #f5f5f5;
+  border: solid 1px #d1d1d1;
+  margin-top: 0.4rem;
+  padding: 0.2rem 0.3rem;
+  margin-bottom: 0.3rem;
+}
+.invitingComment .invitingPopup .ifSend span {
+  display: block;
+  font-size: 0.6rem;
+  color: #333333;
+  text-align: center;
+  width: 50%;
+  float: left;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  border-top: solid 1px #d1d1d1;
+}
+.invitingComment .invitingPopup .ifSend span:nth-of-type(1) {
+  border-right: solid 1px #d1d1d1;
+}

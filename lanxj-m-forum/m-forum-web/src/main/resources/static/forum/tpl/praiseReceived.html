@@ -1,0 +1,45 @@
+<!-- 收到的赞 -->
+<div class="praiseReceived">
+    <div id="wrapper">
+        <header>
+            <img src="../images/btn_back_n@2x.png" alt="" class="goBack" onclick="back()" /> 收到的赞
+        </header>
+        <ol class="pariseBox">
+            <li class="pariseList" ng-repeat="msg in msgPraiseList" ng-click="toPostDetail($event)">
+                <p class="timeline">2018-07-11 10:32</p>
+                <div class="pariseInfo clearfix">
+                    <!-- <p class="fl firstName">{{msg.postuserName}}</p> -->
+                    <span class="fl">您帖子</span>
+                    <div class="fl lastName">
+                        <div class="clearfix">
+                            <span class="fl">[</span>
+                            <p class="fl">{{msg.postPrefixContext}}</p>
+                            <span class="fl">]</span>
+                        </div>
+                    </div>
+                    <span class="fl">收到新的赞！</span>
+                </div>
+                <input type="hidden" class="postId" value="{{msg.postId}}" />   
+                <input type="hidden" class="msgId" value="{{msg.msgId}}" />
+            </li>
+        </ol>
+        <!-- 没有信息 显示效果 -->
+        <div class="nothingBox hide">
+            <div class="nothingText">
+                <div class="nothingImg">
+                    <img src="../images/img_No-data_d.png" alt="">
+                </div>
+                <div class="nothing">暂无数据</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    // 监听后退事件
+    document.addEventListener("plusready", function () {
+        plus.key.addEventListener("backbutton", function () {
+            window.history.back();
+        }, false);
+    });
+</script>

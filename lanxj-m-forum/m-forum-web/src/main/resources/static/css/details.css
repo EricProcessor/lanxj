@@ -1,0 +1,393 @@
+body {
+  background: #f0f3f5;
+  height: auto;
+}
+/*顶部*/
+.details #wrapper {
+  margin-top: 2.8rem;
+}
+.details header {
+  background: #3399fe;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  font-size: .85rem;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  border: none;
+}
+.details header .goBack {
+  position: absolute;
+  top: .65rem;
+  left: .5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 2;
+}
+.details header .rightIcon {
+  position: absolute;
+  top: 0.75rem;
+  right: .6rem;
+  z-index: 2;
+  font-size: .85rem;
+  color: #fff;
+}
+.details header .rightIcon img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.details .content {
+  height: auto;
+}
+.details .content .invitationBox {
+  background: #fff;
+  margin-bottom: .1rem;
+  padding-bottom: .5rem;
+}
+.details .content .invitationBox .invitationList {
+  background: #fff;
+  padding: .5rem .5rem 0;
+}
+.details .content .invitationBox .invitationList .invitationHead {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.details .content .invitationBox .invitationList .invitationHead .headPic {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+}
+.details .content .invitationBox .invitationList .invitationHead .headPic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.details .content .invitationBox .invitationList .invitationHead .userName {
+  width: 5rem;
+  font-size: .7rem;
+  margin: 0 .25rem;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.details .content .invitationBox .invitationList .invitationHead .userTime {
+  font-size: .7rem;
+  color: #999999;
+}
+.details .content .invitationBox .invitationList .invitationHead .innerBox {
+  padding-left: 3rem;
+}
+.details .content .invitationBox .innerBox {
+  padding-left: 3rem;
+  background: #fff;
+}
+.details .content .invitationBox .innerBox .innerText {
+  text-align: left;
+  font-size: .85rem;
+}
+.details .content .invitationBox .innerBox .imgList {
+  overflow: hidden;
+  margin: .5rem 0;
+}
+.details .content .invitationBox .innerBox .imgList .piclist {
+  width: 4.75rem !important;
+  height: 4.75rem;
+  border-radius: 6px;
+  float: left;
+  margin-bottom: 5px;
+}
+.details .content .invitationBox .innerBox .imgList .piclist img {
+  width: 100%;
+  height: 100%;
+}
+.details .content .invitationBox .thumbsBox {
+  width: 100%;
+  height: 2rem;
+}
+.details .content .invitationBox .thumbsBox .message p img {
+  width: 2rem;
+  height: 2rem;
+}
+.details .content .invitationBox .thumbsBox .message span {
+  font-size: .7rem;
+  margin: 0.5rem 0.5rem 0 -0.25rem;
+}
+.details .content .invitationBox .thumbsBox .thumbs p img {
+  width: 2rem;
+  height: 2rem;
+}
+.details .content .invitationBox .thumbsBox .thumbs span {
+  font-size: .7rem;
+  margin: 0.5rem 0.5rem 0 -0.25rem;
+}
+.details .goodCommentBox {
+  padding-bottom: 3rem;
+}
+.details .goodCommentBox .commentList {
+  background: #fff;
+}
+.details .goodCommentBox .commentList .commentTitle {
+  font-size: .8rem;
+  color: #3399ff;
+  text-align: left;
+  padding: .5rem;
+  border-bottom: 1px solid #ccc;
+}
+.details .goodCommentBox .commentList .commentTitle span {
+  font-size: 0.7rem;
+}
+.details .goodCommentBox .commentList .commentTitle span b {
+  font-size: 0.7rem;
+  padding: 0 0.2rem;
+  color: #3399ff;
+}
+.details .goodCommentBox .commentList .invitationHead {
+  line-height: 2.5rem;
+  padding: .5rem;
+}
+.details .goodCommentBox .commentList .invitationHead .headPic {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+}
+.details .goodCommentBox .commentList .invitationHead .headPic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.details .goodCommentBox .commentList .invitationHead .userName {
+  width: 3rem;
+  text-align: left;
+  font-size: .7rem;
+  margin: 0 .25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.details .goodCommentBox .commentList .invitationHead .invited {
+  background: #3399ff;
+  color: #fff;
+  font-size: .7rem;
+  border-radius: .2rem;
+  line-height: 1rem;
+  padding: .25rem .5rem;
+  margin: .5rem 0;
+}
+.details .goodCommentBox .commentList .invitationHead .userType span {
+  font-size: .5rem;
+  padding: 0 .15rem;
+  border-radius: 2px;
+  border: solid 1px #bfbfbf;
+}
+.details .goodCommentBox .commentList .invitationHead .userTime {
+  font-size: .5rem;
+}
+.details .goodCommentBox .commentList .innerBox {
+  padding: 0 0 .5rem 3rem;
+  border-bottom: 1px dotted #f3f3f3;
+}
+.details .goodCommentBox .commentList .innerBox .innerText {
+  text-align: left;
+  font-size: .7rem;
+  padding: .5rem 2.5rem 0 0;
+}
+.details .goodCommentBox .commentList .innerBox .innerPic {
+  margin-top: .5rem;
+}
+.details .goodCommentBox .commentList .innerBox .innerPic .piclist {
+  width: 4rem !important;
+  height: 4rem;
+  border-radius: 6px;
+}
+.details .goodCommentBox .commentList .innerBox .innerPic .piclist img {
+  width: 100%;
+  height: 100%;
+}
+.details .goodCommentBox .commentList .innerBox .detailThumbs {
+  height: 2rem;
+  line-height: 1.9rem;
+  position: absolute;
+  top: 0;
+  right: .5rem;
+  z-index: 2;
+}
+.details .goodCommentBox .commentList .innerBox .detailThumbs .delThumbImg {
+  width: 2rem;
+  height: 2rem;
+}
+.details .goodCommentBox .commentList .innerBox .detailThumbs .delThumbImg img {
+  width: 100%;
+  height: 100%;
+}
+.details .footerBox {
+  width: 100%;
+  background: #fff;
+  padding: .25rem 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+.details .footerBox .footList {
+  display: inline-block;
+  width: calc(31.25%);
+  line-height: 2rem;
+}
+.details .footerBox .footList .footImg {
+  width: 2rem;
+  height: 2rem;
+}
+.details .footerBox .footList .footImg img {
+  width: 100%;
+  height: 100%;
+}
+.details .footerBox .footList .fristImg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: .2rem;
+}
+.details .footerBox .footList .fristImg img {
+  width: 100%;
+  height: 100%;
+}
+.details .footerBox .footList span {
+  font-size: .8rem;
+}
+.details .shadow {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  display: none;
+}
+.details .inputBox {
+  width: 100%;
+  height: 7.25rem;
+  background: #fff;
+  border-radius: .1rem;
+  padding: 0 .5rem;
+  position: fixed;
+  bottom: -20rem;
+  left: 0;
+  z-index: 7;
+}
+.details .inputBox .headBtn {
+  font-size: .8rem;
+  font-weight: bold;
+  padding: .5rem 0;
+  border-bottom: .1rem solid #f7f7f7;
+}
+.details .inputBox .headBtn .ltBtn,
+.details .inputBox .headBtn .rgBtn {
+  font-size: .7rem;
+  color: #3399ff;
+}
+.details .inputBox .headBtn .rgBtn {
+  font-weight: bold;
+}
+.details .inputBox #inputVal {
+  width: 100%;
+  height: auto;
+}
+.details .inputBox .infoLength {
+  position: absolute;
+  color: #bfbfbf;
+  bottom: .65rem;
+  right: .5rem;
+}
+.details .WonderfulCom {
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.details .WonderfulCom .WonderfulCom_title {
+  text-align: left;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  border-bottom: 1px solid #dfdfdf;
+}
+.details .WonderfulCom .WonderfulCom_title img {
+  transform: rotateY(180deg);
+  height: 1.6rem;
+  margin-left: .2rem;
+}
+.details .WonderfulCom .WonderfulCom_title span {
+  font-size: .6rem;
+  color: #333333;
+}
+.details .WonderfulCom .Inviter {
+  background: #fff;
+  padding: .5rem .5rem 0;
+}
+.details .WonderfulCom .Inviter .invitationHead {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.details .WonderfulCom .Inviter .invitationHead .headPic {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+}
+.details .WonderfulCom .Inviter .invitationHead .headPic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.details .WonderfulCom .Inviter .invitationHead .userName {
+  width: 4.25rem;
+  font-size: .7rem;
+  margin: 0 .25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.details .WonderfulCom .Inviter .invitationHead .userTime {
+  font-size: .5rem;
+  color: #999999;
+}
+.details .WonderfulCom .Inviter .invitationHead .innerBox {
+  padding-left: 3rem;
+}
+.details .WonderfulCom .Inviter .invitationHead .userType span {
+  font-size: .5rem;
+  padding: 0 .15rem;
+  border-radius: 2px;
+  background-color: #3399ff;
+  color: #ffffff;
+}
+.details .WonderfulCom .comment {
+  height: 2.95rem;
+  box-shadow: 0 6px 20px 10px #dfdfdf;
+}
+.details .WonderfulCom .comment .comment_text {
+  float: left;
+  width: 12rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  background-color: #f0f3f5;
+  border-radius: .45rem;
+  border: solid 1px #dadada;
+  margin: .65rem .75rem;
+}
+.details .WonderfulCom .comment li {
+  width: 2.4rem;
+  float: left;
+  margin-top: .6rem;
+  margin-left: .15rem;
+}
+.details .WonderfulCom .comment li img {
+  width: .95rem;
+  height: .95rem;
+}
+.details .WonderfulCom .comment li p {
+  font-size: .5rem;
+  color: #999;
+}
