@@ -1,0 +1,159 @@
+.postDetail_title {
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #dfdfdf;
+  font-family: MicrosoftYaHei;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 48px;
+  letter-spacing: 0px;
+  color: #494949;
+  padding: 10px 30px 12px;
+}
+.postDetail_title i {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background: transparent url(../image/sprite.png) -30px -281px no-repeat;
+}
+.postDetail_title b {
+  margin-right: 10px;
+}
+.postDetail_title span {
+  color: #777777;
+}
+.postDetail_content {
+  background-color: #fff;
+  padding-bottom: 30px;
+}
+.postDetail_content .fl {
+  float: left;
+}
+.postDetail_content li {
+  overflow: hidden;
+}
+.postDetail_content li > span {
+  height: 40px;
+  line-height: 40px;
+  padding-right: 20px;
+  text-align: right;
+  display: inline-block;
+  width: 362px;
+  margin: 30px 0 0 0;
+  color: #494949;
+  font-weight: bold;
+}
+.postDetail_content li > div {
+  margin: 30px 0 0 0;
+  padding-left: 20px;
+  border-left: 2px solid #eee;
+}
+.postDetail_content li > div span {
+  display: inline-block;
+  min-height: 40px;
+  line-height: 40px;
+}
+.postDetail_content li > div .useImg {
+  width: 60px;
+  height: 60px;
+  background-color: #dadada;
+  border-radius: 50%;
+}
+.postDetail_content li > div p {
+  width: 696px;
+}
+.postDetail_content li > div p img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 5px;
+}
+.postDetail_content li .commentList {
+  overflow: hidden;
+  width: 624px;
+}
+.postDetail_content li .commentList dl {
+  float: left;
+  width: 540px;
+  padding: 11px 0;
+}
+.postDetail_content li .commentList dl dt {
+  font-family: MicrosoftYaHei;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #0076ff;
+}
+.postDetail_content li .commentList dl dd {
+  color: #333333;
+  font-size: 16px;
+  line-height: 24px;
+}
+.postDetail_content li .commentList dl .deleat {
+  margin: 23px 20px;
+  float: right;
+  width: 24px;
+  height: 24px;
+  background: transparent url(../image/sprite.png) -30px -365px no-repeat;
+}
+.postDetail_content li .commentList .deleat_this {
+  width: 624px;
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+.postDetail_content li .commentList .deleat_this .deleat {
+  margin: 23px 20px;
+  float: right;
+  width: 24px;
+  height: 24px;
+  background: transparent url(../image/sprite.png) -30px -365px no-repeat;
+}
+.postDetail_content li .commentList .clickMore {
+  margin: 20px auto 10px;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  color: #0076ff;
+}
+.postDetail_content li .fillIn h6 {
+  font-family: MicrosoftYaHei;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 48px;
+  letter-spacing: 0px;
+  color: #777777;
+}
+.postDetail_content li .fillIn textarea {
+  width: 620px;
+  height: 180px;
+}
+.postDetail_content li .fillIn select {
+  width: 140px;
+  height: 40px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  font-family: MicrosoftYaHei;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #494949;
+  padding-left: 20px;
+}
+.postDetail_content li .fillIn .fillInBtn select {
+  float: left;
+}
+.postDetail_content li .fillIn .fillInBtn input[type="button"] {
+  width: 120px;
+  height: 40px;
+  background-color: #0076ff;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #ffffff;
+  float: right;
+}

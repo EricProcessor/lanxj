@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../static/css/common.css" />
+    <link rel="stylesheet" href="../../../static/css/bace.css" />
+</head>
+
+<body>
+    <header class="x-content">
+        <div class="x-container flexs">
+            <img src="../../../static/image/x-logo.png" alt="">
+            <ul class="nav flexs">
+                <li class="active" data-url="../dataStatistics/dataStatistics.html">数据统计</li>
+                <li data-url="../blockManagement/blockMange.html">板块管理</li>
+                <li data-url="../auditManagement/auditManagement.html">审核管理</li>
+                <li>用户管理</li>
+                <li>系统设置</li>
+            </ul>
+            <div class="settings">
+                <span>帮助中心</span>
+                <span>|</span>
+                <span>退出</span>
+            </div>
+        </div>
+    </header>
+<iframe id="external-frame" src="../blockManagement/blockMange.html" frameborder="0" width="100%" scrolling="no" onload="javascript:setIframeHeight(document.getElementById('external-frame'));"></iframe>
+</body>
+<script src="../../../static/js/lib/jquery-1.12.4.js"></script>
+<script src="../../../static/js/lib/header.js"></script>
+</html>

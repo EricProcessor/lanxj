@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../static/css/common.css">
+    <link rel="stylesheet" href="../../../static/css/bace.css">
+    <link rel="stylesheet" href="../../../static/css/dataStatistics.css">
+    <link rel="stylesheet" href="../../../static/css/blockMange.css">
+
+</head>
+
+<body>
+    <!-- <header class="x-content">
+        <div class="x-container flexs">
+            <img src="../../../../static/image/x-logo.png" alt="">
+            <ul class="nav flexs">
+                <li class="active">数据统计</li>
+                <li>板块管理</li>
+                <li>审核管理</li>
+                <li>用户管理</li>
+                <li>系统设置</li>
+            </ul>
+            <div class="settings">
+                <span>帮助中心</span>
+                <span>|</span>
+                <span>退出</span>
+            </div>
+        </div>
+    </header> -->
+    <!-- 第一部分内容 -->
+    <div class="x-content tabl-txt-bg">
+        <div class="x-container">
+           <input type="button" class="newBlock" value="新增版块"/>
+           <div class="use">
+                <h3>启用中的版块</h3>
+                <li>
+                    <div class="use_li_left">
+                        <div class="use_li_left_title">
+                            <div class="use_li_left_title_img">
+                                <!-- <img src="../../../../static/image/head1.png" alt=""/> -->
+                            </div>
+                            <span>生活类</span>
+                        </div>
+                        <dl>
+                            <b>访问权限</b>
+                            <span>全体员工</span>
+                        </dl>
+                        <dl>
+                            <b>发帖设置</b>
+                            <i class='dl_img1'></i>
+                            <!-- <img src="../../../../static/image/sprite.png" class='dl_img1' alt=""/> -->
+                            <span>容许匿名</span>
+                            <i class='dl_img2'></i>
+                            <!-- <img src="../../../../static/image/sprite.png" class='dl_img2' alt=""/> -->
+                            <span>无需审核</span>
+                        </dl>
+                    </div>
+                    <div class="use_li_right">
+                        <input type="button" class="Discontinuation" value="停用">
+                        <input type="button" class="modify" value="修改">
+                    </div>
+                </li>
+                <li>
+                    <div class="use_li_left">
+                        <div class="use_li_left_title">
+                            <div class="use_li_left_title_img">
+                                <!-- <img src="../../../../static/image/head1.png" alt=""/> -->
+                            </div>
+                            <span>管理类</span>
+                        </div>
+                        <dl>
+                            <b>访问权限</b>
+                            <span>全体员工</span>
+                        </dl>
+                        <dl>
+                            <b>发帖设置</b>
+                            <i class='dl_img1'></i>
+                            <!-- <img src="../../../../static/image/sprite.png" class='dl_img1' alt=""/> -->
+                            <span>容许匿名</span>
+                            <i class='dl_img2'></i>
+                            <!-- <img src="../../../../static/image/sprite.png" class='dl_img2' alt=""/> -->
+                            <span>无需审核</span>
+                        </dl>
+                    </div>
+                    <div class="use_li_right">
+                        <input type="button" class="Discontinuation" value="停用">
+                        <input type="button" class="modify" value="修改">
+                    </div>
+                </li>
+                <li>
+                    <div class="use_li_left">
+                        <div class="use_li_left_title">
+                            <div class="use_li_left_title_img">
+                                <!-- <img src="../../../../static/image/head1.png" alt=""/> -->
+                            </div>
+                            <span>质量类</span>
+                        </div>
+                        <dl>
+                            <b>访问权限</b>
+                            <span>全体员工</span>
+                        </dl>
+                        <dl>
+                            <b>发帖设置</b>
+                            <i class='dl_img1'></i>
+                            <!-- <img src="../../../../static/image/sprite.png" class='dl_img1' alt=""/> -->
+                            <span>容许匿名</span>
+                            <i class='dl_img2'></i>
+                            <!-- <img src="../../../../static/image/sprite.png" class='dl_img2' alt=""/> -->
+                            <span>无需审核</span>
+                        </dl>
+                    </div>
+                    <div class="use_li_right">
+                        <input type="button" class="Discontinuation" value="停用">
+                        <input type="button" class="modify" value="修改">
+                    </div>
+                </li>
+           </div>
+           <div class="use ">
+            <h3>已停用的版块</h3>
+            <li>
+                <div class="use_li_left">
+                    <div class="use_li_left_title">
+                        <div class="use_li_left_title_img">
+                            <!-- <img src="../../../../static/image/head1.png" alt=""/> -->
+                        </div>
+                        <span>管理类</span>
+                    </div>
+                    <dl>
+                        <b>访问权限</b>
+                        <span>全体员工</span>
+                    </dl>
+                    <dl>
+                        <b>发帖设置</b>
+                        <i class='dl_img1'></i>
+                        <!-- <img src="../../../../static/image/sprite.png" class='dl_img1' alt=""/> -->
+                        <span>容许匿名</span>
+                        <i class='dl_img2'></i>
+                        <!-- <img src="../../../../static/image/sprite.png" class='dl_img2' alt=""/> -->
+                        <span>无需审核</span>
+                    </dl>
+                </div>
+                <div class="use_li_right">
+                    <input type="button" class="Discontinuation" value="启用">
+                </div>
+            </li>
+        </div>
+    </div>
+    
+</body>
+<script src="../../../static/js/lib/jquery-1.12.4.js"></script>
+<script src="../../../static/layui/layui.all.js"></script>
+<script>
+    $('.Discontinuation').on('click', function () { //delete删除
+        layer.open({
+        type: 1,
+        title: '删除帖子',
+        area: ['500px', '260px'],
+        btn: ['停用', '取消'],
+        shadeClose: true, //点击遮罩关闭
+        content: '<div class="deleteShadow">停用该板块后,App将看不到板块入口</div>'
+        });
+    });
+    $('.modify').on('click', function () { //delete删除
+        layer.open({
+        type: 1,
+        title: '新增版块',
+        area: ['500px', '710px'],
+        btn: ['确定', '取消'],
+        shadeClose: true, //点击遮罩关闭
+        content: content
+        });
+    });
+    var content = '<div class="newModel">'+
+                    '<li>'+
+                        '<h3>板块名称</h3>'+
+                        '<span class="modelName">榜单</span>'+
+                    '</li>'+
+                    '<li>'+
+                        '<h3>板块图片</h3>'+
+                        '<div class="col-md-8">'+
+                            '<div class="preview">'+
+                                '<img id="preview"/>'+
+                            '</div>'+
+                            '<input class=" mtbp" type="file" name="file" onchange="imgPreview(this)" />'+
+                        '</div>'+
+                        '<p>所上传的图片最好是在200*200像素以内，文件大小在20KB到200KB之间，文件格式为jpg或png格式</p>'+
+                    '</li>'+
+                    '<li>'+
+                        '<h3>访问权限</h3>'+
+                        '<label><input type="radio" name="authority">全体员工</label>'+
+                        '<label><input type="radio" name="authority">白名单员工</label>'+
+                        '<label><input type="radio" name="authority">黑名单员工</label>'+
+                    '</li>'+
+                    '<li>'+
+                        '<h3>发帖设置</h3>'+
+                        '<label><input type="radio" name="anonymous">实名发帖</label>'+
+                        '<label><input type="radio" name="anonymous">容许匿名</label><br>'+
+                        '<label><input type="radio" name="examine">需要审核</label>'+
+                        '<label><input type="radio" name="examine">无需审核</label>'+
+                    '</li>'+
+                '</div>'
+
+    function imgPreview(fileDom){
+        //判断是否支持FileReader
+        if (window.FileReader) {
+            var reader = new FileReader();
+        } else {
+            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+        }
+
+        //获取文件
+        var file = fileDom.files[0];
+        var imageType = /^image\//;
+        //是否是图片
+        if (!imageType.test(file.type)) {
+            alert("请选择图片！");
+            return;
+        }
+        //读取完成
+        reader.onload = function(e) {
+            //获取图片dom
+            var img = document.getElementById("preview");
+            //图片路径设置为读取的图片
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+    
+</script>
+</html>
