@@ -1,0 +1,97 @@
+<div class="myConcern">
+  <div id="wrapper">
+    <header>
+      <img src="../images/btn_back_n@2x.png" alt="" class="goBack" onclick="back()" /> 我的关注
+    </header>
+    <!-- 关注信息 -->
+    <div class="collectBox">
+      <div class="invitationBox" ng-repeat="i in noTopData">
+        <div class="infoText" ng-click="goPostDetail($event)">
+          <!-- 头部信息 -->
+          <div class="invitationList">
+            <div class="invitationHead clearfix pos1">
+              <p class="fl headPic">
+                <img src="../images/invitationPic.jpg" alt="" />
+              </p>
+              <p class="fl userName" id="{{i.userId}}">{{i.userName}}</p>
+              <input type="hidden" class="userId" value="{{noTop.userId}}">
+              <p class="userTime">{{i.createTime}}</p>
+              <!-- <div class="collect" ng-click="collect($event)"></div> -->
+            </div>
+          </div>
+          <input type="hidden" class="postId" value="{{i.postId}}">
+          <!-- 内容 -->
+          <div class="innerBox">
+            <p class="innerText">{{i.postContent}}</p>
+            <div class="innerPic swiper-container swiper-container-horizontal">
+              <div class="swiper-wrapper">
+                <div class="piclist swiper-slide" ng-repeat="iconImg in i.postPicUrlRelateList">
+                    <img ng-src="{{iconImg.picUrl}}" alt />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 点赞留言图标 -->
+        <div class="thumbsBox clearfix pos1">
+          <div class="message fr">
+            <div class="clearfix">
+              <p class="fl" ng-click="linkHref($event)">
+                <img src="../images/btn_comment_n@2x.png" alt="">
+              </p>
+              <span class="fl">{{i.commentsCount}}</span>
+            </div>
+          </div>
+          <div class="thumbs fr">
+            <div class="clearfix">
+              <p class="fl" ng-click="thumbsUp($event)">
+                <img src="../images/btn_laud_n@2x.png" alt="">
+              </p>
+              <span class="fl">{{i.likesCount}}</span>
+            </div>
+          </div>
+        </div>
+        <!-- 留言展示 -->
+        <div class="thumbShow">
+          <div class="thumblist">
+            <ol class="showSth">
+              <li class="clearfix" ng-repeat="leave in i.postCommentsRelateList">
+                  <p class="fl thumbName">{{leave.commentUserName}}</p>
+                  <p class="fl thumbInfo">{{leave.commentContent}}</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="shadow"></div>
+    <!-- 取关 -->
+    <div class="cancelCollect">
+      <p class="caCollect">取消关注</p>
+      <p class="caInfo">取消此条信息的关注？</p>
+      <div class="selectBtn">
+        <p class="leftBtn" ng-click="sureBtn($event)">确定</p>
+        <p class="rightBtn" ng-click="cancelBtn($event)">取消</p>
+      </div>
+    </div>
+    <!-- 没有信息 显示效果 -->
+    <div class="nothingBox hide">
+      <div class="nothingText">
+        <div class="nothingImg">
+          <img src="../images/img_no-message_d.png" alt="">
+        </div>
+        <div class="nothing">您还没有关注任何信息</div>
+        <p>去看看一周最热的帖子</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+  var swiper = new Swiper('.innerPic', {
+    slidesPerView: 4,
+    spaceBetween: 5,
+    slidesPerColumn: 1
+  });
+</script>

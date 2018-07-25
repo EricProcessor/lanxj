@@ -1,0 +1,355 @@
+<div class="main">
+    <div id="wrapper">
+        <!-- 顶部 -->
+        <header>
+            <img src="../images/btn_back_n@2x.png" alt class="goBack" onclick="back()" /> 这是论坛
+            <div class="rightIcon clearfix">
+                <div class="fr contactsIcon" onclick="clicked('index.html#/percenter',false,false)">
+                    <img src="../images/btn_my_n@2x.png" alt />
+                </div>
+                <div class="fr addIcon" onclick="clicked('index.html#/sendPost',false,false)">
+                    <img src="../images/btn_add_n@2x.png" alt />
+                </div>
+            </div>
+        </header>
+        <!-- <div id="pullrefresh" class="mui-content mui-scroll-wrapper"> -->
+        <!-- <div class="mui-scroll mui-table-view-cell"> -->
+        <div class="mainBox">
+            <!-- 搜索框 -->
+            <div class="search pos1">
+                <input type="text" class="secInput" value="" placeholder="搜帖子" ng-focus="curFocus($event);curBlur($event)" />
+                <span ng-click="searchSth($event)"></span>
+            </div>
+            <!-- tab导航 -->
+            <div class="tabBox">
+                <div class="find_nav">
+                    <div class="find_nav_left pos1">
+                        <div class="find_nav_list" id="pagenavi1">
+                            <ul class="pos1 find_nav_ul">
+                                <li>
+                                    <a href="#">全部</a>
+                                    <input type="hidden" class="topicId" value="0">
+                                </li>
+
+                                <li ng-repeat="tab in tabData" ng-click="loadSelfInfo($event)" on-finish-render-filters>
+                                    <a href="#">{{tab.topicName}}</a>
+                                    <input type="hidden" class="topicId" value="{{tab.topicId}}">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="slider1" class="swipe" when-scrolled="loadMore()">
+                    <ul class="box01_list">
+                        <li class="li_list">
+<div class="newsBox">
+    <div class="news pos1" ng-repeat="new in newsData" ng-click="topGoPostDetail($event)">
+        <div class="newsList clearfix">
+            <p class="newsType fl">置顶</p>
+            <p class="newsText fl">{{new.postContent}}</p>
+            <input type="hidden" class="postId" value="{{new.postId}}">
+            <input type="hidden" class="userid" value="{{new.userId}}">
+        </div>
+        <span class="tiPic">
+            <img src="../images/img_Label@2x.png" alt="" />
+        </span>
+    </div>
+</div>
+<div class="invitationBoxList">
+    <div class="invitationBox" ng-repeat="noTop in noTopData">
+        <div class="infoText" ng-click="goPostDetail($event)">
+            <div class="invitationList">
+                <div class="invitationHead clearfix">
+                    <p class="fl headPic">
+                        <img ng-src="{{noTop.headUrl}}" alt />
+                    </p>
+                    <p class="fl userName" ng-if="anonymityYn!=1">{{noTop.userName}}</p>
+                    <p class="fl userName" ng-if="anonymityYn==1">匿名发布</p>
+                    <input type="hidden" class="userId" value="{{noTop.userId}}">
+                    <p class="fr userTime">{{noTop.createTime}}</p>
+
+                </div>
+            </div>
+            <input type="hidden" class="postId" value="{{noTop.postId}}">
+            <div class="innerBox">
+                <p class="innerText">{{noTop.postContent}}</p>
+                <div class="innerPic swiper-container swiper-container-horizontal">
+                    <div class="swiper-wrapper">
+                        <div class="piclist swiper-slide" ng-repeat="iconImg in noTop.postPicUrlRelateList" ng-if="noTop.postPicUrlRelateList.length>0">
+                            <img ng-src="{{iconImg.picUrl}}" alt />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="thumbsBox clearfix pos1">
+            <div class="message fr">
+                <div class="clearfix">
+                    <p class="fl" ng-click="leaveWord($event)">
+                        <img src="../images/btn_comment_n@2x.png" alt />
+                    </p>
+                    <span class="fl">{{noTop.commentsCount}}</span>
+                </div>
+            </div>
+            <div class="thumbs fr">
+                <div class="clearfix">
+                    <p class="fl" ng-click="thumbsUp($event)">
+                        <img src="../images/btn_laud_n@2x.png" alt ng-if="noTop.likesCount==0" />
+                        <img src="../images/btn_laud_p@2x.png" alt ng-if="noTop.likesCount!=0" />
+                    </p>
+                    <span class="fl comCount">{{noTop.likesCount}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="thumbShow">
+            <div class="thumblist">
+
+                <div class="records" ng-if="noTop.likesCount!=0">
+                    <div class="cordBox clearfix">
+                        <div class="namelist">
+                            <a ng-repeat="like in noTop.postLikesRelateList">{{like.likeUserName}}、</a>
+                        </div>
+                        <span class="likeNum">等
+                            <b>{{noTop.postLikesRelateList.length}}</b>人觉得很赞！</span>
+                    </div>
+                </div>
+                <div class="records hide" ng-if="noTop.likesCount==0">
+                    <div class="cordBox clearfix">
+                        <div class="namelist">
+                            <a ng-repeat="like in noTop.postLikesRelateList">{{like.likeUserName}}、</a>
+                        </div>
+                        <span class="likeNum">等
+                            <b>{{noTop.postLikesRelateList.length}}</b>人觉得很赞！</span>
+                    </div>
+                </div>
+                <div class="showThumbs">
+
+                    <div class="inputBox pos1">
+                        <div class="clearfix headBtn">
+                            <div class="fl ltBtn" ng-click="cancleSendBtn($event)">取消</div>
+                            评论
+                            <div class="fr rgBtn" ng-click="agreeSendBtn($event)">发表</div>
+                        </div>
+                        <textarea id="inputVal" placeholder="我也说一句.." maxlength="2000"></textarea>
+                        <span class="infoLength">最多2000字！</span>
+                    </div>
+
+                    <div class="moreThumbs">
+                        <ol class="showSth">
+                            <li class="clearfix" ng-repeat="leave in noTop.postCommentsRelateList">
+                                <p class="fl thumbName">{{leave.commentContentName}}</p>
+                                <p class="fl thumbInfo">{{leave.commentContent}}</p>
+                            </li>
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shadowBox"></div>
+</div>
+                        </li>
+                        <li class="li_list" ng-repeat="tab in tabData">
+                            <input type="hidden" class="needVal" value="{{tab.topicId}}">
+                            <div class="li_listBox" ng-if="tab.topicId!=1006">
+                                <div class="newsBox">
+                                    <div class="news pos1" ng-repeat="new in newsData" ng-click="topGoPostDetail($event)">
+                                        <div class="newsList clearfix">
+                                            <p class="newsType fl">置顶</p>
+                                            <p class="newsText fl">{{new.postContent}}</p>
+                                            <input type="hidden" class="postId" value="{{new.postId}}">
+                                            <input type="hidden" class="userid" value="{{new.userId}}">
+                                        </div>
+                                        <span class="tiPic">
+                                            <img src="../images/img_Label@2x.png" alt="" />
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="invitationBoxList">
+                                    <div class="invitationBox" ng-repeat="noTop in noTopData">
+                                        <div class="infoText" ng-click="goPostDetail($event)">
+                                            <div class="invitationList">
+                                                <div class="invitationHead clearfix">
+                                                    <p class="fl headPic">
+                                                        <img ng-src="{{noTop.headUrl}}" alt />
+                                                    </p>
+                                                    <p class="fl userName" ng-if="anonymityYn!=1">{{noTop.userName}}</p>
+                                                    <p class="fl userName" ng-if="anonymityYn==1">匿名发布</p>
+                                                    <input type="hidden" class="userId" value="{{noTop.userId}}">
+                                                    <p class="fr userTime">{{noTop.createTime}}</p>
+
+                                                </div>
+                                            </div>
+                                            <input type="hidden" class="postId" value="{{noTop.postId}}">
+                                            <div class="innerBox">
+                                                <p class="innerText">{{noTop.postContent}}</p>
+                                                <div class="innerPic swiper-container swiper-container-horizontal">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="piclist swiper-slide" ng-repeat="iconImg in noTop.postPicUrlRelateList" ng-if="noTop.postPicUrlRelateList.length>0">
+                                                            <img ng-src="{{iconImg.picUrl}}" alt />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="thumbsBox clearfix pos1">
+                                            <div class="message fr">
+                                                <div class="clearfix">
+                                                    <p class="fl" ng-click="leaveWord($event)">
+                                                        <img src="../images/btn_comment_n@2x.png" alt />
+                                                    </p>
+                                                    <span class="fl">{{noTop.commentsCount}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="thumbs fr">
+                                                <div class="clearfix">
+                                                    <p class="fl" ng-click="thumbsUp($event)">
+                                                        <img src="../images/btn_laud_n@2x.png" alt ng-if="noTop.likesCount==0" />
+                                                        <img src="../images/btn_laud_p@2x.png" alt ng-if="noTop.likesCount!=0" />
+                                                    </p>
+                                                    <span class="fl comCount">{{noTop.likesCount}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="thumbShow">
+                                            <div class="thumblist">
+
+                                                <div class="records" ng-if="noTop.likesCount!=0">
+                                                    <div class="cordBox clearfix">
+                                                        <div class="namelist">
+                                                            <a ng-repeat="like in noTop.postLikesRelateList">{{like.likeUserName}}、</a>
+                                                        </div>
+                                                        <span class="likeNum">等
+                                                            <b>{{noTop.postLikesRelateList.length}}</b>人觉得很赞！</span>
+                                                    </div>
+                                                </div>
+                                                <div class="records hide" ng-if="noTop.likesCount==0">
+                                                    <div class="cordBox clearfix">
+                                                        <div class="namelist">
+                                                            <a ng-repeat="like in noTop.postLikesRelateList">{{like.likeUserName}}、</a>
+                                                        </div>
+                                                        <span class="likeNum">等
+                                                            <b>{{noTop.postLikesRelateList.length}}</b>人觉得很赞！</span>
+                                                    </div>
+                                                </div>
+                                                <div class="showThumbs">
+
+                                                    <div class="inputBox pos1">
+                                                        <div class="clearfix headBtn">
+                                                            <div class="fl ltBtn" ng-click="cancleSendBtn($event)">取消</div>
+                                                            评论
+                                                            <div class="fr rgBtn" ng-click="agreeSendBtn($event)">发表</div>
+                                                        </div>
+                                                        <textarea id="inputVal" placeholder="我也说一句.." maxlength="2000"></textarea>
+                                                        <span class="infoLength">最多2000字！</span>
+                                                    </div>
+
+                                                    <div class="moreThumbs">
+                                                        <ol class="showSth">
+                                                            <li class="clearfix" ng-repeat="leave in noTop.postCommentsRelateList">
+                                                                <p class="fl thumbName">{{leave.commentContentName}}</p>
+                                                                <p class="fl thumbInfo">{{leave.commentContent}}</p>
+                                                            </li>
+                                                        </ol>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="shadowBox"></div>
+                                </div>
+                            </div>
+                            <div class="infomation" ng-if="tab.topicId==1006">
+                                <div class="hotIcon clearfix hide">
+                                    <p class="icon fl">
+                                        <img src="../images/icon_ranking_d@2x.png" alt />
+                                    </p>
+                                    <span class="fl">问吧达人</span>
+                                </div>
+                                <div class="askBox clearfix">
+                                    <div class="askList fl" ng-repeat="pank in userRank">
+                                        <div class="person pos1">
+                                            <p class="personPic">
+                                                <img ng-src="{{pank.headUrl}}" alt />
+                                            </p>
+                                            <p class="personName">{{pank.userName}}</p>
+                                            <input type="hidden" class="userId" value="{{pank.userId}}">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="hotIcon clearfix hide">
+                                    <p class="icon fl">
+                                        <img src="../images/icon_Fiery_d@2x.png" alt />
+                                    </p>
+                                    <span class="fl">一周最热</span>
+                                </div>
+
+                                <div class="invitationBoxList">
+                                    <div class="invitationBox" ng-repeat="host in hostPostData">
+
+                                        <div class="invitationList">
+                                            <div class="invitationHead clearfix">
+                                                <p class="fl headPic">
+                                                    <img ng-src="{{host.headUrl}}" alt />
+                                                </p>
+                                                <p class="fl userName">{{host.userName}}</p>
+                                                <p class="fr userTime">{{host.createTime}}</p>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" class="postId" value="{{host.postId}}">
+
+                                        <div class="innerBox">
+                                            <p class="innerText">{{host.postContent}}</p>
+                                            <div class="innerPic swiper-container swiper-container-horizontal" ng-if="host.postPicUrlRelateList.length>0">
+                                                <div class="swiper-wrapper">
+                                                    <div class="piclist swiper-slide" ng-repeat="rank in host.postPicUrlRelateList.length">
+                                                        <img ng-src="{{rank.picUrl}}" alt />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="thumbsBox clearfix pos1">
+                                            <div class="message fr">
+                                                <div class="clearfix">
+                                                    <p class="fl">
+                                                        <img src="../images/btn_comment_n@2x.png" alt />
+                                                    </p>
+                                                    <span class="fl">{{host.commentsCount}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="thumbs fr">
+                                                <div class="clearfix">
+                                                    <p class="fl" ng-click="thumbsUp($event)">
+                                                        <img src="../images/btn_laud_n@2x.png" alt />
+                                                    </p>
+                                                    <span class="fl">{{host.likesCount}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+        <!-- </div> -->
+    </div>
+</div>
+
+<script>
+    var swiper = new Swiper('.innerPic', {
+        slidesPerView: 4,
+        spaceBetween: 5,
+        slidesPerColumn: 1
+    });
+</script>

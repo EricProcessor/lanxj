@@ -1,0 +1,31 @@
+<div class="followPost">
+    <div id="wrapper">
+        <!-- top -->
+        <header class="pos1">
+            <img src="../images/btn_back_n@2x.png" alt="" class="goBack" onclick="back()" /> 关注帖子邀请评论
+            <span>清空</span>
+        </header>
+        <ol class="pariseBox">
+            <li class="pariseList" ng-repeat="msg in msgPraiseList"  ng-click="toPostDetail($event)">
+                <p class="timeline">2018-07-11 10:32</p>
+                <div class="pariseInfo pos1 clearfix">
+                    <span class="fl">您关注</span>
+                    <p class="fl firstName">{{msg.postuserName}}</p>
+                    <span class="fl">的帖子</span>
+                    <div class="fl lastName">
+                        <div class="clearfix">
+                            <span class="fl">[</span>
+                            <p class="fl">{{msg.postPrefixContext}}</p>
+                            <span class="fl">]</span>
+                        </div>
+                    </div>
+                    <span class="fl">有新的邀请评论了。</span>
+                    <div class="lookDetail">查看详情</div>
+                </div>
+            </li>
+        </ol>
+    </div>
+</div>
+<script>
+    
+</script>

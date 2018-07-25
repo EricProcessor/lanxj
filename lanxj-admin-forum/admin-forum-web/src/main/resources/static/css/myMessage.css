@@ -1,0 +1,76 @@
+.myMessage {
+  /*顶部*/
+  /* 内容 */
+}
+.myMessage #wrapper {
+  margin-top: 2.75rem;
+}
+.myMessage header {
+  background: #3399fe;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  margin-bottom: .5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.myMessage header .rightIcon {
+  position: absolute;
+  top: .65rem;
+  right: 0;
+  z-index: 2;
+}
+.myMessage header .rightIcon .addIcon,
+.myMessage header .rightIcon .contactsIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: .6rem;
+}
+.myMessage header .rightIcon .addIcon img,
+.myMessage header .rightIcon .contactsIcon img {
+  width: 100%;
+  height: 100%;
+}
+.myMessage .infoList .mySth {
+  text-align: left;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding: 0 .7rem;
+  font-size: .9rem;
+  background: #fff;
+  margin-bottom: 1px;
+  padding-left: 1.25rem;
+}
+.myMessage .infoList .mySth .rightTip {
+  width: 3.5rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  position: absolute;
+  top: .7rem;
+  right: .7rem;
+  z-index: 2;
+  text-align: center;
+}
+.myMessage .infoList .mySth .rightTip p {
+  padding: 0 0.4rem;
+  background: #f25864;
+  font-size: .7rem;
+  color: #fff;
+  border-radius: .7rem;
+  margin-right: 0.2rem;
+}
+.myMessage .infoList .mySth .rightTip b {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url('../images/btn_my-news_n@2x.png') no-repeat center center;
+  background-size: 100% 100%;
+}
+.myMessage .infoList .mySth:nth-child(2) {
+  margin-bottom: .25rem;
+}

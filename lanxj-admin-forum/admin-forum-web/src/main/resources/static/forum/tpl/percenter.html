@@ -1,0 +1,179 @@
+<div class="percenter">
+  <div id="wrapper">
+    <!-- top -->
+    <header>
+      <img src="../images/btn_back_n@2x.png" alt="" class="goBack" onclick="back()" /> 我的
+    </header>
+    <!-- 个人信息 -->
+    <div class="percenterInfo pos1">
+      <div class="clearfix headPicBox">
+        <div class="fl leftPic" ng-click="selectPicHead($event)">
+          <img class="infoImg" ng-if="headUrl==null" src="../images/invitationPic.jpg" alt="" />
+          <img class="infoImg" ng-if="headUrl!=null" ng-src="{{headUrl}}" alt="" />
+        </div>
+        <div class="fl rightInfo">
+          <div class="perName">{{name}}</div>
+          <div class="occupation">{{position}}</div>
+        </div>
+      </div>
+      <div class="infoNumBox clearfix">
+        <div class="fl numList">
+          <p class="numNum">{{postCount}}</p>
+          <p class="numName">发帖数</p>
+        </div>
+        <div class="fl numList">
+          <p class="numNum">{{sendCount}}</p>
+          <p class="numName">评论数</p>
+        </div>
+        <div class="fl numList">
+          <p class="numNum">{{likeCount}}</p>
+          <p class="numName">被赞数</p>
+        </div>
+      </div>
+    </div>
+    <!-- 我的信息-我的动态 -->
+    <div class="myList">
+      <div class="mySth pos1" ng-click="jumpNextHtml($event)">
+        <span></span>
+        我的消息
+        <div class="rightTip clearfix">
+          <p class="fl">{{msgTipCount}}</p>
+          <b class="fr"></b>
+        </div>
+      </div>
+      <div class="mySth pos1" ng-click="jumpNextHtml($event)">
+        <span></span>
+        我的关注
+        <div class="rightTip clearfix">
+          <b class="fr"></b>
+        </div>
+      </div>
+      <div class="mySth pos1" ng-click="jumpNextHtml($event)">
+        <span></span>
+        我的动态
+        <div class="rightTip clearfix">
+          <b class="fr"></b>
+        </div>
+      </div>
+      <div class="mySth pos1" ng-click="jumpNextHtml($event)">
+        <span></span>
+        板块设置
+        <div class="rightTip clearfix">
+          <b class="fr"></b>
+        </div>
+      </div>
+    </div>
+    <!-- 头像 -->
+    <div class="pictureBox pos1">
+      <div class="shadows"></div>
+      <ul class="headPicBoxList">
+        <li>
+          <img src="../images/head_pic/constellation/constellation_1.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_2.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_3.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_4.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_5.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_6.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_7.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_8.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_9.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_10.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_11.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/constellation/constellation_12.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/arrogant/arrogant_man_1.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/arrogant/arrogant_man_2.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/arrogant/arrogant_man_3.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/arrogant/arrogant_man_4.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/arrogant/arrogant_woman_1.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/arrogant/arrogant_woman_2.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/arrogant/arrogant_woman_3.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/arrogant/arrogant_woman_4.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/color/color_man_1.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/color/color_man_2.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/color/color_man_3.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/color/color_woman_1.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/color/color_woman_2.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/color/color_woman_3.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/default/default_man1.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/default/default_man2.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/default/default_woman1.jpg" alt="">
+        </li>
+        <li>
+          <img src="../images/head_pic/default/default_woman2.jpg" alt="">
+        </li>
+      </ul>
+      <p ng-click="closeThisPic($event)">
+        <img src="../images/close.png" alt="">
+      </p>
+    </div>
+  </div>
+</div>
+<script>
+  //判断是否是iphoneX  
+  function isIPhoneX(fn) {
+    var u = navigator.userAgent;
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isIOS) {
+      if (screen.height == 812 && screen.width == 375) {
+        $(".headPicBoxList").css("height", "36.5rem")
+      }
+    }
+  }
+  isIPhoneX();
+</script>

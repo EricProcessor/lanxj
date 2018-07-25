@@ -1,0 +1,94 @@
+<div class="myDynamic">
+  <div id="wrapper">
+    <header>
+      <img src="../images/btn_back_n@2x.png" alt="" class="goBack" onclick="back()" /> 我的动态
+    </header>
+    <!-- 动态 -->
+    <div class="myDynamicBox">
+      <div class="invitationBox" ng-repeat="dynamic in DynamicData">
+        <input type="hidden" class="postId" value="{{dynamic.postId}}">
+        <!-- 头部信息 -->
+        <div class="invitationList">
+          <div class="invitationHead clearfix pos1">
+            <p class="fl headPic">
+              <img src="../images/invitationPic.jpg" alt="" />
+            </p>
+            <p class="fl userName">{{dynamic.userName}}</p>
+            <p class="fr userTime">{{dynamic.createTime}}</p>
+          </div>
+        </div>
+        <!-- 内容 -->
+        <div class="innerBox">
+          <p class="innerText">{{dynamic.postContent}}</p>
+          <!-- 违规行为提示 -->
+          <div class="illegalBox" ng-if="dynamic.postStatus==30">
+            <div class="illegal">
+              <p>您的发帖已被管理员拒绝</p>
+              <p>拒绝原因：{{dynamic.refuseReason}}</p>
+            </div>
+          </div>
+          <div class="innerPic swiper-container swiper-container-horizontal" ng-if="dynamic.postPicUrlRelateList!=''">
+            <div class="swiper-wrapper">
+              <div class="piclist swiper-slide" ng-repeat="dynamicImg in dynamic.postPicUrlRelateList">
+                <img ng-src="{{dynamicImg.picUrl}}" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 点赞留言图标 -->
+        <div class="thumbsBox clearfix pos1">
+          <div class="message fr">
+            <div class="clearfix">
+              <p class="fl" ng-click="linkHref($event)">
+                <img src="../images/btn_comment_n@2x.png" alt="" />
+              </p>
+              <span class="fl">{{dynamic.commentsCount}}</span>
+            </div>
+          </div>
+          <div class="thumbs fr">
+            <div class="clearfix">
+              <p class="fl" ng-click="thumbsUp($event)">
+                <img src="../images/btn_laud_n@2x.png" alt="" />
+              </p>
+              <span class="fl">{{dynamic.likesCount}}</span>
+            </div>
+          </div>
+        </div>
+        <!-- 留言展示 -->
+        <div class="thumbShow" ng-if="(dynamic.refuseReason=='')&&(dynamic.postCommentsRelateList.length!=0)">
+          <div class="thumblist">
+            <ol class="showSth">
+              <li class="clearfix" ng-repeat="comDyna in dynamic.postCommentsRelateList">
+                <p class="fl thumbName">{{comDyna.commentUserName}}</p>
+                <p class="fl thumbInfo">{{comDyna.commentContent}}</p>
+              </li>
+            </ol>
+            <!-- lookmore -->
+            <!-- <p class="lookMore pos1" ng-if="dynamic.postCommentsRelateList.length>1" ng-click="lookMoreInfo($event)">
+              <span>查看更多评论</span>
+              <b></b>
+            </p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 没有信息 显示效果 -->
+    <div class="nothingBox hide ">
+      <div class="nothingText">
+        <div class="nothingImg">
+          <img src="../images/img_Empty-state_d.png" alt="">
+        </div>
+        <div class="nothing">您没有发布不过帖子</div>
+        <p onclick="clicked('index.html#/sendPost',false,false)">现在去发布</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var swiper = new Swiper('.innerPic', {
+    slidesPerView: 4,
+    spaceBetween: 5,
+    slidesPerColumn: 1
+  });
+</script>

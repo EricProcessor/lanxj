@@ -1,0 +1,205 @@
+body {
+  background: #f0f3f5;
+}
+
+.percenter {
+  #wrapper {
+    margin-top: 2.75rem;
+  }
+  /*顶部*/
+  header {
+    background: #3399fe;
+    width: 100%;
+    height: 2.75rem;
+    line-height: 2.75rem;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    .rightIcon {
+      position: absolute;
+      top: 0.65rem;
+      right: 0;
+      z-index: 2;
+      .addIcon,
+      .contactsIcon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.6rem;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  /* 个人信息 帖子数据  */
+  .percenterInfo {
+    width: 100%;
+    height: 7.5rem;
+    background: #3399ff;
+    margin-top: -1px;
+    .headPicBox {
+      padding: 0.75rem;
+      .leftPic {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        margin: 0 0.25rem;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+      .rightInfo {
+        text-align: left;
+        height: 3.5rem;
+        line-height: 1.25rem;
+        margin-left: 0.5rem;
+        .perName {
+          padding: 0.5rem 0 0.25rem;
+          text-align: center;
+          font-size: 0.85rem;
+          color: #fff;
+        }
+        .occupation {
+          padding: 0.1rem 0.5rem;
+          border-radius: 0.65rem;
+          background: #2781da;
+          font-size: 0.75rem;
+          color: #fff;
+        }
+      }
+    }
+    .infoNumBox {
+      background: #fff;
+      width: 80%;
+      height: 4rem;
+      border-radius: 0.25rem;
+      position: absolute;
+      bottom: -2rem;
+      left: 10%;
+    //   z-index: 2;
+      .numList {
+        width: calc(100% / 3);
+        .numNum {
+          font-size: 0.9rem;
+          padding: 0.6rem 0;
+        }
+        .numName {
+          font-size: 0.65rem;
+          color: #999;
+        }
+      }
+    }
+  }
+  /* 我的信息等  */
+  .myList {
+    margin-top: 2.75rem;
+    .mySth {
+      text-align: left;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      padding: 0 0.7rem;
+      font-size: 0.9rem;
+      padding-left: 2.65rem;
+      background: #fff;
+      margin-bottom: 1px;
+      span {
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: url("../images/btn_follow_p@2x.png") no-repeat center center;
+        background-size: 100% 100%;
+        position: absolute;
+        top: 0.5rem;
+        left: 0.7rem;
+        z-index: 2;
+      }
+      .rightTip {
+        width: 3.5rem;
+        height: 1.25rem;
+        line-height: 1.25rem;
+        position: absolute;
+        top: 0.7rem;
+        right: 0.7rem;
+        z-index: 2;
+        text-align: center;
+        p {
+          width: 2rem;
+          background: #f25864;
+          font-size: 0.7rem;
+          color: #fff;
+          border-radius: 0.7rem;
+        }
+        b {
+          display: block;
+          width: 1.25rem;
+          height: 1.25rem;
+          background: url("../images/btn_my-news_n@2x.png") no-repeat center
+            center;
+          background-size: 100% 100%;
+        }
+      }
+    }
+    .mySth:first-child {
+      margin-bottom: 0.25rem;
+    }
+    .mySth:last-child {
+      margin-top: 0.25rem;
+    }
+  }
+  .pictureBox {
+    display: none;
+    .shadows {
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 6;
+    } // 头像
+    .headPicBoxList {
+      width: 100%;
+      height: 29.25rem;
+      overflow-y: auto;
+      position: fixed;
+      top: 4rem;
+      left: 0;
+      z-index: 7;
+      li {
+        display: inline-block;
+        width: 5rem;
+        height: 5rem;
+        margin-left: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 50%;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+    }
+    p {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      position: fixed;
+      top: 1rem;
+      left: 44%;
+      z-index: 7;
+      padding: 0.25rem;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

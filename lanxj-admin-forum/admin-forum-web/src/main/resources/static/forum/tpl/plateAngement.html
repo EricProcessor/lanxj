@@ -1,0 +1,43 @@
+<div class="plateAngement">
+  <div id="wrapper">
+    <header>
+      <img src="../images/btn_back_n@2x.png" alt="" class="goBack" onclick="back()"> 板块设置
+    </header>
+    <p class="followed">已经关注的模块</p>
+    <div class="modularBox">
+      <ul class="modalList">
+        <li class="clearfix" ng-repeat="plate in plateData">
+          <p class="fl modalImg">
+            <img ng-src="{{plate.iconUrl}}" alt="" />
+          </p>
+          <p class="fl modalText">{{plate.topicName}}</p>
+          <input type="hidden" class="topicId" value="{{plate.topicId}}">
+          <span class="fr modalFollow" ng-click="cancelFollowed($event)">已关注</span>
+          <!-- 取消关注 -->
+          <div class="shadow"></div>
+          <div class="cancelCollect">
+            <p class="caCollect">取消关注</p>
+            <p class="caInfo">删除对此板块的关注</p>
+            <div class="selectBtn">
+              <p class="leftBtn" ng-click="sureBtn($event)">确定</p>
+              <p class="rightBtn" ng-click="cancelBtn($event)">取消</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <p class="unFollow">未关注的模块</p>
+    <div class="modularBox">
+      <ul class="modalList">
+        <li class="clearfix noFollow" ng-repeat="late in palteCancle">
+          <p class="fl modalImg">
+            <img ng-src="{{late.iconUrl}}" alt="" />
+          </p>
+          <p class="fl modalText">{{late.topicName}}</p>
+          <span class="fr modalFollow" ng-click="clickFollow($event)">关注</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

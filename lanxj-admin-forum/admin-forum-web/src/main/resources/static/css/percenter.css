@@ -1,0 +1,203 @@
+body {
+  background: #f0f3f5;
+}
+.percenter {
+  /*顶部*/
+  /* 个人信息 帖子数据  */
+  /* 我的信息等  */
+}
+.percenter #wrapper {
+  margin-top: 2.75rem;
+}
+.percenter header {
+  background: #3399fe;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.percenter header .rightIcon {
+  position: absolute;
+  top: 0.65rem;
+  right: 0;
+  z-index: 2;
+}
+.percenter header .rightIcon .addIcon,
+.percenter header .rightIcon .contactsIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.6rem;
+}
+.percenter header .rightIcon .addIcon img,
+.percenter header .rightIcon .contactsIcon img {
+  width: 100%;
+  height: 100%;
+}
+.percenter .percenterInfo {
+  width: 100%;
+  height: 7.5rem;
+  background: #3399ff;
+  margin-top: -1px;
+}
+.percenter .percenterInfo .headPicBox {
+  padding: 0.75rem;
+}
+.percenter .percenterInfo .headPicBox .leftPic {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  margin: 0 0.25rem;
+}
+.percenter .percenterInfo .headPicBox .leftPic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.percenter .percenterInfo .headPicBox .rightInfo {
+  text-align: left;
+  height: 3.5rem;
+  line-height: 1.25rem;
+  margin-left: 0.5rem;
+}
+.percenter .percenterInfo .headPicBox .rightInfo .perName {
+  padding: 0.5rem 0 0.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #fff;
+}
+.percenter .percenterInfo .headPicBox .rightInfo .occupation {
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.65rem;
+  background: #2781da;
+  font-size: 0.75rem;
+  color: #fff;
+}
+.percenter .percenterInfo .infoNumBox {
+  background: #fff;
+  width: 80%;
+  height: 4rem;
+  border-radius: 0.25rem;
+  position: absolute;
+  bottom: -2rem;
+  left: 10%;
+}
+.percenter .percenterInfo .infoNumBox .numList {
+  width: calc(33.33333333%);
+}
+.percenter .percenterInfo .infoNumBox .numList .numNum {
+  font-size: 0.9rem;
+  padding: 0.6rem 0;
+}
+.percenter .percenterInfo .infoNumBox .numList .numName {
+  font-size: 0.65rem;
+  color: #999;
+}
+.percenter .myList {
+  margin-top: 2.75rem;
+}
+.percenter .myList .mySth {
+  text-align: left;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding: 0 0.7rem;
+  font-size: 0.9rem;
+  padding-left: 2.65rem;
+  background: #fff;
+  margin-bottom: 1px;
+}
+.percenter .myList .mySth span {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url("../images/btn_follow_p@2x.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.7rem;
+  z-index: 2;
+}
+.percenter .myList .mySth .rightTip {
+  width: 3.5rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 2;
+  text-align: center;
+}
+.percenter .myList .mySth .rightTip p {
+  width: 2rem;
+  background: #f25864;
+  font-size: 0.7rem;
+  color: #fff;
+  border-radius: 0.7rem;
+}
+.percenter .myList .mySth .rightTip b {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url("../images/btn_my-news_n@2x.png") no-repeat center center;
+  background-size: 100% 100%;
+}
+.percenter .myList .mySth:first-child {
+  margin-bottom: 0.25rem;
+}
+.percenter .myList .mySth:last-child {
+  margin-top: 0.25rem;
+}
+.percenter .pictureBox {
+  display: none;
+}
+.percenter .pictureBox .shadows {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+}
+.percenter .pictureBox .headPicBoxList {
+  width: 100%;
+  height: 29.25rem;
+  overflow-y: auto;
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  z-index: 7;
+}
+.percenter .pictureBox .headPicBoxList li {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+}
+.percenter .pictureBox .headPicBoxList li img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.percenter .pictureBox p {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  position: fixed;
+  top: 1rem;
+  left: 44%;
+  z-index: 7;
+  padding: 0.25rem;
+}
+.percenter .pictureBox p img {
+  width: 100%;
+  height: 100%;
+}

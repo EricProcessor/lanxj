@@ -1,0 +1,109 @@
+.followPost {
+  /* 点赞列表 */
+  /* 信息空的情况 */
+}
+.followPost #wrapper {
+  margin-top: 3.5rem;
+}
+.followPost header {
+  background: #3399fe;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.followPost header span {
+  font-size: .7rem;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 .5rem;
+  z-index: 2;
+}
+.followPost .pariseBox {
+  padding: 0 .5rem;
+}
+.followPost .pariseBox .pariseList {
+  text-align: left;
+  background: #fff;
+  margin-top: 0.5rem;
+  width: 100%;
+  padding-left: .5rem;
+  border-radius: .1rem;
+}
+.followPost .pariseBox .pariseList .timeline {
+  font-size: .65rem;
+  padding: .75rem 0 .5rem;
+}
+.followPost .pariseBox .pariseList .pariseInfo {
+  font-size: .7rem;
+  padding-bottom: 1.5rem;
+}
+.followPost .pariseBox .pariseList .pariseInfo p,
+.followPost .pariseBox .pariseList .pariseInfo span {
+  font-size: .8rem;
+}
+.followPost .pariseBox .pariseList .pariseInfo .lookDetail {
+  font-size: 0.7ren;
+  color: #3399ff;
+  border-bottom: 1px solid #3399ff;
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+}
+.followPost .pariseBox .pariseList .pariseInfo .firstName {
+  color: #3399ff;
+  max-width: 4.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.followPost .pariseBox .pariseList .pariseInfo .lastName {
+  color: #3399ff;
+}
+.followPost .pariseBox .pariseList .pariseInfo .lastName span {
+  color: #3399ff;
+}
+.followPost .pariseBox .pariseList .pariseInfo .lastName p {
+  max-width: 7rem;
+  color: #3399ff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.followPost .nothingBox .nothingText {
+  width: 60%;
+  margin: 0 auto;
+  position: absolute;
+  top: 25%;
+  left: 20%;
+}
+.followPost .nothingBox .nothingText .nothingImg {
+  width: 100%;
+  height: auto;
+}
+.followPost .nothingBox .nothingText .nothingImg img {
+  width: 100%;
+  height: 100%;
+}
+.followPost .nothingBox .nothingText .nothing {
+  font-size: .75rem;
+  padding: .5rem 0;
+  letter-spacing: 2px;
+}
+.followPost .nothingBox p {
+  width: 78%;
+  margin: 0 auto;
+  font-size: .75rem;
+  color: #3399ff;
+  border: 1px solid #3399ff;
+  padding: .2rem .5rem;
+  border-radius: .2rem;
+}

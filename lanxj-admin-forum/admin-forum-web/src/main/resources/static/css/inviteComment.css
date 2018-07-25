@@ -1,0 +1,25 @@
+.inviteComment #wrapper {
+  margin-top: 0;
+}
+.inviteComment #wrapper header {
+  background: #3399fe;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.inviteComment #wrapper header span {
+  font-size: .7rem;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 .5rem;
+  z-index: 2;
+}

@@ -1,0 +1,217 @@
+.myDynamic {
+  /*动态*/
+  /* 信息空的情况 */
+}
+.myDynamic #wrapper {
+  margin-top: 2.75rem;
+}
+.myDynamic header {
+  background: #3399fe;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.myDynamic header .rightIcon {
+  position: absolute;
+  top: 0.65rem;
+  right: 0;
+  z-index: 2;
+}
+.myDynamic header .rightIcon .addIcon,
+.myDynamic header .rightIcon .contactsIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.6rem;
+}
+.myDynamic header .rightIcon .addIcon img,
+.myDynamic header .rightIcon .contactsIcon img {
+  width: 100%;
+  height: 100%;
+}
+.myDynamic .invitationBox {
+  background: #fff;
+  margin-bottom: 0.5rem;
+  /* 留言展示 */
+}
+.myDynamic .invitationBox .invitationList {
+  padding: 0.5rem 0.5rem 0;
+}
+.myDynamic .invitationBox .invitationList .invitationHead {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.myDynamic .invitationBox .invitationList .invitationHead .headPic {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+}
+.myDynamic .invitationBox .invitationList .invitationHead .headPic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.myDynamic .invitationBox .invitationList .invitationHead .userName {
+  width: 4.25rem;
+  font-size: 0.7rem;
+  margin: 0 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.myDynamic .invitationBox .invitationList .invitationHead .userType span {
+  font-size: .5rem;
+  padding: 0 .15rem;
+  border-radius: 2px;
+  border: solid 1px #bfbfbf;
+  color: #999;
+}
+.myDynamic .invitationBox .invitationList .invitationHead .userTime {
+  font-size: 0.65rem;
+}
+.myDynamic .invitationBox .invitationList .invitationHead .collect {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url("../images/btn_follow_p@2x.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0.6rem;
+  right: 0;
+  z-index: 2;
+}
+.myDynamic .invitationBox .innerBox {
+  padding-left: 3rem;
+  /* 展示图片 */
+}
+.myDynamic .invitationBox .innerBox .innerText {
+  text-align: left;
+  font-size: 0.7rem;
+}
+.myDynamic .invitationBox .innerBox .illegalBox {
+  padding: 0.8rem 0;
+}
+.myDynamic .invitationBox .innerBox .illegalBox .illegal {
+  width: 96%;
+  background: #f7f7f7;
+  border: solid 1px #dcdcdc;
+  text-align: left;
+  padding-bottom: 0.5rem;
+}
+.myDynamic .invitationBox .innerBox .illegalBox .illegal p {
+  font-size: 0.65rem;
+  color: #f00;
+  padding: 0.5rem 0.35rem 0;
+}
+.myDynamic .invitationBox .innerBox .illegalBox .illegal p:first-child {
+  padding-top: 0.75rem;
+}
+.myDynamic .invitationBox .innerBox .innerPic {
+  margin: 0.75rem 0;
+}
+.myDynamic .invitationBox .innerBox .innerPic .piclist {
+  width: 4rem !important;
+  height: 4rem;
+  border-radius: 6px;
+}
+.myDynamic .invitationBox .innerBox .innerPic .piclist img {
+  width: 100%;
+  height: 100%;
+}
+.myDynamic .invitationBox .thumbsBox {
+  width: 100%;
+  height: 2rem;
+}
+.myDynamic .invitationBox .thumbsBox .message p,
+.myDynamic .invitationBox .thumbsBox .thumbs p {
+  width: 2rem;
+  height: 2rem;
+}
+.myDynamic .invitationBox .thumbsBox .message p img,
+.myDynamic .invitationBox .thumbsBox .thumbs p img {
+  width: 100%;
+  height: 100%;
+}
+.myDynamic .invitationBox .thumbsBox .message span,
+.myDynamic .invitationBox .thumbsBox .thumbs span {
+  font-size: 0.65rem;
+  margin: 0.6rem 0.5rem 0 -0.25rem;
+}
+.myDynamic .invitationBox .thumbShow {
+  width: 100%;
+  padding: 0.25rem 0 0.5rem;
+}
+.myDynamic .invitationBox .thumbShow .thumblist {
+  margin: 0 0.5rem 0 3rem;
+  border: solid 1px #dcdcdc;
+  background: #f7f7f7;
+}
+.myDynamic .invitationBox .thumbShow .thumblist .showSth li {
+  text-align: left;
+  padding-left: 0.8rem;
+  margin: 0.5rem 0;
+}
+.myDynamic .invitationBox .thumbShow .thumblist .showSth li .thumbName {
+  color: #3399ff;
+  font-size: 0.65rem;
+  padding-right: 0.5rem;
+}
+.myDynamic .invitationBox .thumbShow .thumblist .showSth li .thumbInfo {
+  width: 70%;
+  font-size: 0.65rem;
+}
+.myDynamic .invitationBox .thumbShow .thumblist .lookMore {
+  text-align: right;
+  padding-right: 1.5rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
+}
+.myDynamic .invitationBox .thumbShow .thumblist .lookMore span {
+  font-size: 0.65rem;
+  color: #3399ff;
+}
+.myDynamic .invitationBox .thumbShow .thumblist .lookMore b {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url("../images/Reply_btn_drop-down@2x.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  right: 0.25rem;
+  z-index: 2;
+}
+.myDynamic .nothingBox .nothingText {
+  width: 60%;
+  margin: 0 auto;
+  position: absolute;
+  top: 25%;
+  left: 20%;
+}
+.myDynamic .nothingBox .nothingText .nothingImg {
+  width: 100%;
+  height: auto;
+}
+.myDynamic .nothingBox .nothingText .nothingImg img {
+  width: 100%;
+  height: 100%;
+}
+.myDynamic .nothingBox .nothingText .nothing {
+  font-size: 0.75rem;
+  padding: 0.5rem 0;
+  letter-spacing: 2px;
+}
+.myDynamic .nothingBox p {
+  width: 50%;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  color: #3399ff;
+  border: 1px solid #3399ff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+}

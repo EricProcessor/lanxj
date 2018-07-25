@@ -1,138 +1,193 @@
-
-var forumPostInfoJS={
-
+var TEST_HOST = "http://192.168.191.25:8080",
+    PORT_HOST = "",    isTest = true,
+    host = isTest ? TEST_HOST : PORT_HOST;
+var forumPostInfoJS = {
     /**
-     * 帖子设为置顶
+     * 查询帖子详情
      */
-    setPostToTop : function (postId) {
-        var url = "/postInfo/setPostToTop";
+    queryPostInfoByPostId: function (postId) {
+        var url = host + "/postInfo/queryPostInfoByPostId";
         var param = {
             "postId": postId
         };
-        $.post(url, param, function(data) {
-            console.log(data)
-            if(null!=data && "null"!=data && data.code == 0){
-                $("#show").val(data.msg);
-            }else{
+        $.post(url, param, function (data) {
+            var data = JSON.stringify(data)
+            if (null == data || "null" == data) {
+                alert("系统错误，请稍后重试！");
+            } else {
+                $("#show").val(data);
+            }
+        }, "json");
+    },
+
+    queryPostInfoByPostIdOnclick: function () {
+        var postId = $("#request").val();
+        forumPostInfoJS.queryPostInfoByPostId(postId);
+    },
+
+    /**
+     * 查询置顶帖子
+     */
+    queryTopPostsByTopicId: function (topicId) {
+        // debugger;
+        var pageNum = 5;
+        var pageSize = 10;
+
+        var param = {
+            "topicId": topicId,
+            "pageSize": pageSize,
+            "pageNum": pageNum
+        }
+        var url = host + "/postInfo/queryTopPostsByTopicId";
+        $.post(url, param, function (data) {
+            var data = JSON.stringify(data)
+            console.log(data.length);
+        });
+    },
+
+    queryTopPostsByTopicIdOnClick: function () {
+        var topicId = $("#request").val();
+        forumPostInfoJS.queryTopPostsByTopicId(topicId);
+    },
+
+
+    /**
+     * 查询非置顶帖子
+     */
+    queryNoTopPostsByTopicId: function (topicId) {
+        var pageNum = 5;
+        var pageSize = 10;
+        var param = {
+            "topicId": topicId,
+            "pageSize": pageSize,
+            "pageNum": pageNum
+        }
+        var url = host +  "/postInfo/queryNoTopPostsByTopicId";
+        $.post(url, param, function (data) {
+            var data = JSON.stringify(data)
+            if (null == data || "null" == data) {
+                alert("系统错误，请稍后重试！");
+            } else {
+                $("#show").val(data);
+            }
+        }, "json");
+    },
+    queryNoTopPostsByTopicIdOnClick: function () {
+        var topicId = $("#request").val();
+        forumPostInfoJS.queryNoTopPostsByTopicId(topicId);
+    },
+
+    /**
+     * 新增帖子
+     */
+    addPostInfo: function (newPostInfo) {
+
+        var url = host + "/postInfo/addPostInfo";
+        var param = {
+            "newPostInfo": newPostInfo
+        };
+        $.post(url, param, function (data) {
+            var data = JSON.stringify(data)
+            if (null == data || "null" == data) {
+                alert("系统错误，请稍后重试！");
+            } else {
+                $("#show").val(data);
+            }
+        }, "json");
+    },
+    addPostInfoOnClick: function () {
+        var newPostInfo = $("#request").val();
+        forumPostInfoJS.addPostInfo(newPostInfo);
+    },
+
+
+    /**
+     * 查询员工动态列表
+     */
+    queryUserDynamicPostList: function (userId) {
+
+        var pageNum = 5;
+        var pageSize = 10;
+        var queryUserDynamicPostMap = {
+            "userId": userId,
+            "pageSize": pageSize,
+            "pageNum": pageNum
+        }
+        var param = {
+            "queryUserDynamicPostMap": JSON.stringify(queryUserDynamicPostMap)
+        }
+
+        var url = host + "/postInfo/queryUserDynamicPostList";
+        $.post(url, param, function (data) {
+            if (null != data && "null" != data && data.code == 0) {
+                $("#show").val(JSON.stringify(data));
+            } else {
                 alert(data.msg);
             }
         }, "json");
     },
-
-    setPostToTopOnclick : function () {
-        var postId = $("#request").val();
-        forumPostInfoJS.setPostToTop(postId);
+    queryUserDynamicPostListOnclick: function () {
+        var userId = $("#request").val();
+        forumPostInfoJS.queryUserDynamicPostList(userId);
     },
 
     /**
-     * 帖子取消置顶
+     * 帖子搜索
      */
-    cancelPostTop : function (postId) {
-        var url = "/postInfo/cancelPostTop";
+    queryPostByContent: function (queryKey) {
+
+        var pageNum = 5;
+        var pageSize = 10;
+        var queryPostContentMap = {
+            "queryKey": queryKey,
+            "pageSize": pageSize,
+            "pageNum": pageNum
+        }
         var param = {
-            "postId": postId
-        };
-        $.post(url, param, function(data) {
-            if(null!=data && "null"==data && data.code == 0){
-                $("#show").val(data.msg);
-            }else{
+            "queryPostContentMap": JSON.stringify(queryPostContentMap)
+        }
+
+        var url = host + "/postInfo/queryPostByContent";
+        $.post(url, param, function (data) {
+            if (null != data && "null" != data && data.code == 0) {
+                $("#show").val(JSON.stringify(data.data));
+            } else {
                 alert(data.msg);
             }
         }, "json");
     },
-
-    cancelPostTopOnclick : function () {
-        var postId = $("#request").val();
-        forumPostInfoJS.cancelPostTop(postId);
+    queryPostByContentOnclick: function () {
+        var queryKey = $("#request").val();
+        forumPostInfoJS.queryPostByContent(queryKey);
     },
 
     /**
-     * 查询所有版块
+     * 查询gcr非置顶帖子
      */
-    queryAllForumTopicList : function (postId) {
-        var url = "/topicInfo/queryAllForumTopicList";
+    queryPageNoTopPostsByTopicId : function (topicId) {
+        var pageNum = 2;
+        var pageSize = 5;
+        var queryPageNoTopPostsByTopicIdMap = {
+            "topicId":topicId,
+            "pageSize":pageSize,
+            "pageNum":pageNum
+        }
         var param = {
-            "postId": postId
-        };
+            "queryNoTopPostsByTopicIdMap" : JSON.stringify(queryPageNoTopPostsByTopicIdMap)
+        }
+        var url = "/postInfo/queryPageNoTopPostsByTopicId";
         $.post(url, param, function(data) {
-            console.log(data.data)
-            if(null!=data && "null"==data && data.code == 0){
-                $("#show").val(data.data);
+            var data = JSON.stringify(data)
+            if(null==data || "null"==data){
+                alert("系统错误，请稍后重试！");
             }else{
-                $("#show").val(JSON.stringify(data.data));
+                $("#show").val(data);
             }
         }, "json");
     },
-
-    queryAllForumTopicListOnclick : function () {
-        var postId = $("#request").val();
-        forumPostInfoJS.queryAllForumTopicList(postId);
-    },
-
-    /**
-     * 版主 版块权限维护
-     */
-    insertUserTopicAuth : function () {
-
-        var addUserAuthTopicList = new Array();
-        var addUserAuthTopic={};
-        addUserAuthTopic.userId='333';
-        addUserAuthTopic.topicId=66666;
-        addUserAuthTopicList.push(addUserAuthTopic);
-        var addUserAuthTopic={};
-        addUserAuthTopic.userId='333';
-        addUserAuthTopic.topicId=777;
-        addUserAuthTopicList.push(addUserAuthTopic);
-
-        var deleUserAuthTopicList = new Array();
-        var deleUserAuthTopic={};
-        deleUserAuthTopic.userId='333';
-        deleUserAuthTopic.topicId=555;
-        deleUserAuthTopicList.push(deleUserAuthTopic);
-
-        var url = "/user/insertUserTopicAuth";
-        var param = {
-            "addUserAuthTopicList": JSON.stringify(addUserAuthTopicList),
-            "deleUserAuthTopicList": JSON.stringify(deleUserAuthTopicList)
-        };
-        alert(JSON.stringify(param));
-        $.post(url, param, function(data) {
-            console.log(data.data)
-            if(null!=data && "null"==data && data.code == 0){
-                $("#show").val(data.data);
-            }else{
-                $("#show").val(JSON.stringify(data.data));
-            }
-        }, "json");
-    },
-
-    insertUserTopicAuthOnclick : function () {
-        forumPostInfoJS.insertUserTopicAuth();
-    },
-
-
-
-    /**
-     * gcr帖子审核驳回
-     */
-    modifyPostInfoBypostId : function (postId) {
-        var url = "/postInfo/modifyPostInfoBypostId";
-        var param = {
-            "postId": postId
-        };
-        $.post(url, param, function(data) {
-            if(null!=data && "null"==data && data.code == 0){
-                $("#show").val(data.data);
-            }else{
-                $("#show").val(JSON.stringify(data.data));
-            }
-        }, "json");
-    },
-
-    modifyPostInfoBypostIdOnclick : function () {
-        var postId = $("#request").val();
-        forumTopicInfoJS.modifyPostInfoBypostId(postId);
-    },
+    queryPageNoTopPostsByTopicIdOnClick : function () {
+        var topicId = $("#request").val();
+        forumPostInfoJS.queryPageNoTopPostsByTopicId(topicId);
+    }
 
 }
-

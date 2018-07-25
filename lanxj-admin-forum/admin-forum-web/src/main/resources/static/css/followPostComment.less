@@ -1,0 +1,126 @@
+.followPostComment {
+  #wrapper {
+    margin-top: 0;
+
+    header {
+      background: #3399fe;
+      width: 100%;
+      height: 2.75rem;
+      line-height: 2.75rem;
+      font-size: 1rem;
+      color: #fff;
+      border: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
+
+      span {
+        font-size: .7rem;
+        color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 .5rem;
+        z-index: 2;
+      }
+    }
+    /* 点赞列表 */
+    .pariseBox {
+      padding: 0 .5rem;
+
+      .pariseList {
+        text-align: left;
+        background: #fff;
+        margin-top: .5rem;
+        width: 100%;
+        padding-left: .5rem;
+        border-radius: .1rem;
+
+        .timeline {
+          font-size: .65rem;
+          padding: .75rem 0 .5rem;
+        }
+
+        .pariseInfo {
+          font-size: .7rem;
+          padding-bottom: 1.5rem;
+
+          p,
+          span {
+            font-size: .8rem;
+          }
+
+          .lookDetail {
+            font-size: .7ren;
+            color: #3399ff;
+            border-bottom: 1px solid #3399ff;
+            position: absolute;
+            bottom: .6rem;
+            right: .6rem;
+          }
+
+          .firstName {
+            color: #3399ff;
+            width: 4.25rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .lastName {
+            color: #3399ff;
+
+            span {
+              color: #3399ff;
+            }
+          }
+
+          .lastName p {
+            width: 5rem;
+            color: #3399ff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+    /* 信息空的情况 */
+    .nothingBox {
+      .nothingText {
+        width: 60%;
+        margin: 0 auto;
+        position: absolute;
+        top: 25%;
+        left: 20%;
+
+        .nothingImg {
+          width: 100%;
+          height: auto;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .nothing {
+          font-size: .75rem;
+          padding: .5rem 0;
+          letter-spacing: 2px;
+        }
+      }
+
+      p {
+        width: 78%;
+        margin: 0 auto;
+        font-size: .75rem;
+        color: #3399ff;
+        border: 1px solid #3399ff;
+        padding: .2rem .5rem;
+        border-radius: .2rem;
+      }
+    }
+  }
+}

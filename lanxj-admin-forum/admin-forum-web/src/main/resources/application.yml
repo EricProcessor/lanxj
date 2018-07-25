@@ -7,7 +7,7 @@ spring:
     view:
       prefix: /templates/
       suffix: .html
-    static-path-pattern: /static/**
+    static-path-pattern: /**
   #数据源配置
   datasource:
     url: jdbc:mysql://116.196.107.233:3306/lanxj_forum?useUnicode=true&characterEncoding=utf8&useSSL=false
@@ -16,13 +16,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     type: org.apache.tomcat.jdbc.pool.DataSource
 
-  rabbitmq:
-      host: 116.196.107.214
-      port: 5672
-      username: forum
-      password: forum123
-      virtual-host: forum
-
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
@@ -30,6 +23,41 @@ spring:
     encoding: UTF-8
     content-type: text/html
     cache: false
-#
-#  mybatis:
-#    mapper-locations: classpath*:**/*.xml
+
+  rabbitmq:
+    host: 116.196.107.214
+    port: 5672
+    username: forum
+    password: forum123
+    virtual-host: forum
+
+#redis配置
+  redis:
+    host: 116.196.107.217
+    port: 6379
+    password: lanxj-f
+    timeout: 10000
+    database: 0
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 100
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+#京东云存储 配置参数
+lanxj:
+  forum:
+  #登陆token
+    oss:
+      accessKey: 4143CEFDFCDB3FC380CF68F0207552F9
+      secreteKey: 78063F620A571BD4D14160A3655ECB40
+      endPoint: oss.cn-north-1.jcloudcs.com
+      bucketName: bqxiaoyi
+    tokenId: 1111111
+
